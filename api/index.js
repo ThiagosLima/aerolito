@@ -11,14 +11,14 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-app.use("/api/users", users);
+app.use("/users", users);
 app.get("/", (req, res) => {
   res.send("Home");
 });
 
 // Connect to the database
 mongoose
-  .connect("mongodb://localhost:27017/aerolito", { useNewUrlParser: true })
+  .connect("mongodb://mongo:27017/aerolito", { useNewUrlParser: true })
   .then("Connected to the database.")
   .catch(error => console.log("Could not connect to the database!", error));
 
