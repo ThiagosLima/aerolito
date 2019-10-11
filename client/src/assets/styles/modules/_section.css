@@ -1,0 +1,17 @@
+.section {
+  margin: 0;
+  padding-bottom: 65px;
+  padding-top: 65px;
+
+  &--light {
+    background-color: $lightColor;
+  }
+
+  &--midLight {
+    background-color: $midLightColor;
+  }
+
+  &--no-bottom {
+    padding-bottom: 0;
+  }
+}

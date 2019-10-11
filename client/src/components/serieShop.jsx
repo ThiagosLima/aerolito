@@ -1,11 +1,11 @@
 import React from "react";
 
-const Extras = () => {
+const SerieShop = () => {
   return (
     <section className="section section--light">
-      <h2>Extras</h2>
+      <h2>SeieShop</h2>
     </section>
   );
 };
 
-export default Extras;
+export default SerieShop;

@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const Series = () => {
   return (
-    <div>
+    <section className="section section--light">
       <h1>Series</h1>
-      <Link className="btn btn-primary" to="/series/1/chapters">
-        Ler mais
+      <Link className="btn" to="/series/1/chapters">
+        LER MAIS
       </Link>
-    </div>
+    </section>
   );
 };
 

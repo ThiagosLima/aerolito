@@ -1,0 +1,7 @@
+.btn {
+  font-size: 10px;
+  margin: 10px 20px;
+  color: $midLightColor;
+  background-color: $midDarkColor;
+  border-radius: 0;
+}

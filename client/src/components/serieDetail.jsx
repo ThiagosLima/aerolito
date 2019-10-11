@@ -8,11 +8,11 @@ const SerieDetail = props => {
   const { url } = props.match;
 
   return (
-    <div>
+    <section className="section section--midLight section--no-bottom">
       <h1>SerieDetail</h1>
       <SerieInfo />
       <SerieNavBar url={url} />
-    </div>
+    </section>
   );
 };
 

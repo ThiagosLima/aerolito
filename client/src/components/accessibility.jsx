@@ -2,9 +2,9 @@ import React from "react";
 
 const Accessibility = () => {
   return (
-    <div>
+    <section className="section section--light">
       <h2>Accessibility</h2>
-    </div>
+    </section>
   );
 };
 

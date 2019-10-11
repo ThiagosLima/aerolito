@@ -2,7 +2,7 @@ import React from "react";
 
 const Chapters = () => {
   return (
-    <div>
+    <div className="section section--light">
       <h2>Chapters</h2>
     </div>
   );

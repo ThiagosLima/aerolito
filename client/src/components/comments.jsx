@@ -2,9 +2,9 @@ import React from "react";
 
 const Comments = () => {
   return (
-    <div>
+    <section className="section section--light">
       <h2>Comments</h2>
-    </div>
+    </section>
   );
 };
 

@@ -1,48 +1,42 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const SerieNavBar = ({ url }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link className="nav-link" to={`${url}/chapters`}>
-              LER AGORA
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to={`${url}/comments`}>
-              COMENTÁRIOS & FEEDBACK
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to={`${url}/extras`}>
-              EXTRAS
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to={`${url}/accessibility`}>
-              ACESSIBILIDADE
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to={`${url}/`}>
-              COMPRAR IMPRESSO
-            </Link>
-          </li>
-        </ul>
-      </div>
+    <nav className="navbar navbar--light">
+      <ul className="nav nav-tabs navbar__tabs">
+        <li className="nav-item navbar__item">
+          <NavLink
+            className="nav-link navbar__link navbar--left-tab"
+            to={`${url}/chapters`}>
+            LER AGORA
+          </NavLink>
+        </li>
+        <li className="nav-item navbar__item">
+          <NavLink className="nav-link navbar__link" to={`${url}/comments`}>
+            COMENTÁRIOS & FEEDBACK
+          </NavLink>
+        </li>
+        <li className="nav-item navbar__item">
+          <NavLink className="nav-link navbar__link" to={`${url}/extras`}>
+            EXTRAS
+          </NavLink>
+        </li>
+        <li className="nav-item navbar__item">
+          <NavLink
+            className="nav-link navbar__link"
+            to={`${url}/accessibility`}>
+            ACESSIBILIDADE
+          </NavLink>
+        </li>
+        <li className="nav-item navbar__item">
+          <NavLink
+            className="nav-link navbar__link navbar--right-tab"
+            to={`${url}/serieShop`}>
+            COMPRAR IMPRESSO
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 };
