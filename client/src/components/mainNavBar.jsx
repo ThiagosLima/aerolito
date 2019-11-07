@@ -9,9 +9,11 @@ const MainNavBar = () => {
       </Link>
       <ul className="nav nav-tabs navbar__tabs">
         <li className="nav-item navbar__item">
-          <Link className="nav-link navbar__link navbar--left-tab" to="/series">
+          <NavLink
+            className="nav-link navbar__link navbar--left-tab"
+            to="/series">
             INÍCIO
-          </Link>
+          </NavLink>
         </li>
         <li className="nav-item navbar__item">
           <NavLink className="nav-link navbar__link" to="/shop">
