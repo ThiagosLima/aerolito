@@ -1,9 +1,10 @@
-version: "3"
+version: "2.4"
 services:
   api:
     build:
       dockerfile: Dockerfile.dev
       context: ./api
+    env_file: .env
     volumes:
       - /app/node_modules
       - ./api:/app
@@ -20,6 +21,8 @@ services:
 
   mongo:
     image: "mongo"
+    ports:
+      - 27017:27017
     restart: always
 
   nginx:
