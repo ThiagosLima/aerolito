@@ -3,3 +3,32 @@ $midLightColor: #c9cdce;
 $midDarkColor: #898d90;
 $darkColor: #404143;
 $darkestColor: #303435;
+
+/* Header */
+$headerPrimary: #000;
+$headerHighlight: #777;
+
+/* Button Style */
+$buttonPrimary: #000;
+$buttonSecondary: #111;
+$buttonHover: #222;
+$buttonActive: #333;
+$buttonDisabled: #444;
+
+/* Font Style */
+$fontColorPrimary: #000;
+$fontColorSecondary: #111;
+$fontColorHighlight: #777;
+
+$fontSizePrimary: 16px;
+$fontSizeSecondary: 12px;
+
+$titleSizePrimary: 22px;
+$titleSizeSecondary: 20px;
+
+/* Spacing */
+$xs: 4px;
+$sm: 8px;
+$md: 16px;
+$lg: 32px;
+$xl: 64px;

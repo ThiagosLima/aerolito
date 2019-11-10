@@ -3,6 +3,7 @@
 @import "./base/_global";
 @import "./base/_mixins";
 @import "./modules/_btn";
-@import "./modules/_navBar";
+@import "./modules/_header";
 @import "./modules/_footer";
 @import "./modules/_section";
+@import "./modules/_serieCard";

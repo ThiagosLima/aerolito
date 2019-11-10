@@ -1,6 +1,9 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import MainNavBar from "./components/mainNavBar";
+import { Container, Row, Col, ScreenClassProvider } from "react-grid-system";
+
+// components
+import Header from "./components/header";
 import Shop from "./components/shop";
 import Contact from "./components/contact";
 import Credits from "./components/credits";
@@ -16,28 +19,31 @@ import SerieShop from "./components/serieShop";
 
 function App() {
   return (
-    <React.Fragment>
-      <MainNavBar />
-      {/* <div className="container"> */}
-      <Switch>
-        <Route path="/series/:id" component={SerieDetail} />
-        <Route path="/series" component={Series} />
-        <Route path="/credits" component={Credits} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/shop" component={Shop} />
-        <Route path="/not-found" component={NotFound} />
+    <ScreenClassProvider>
+      <Header />
+      <div className="container">
+        <Switch>
+          <Route path="/series/:id" component={SerieDetail} />
+          <Route path="/series" component={Series} />
+          <Route path="/credits" component={Credits} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/shop" component={Shop} />
+          <Route path="/not-found" component={NotFound} />
+          <Redirect from="/" exact to="/series" />
+        </Switch>
+        <Route path="/series/:id/chapters" exact component={Chapters} />
+        <Route path="/series/:id/comments" exact component={Comments} />
+        <Route path="/series/:id/extras" exact component={Extras} />
+        <Route
+          path="/series/:id/accessibility"
+          exact
+          component={Accessibility}
+        />
+        <Route path="/series/:id/serieShop" exact component={SerieShop} />
+        <Redirect to="/not-found" />
         <Redirect from="/" exact to="/series" />
-      </Switch>
-      <Route path="/series/:id/chapters" exact component={Chapters} />
-      <Route path="/series/:id/comments" exact component={Comments} />
-      <Route path="/series/:id/extras" exact component={Extras} />
-      <Route path="/series/:id/accessibility" exact component={Accessibility} />
-      <Route path="/series/:id/serieShop" exact component={SerieShop} />
-      <Redirect to="/not-found" />
-      <Redirect from="/" exact to="/series" />
-      {/* </div> */}
-      <Footer />
-    </React.Fragment>
+      </div>
+    </ScreenClassProvider>
   );
 }
 
