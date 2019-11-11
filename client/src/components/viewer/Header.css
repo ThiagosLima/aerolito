@@ -1,0 +1,6 @@
+header.background {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 7px;
+    padding-bottom: 7px;
+    z-index: 5;
+}
