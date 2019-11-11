@@ -1,11 +1,11 @@
 import React from "react";
-// import { Route, Switch, Redirect } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import SerieInfo from "./serieInfo";
 import SerieNavBar from "./serieNavBar";
 // import Chapters from "./chapters";
 
-const SerieDetail = props => {
-  const { url } = props.match;
+const SerieDetail = () => {
+  let { url } = useRouteMatch();
 
   return (
     <section className="section section--midLight section--no-bottom">

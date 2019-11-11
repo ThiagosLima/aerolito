@@ -16,7 +16,7 @@ const Series = () => {
               img={{ alt: "rusbé", src: src }}
               title="Berlin"
               text="Queda do muro de Berlin"
-              link="/series/1/"
+              link="/series/1"
             />
           </Col>
           <Col xs={12} md={6}>
@@ -24,7 +24,7 @@ const Series = () => {
               img={{ alt: "rusbé", src: src }}
               title="Berlin"
               text="Queda do muro de Berlin"
-              link="/series/1/"
+              link="/series/1"
             />
           </Col>
           <Col xs={12} md={6}>
@@ -32,7 +32,7 @@ const Series = () => {
               img={{ alt: "rusbé", src: src }}
               title="Berlin"
               text="Queda do muro de Berlin"
-              link="/series/1/"
+              link="/series/1"
             />
           </Col>
           <Col xs={12} md={6}>
@@ -40,7 +40,7 @@ const Series = () => {
               img={{ alt: "rusbé", src: src }}
               title="Berlin"
               text="Queda do muro de Berlin"
-              link="/series/1/"
+              link="/series/1"
             />
           </Col>
           <Col xs={12} md={6}>
@@ -48,7 +48,7 @@ const Series = () => {
               img={{ alt: "rusbé", src: src }}
               title="Berlin"
               text="Queda do muro de Berlin"
-              link="/series/1/"
+              link="/series/1"
             />
           </Col>
         </Row>
