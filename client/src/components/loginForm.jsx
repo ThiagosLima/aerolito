@@ -1,57 +1,55 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { register } from "../services/userService";
-import { loginWithJwt } from "../services/authService";
+import { login, getCurrentUser } from "../services/authService";
 
-class RegisterForm extends Form {
+class LoginForm extends Form {
   state = {
-    data: { email: "", password: "", name: "" },
+    data: { email: "", password: "" },
     errors: {}
   };
 
   schema = {
     email: Joi.string()
       .required()
-      .email()
       .label("E-mail"),
     password: Joi.string()
       .required()
-      .min(5)
-      .label("Senha"),
-    name: Joi.string()
-      .required()
-      .label("Nome")
+      .label("Senha")
   };
 
   doSubmit = async () => {
-    console.log("registered");
     try {
-      const response = await register(this.state.data);
-      loginWithJwt(response.headers["x-auth-token"]);
-      window.location = "/";
+      const { data } = this.state;
+      await login(data.email, data.password);
+
+      const { state } = this.props.location;
+      window.location = state ? state.from.pathname : "/";
     } catch (error) {
       if (error.response && error.response.status === 400) {
         const errors = { ...this.state.errors };
         errors.email = error.response.data;
+        errors.password = error.response.data;
         this.setState({ errors });
       }
     }
   };
 
   render() {
+    if (getCurrentUser()) return <Redirect to="/" />;
+
     return (
       <section className="section section--light">
-        <h1>Cadastrar usuário</h1>
+        <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput("email", "E-mail")}
+          {this.renderInput("email", "Email")}
           {this.renderInput("password", "Senha", "password")}
-          {this.renderInput("name", "Nome")}
-          {this.renderButton("Cadastrar")}
+          {this.renderButton("Login")}
         </form>
       </section>
     );
   }
 }
 
-export default RegisterForm;
+export default LoginForm;

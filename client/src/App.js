@@ -10,6 +10,8 @@ import Contact from "./components/contact";
 import Credits from "./components/credits";
 import Extras from "./components/extras";
 import Footer from "./components/footer";
+import LoginForm from "./components/loginForm";
+import Logout from "./components/logout";
 import MainNavBar from "./components/mainNavBar";
 import NotFound from "./components/notFound";
 import RegisterForm from "./components/registerForm";
@@ -26,6 +28,8 @@ function App() {
       {/* <div className="container"> */}
       <Switch>
         <Route path="/register" component={RegisterForm} />
+        <Route path="/login" component={LoginForm} />
+        <Route path="/logout" component={Logout} />
         <Route path="/series/:id" component={SerieDetail} />
         <Route path="/series" component={Series} />
         <Route path="/credits" component={Credits} />
