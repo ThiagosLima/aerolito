@@ -5,7 +5,7 @@ import { Row, Col } from "react-grid-system";
 const SerieCard = props => {
   return (
     <div className="card">
-        <Row noGutter>
+        <Row>
           <Col xs={6}>
             <img
               alt={props.img.alt}

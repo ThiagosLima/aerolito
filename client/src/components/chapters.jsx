@@ -14,10 +14,17 @@ const Chapters = () => {
       <Container>
         <Row>
           {chapters.map(chapter => {
-            return <Col xs={4}>
-              <img style={{maxWidth: "100%", marginBottom: "32px"}} key={chapter.id} alt={chapter.id} src={chapter.src} />
-              <Viewer HQ={HQ} />
-            </Col>;
+            return (
+              <Col xs={4}>
+                <img
+                  style={{ maxWidth: "100%", marginBottom: "32px" }}
+                  alt={chapter.id}
+                  src={chapter.src}
+                  key={chapter.id}
+                />
+                <Viewer key={chapter.id} HQ={HQ} />
+              </Col>
+            );
           })}
         </Row>
       </Container>

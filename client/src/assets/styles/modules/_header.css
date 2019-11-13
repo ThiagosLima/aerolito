@@ -13,4 +13,45 @@
       padding: $xs;
     }
   }
+
+  &--circle {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    bottom: -15px;
+    left: 5px;
+    background: $headerPrimary;
+    z-index: 1;
+  }
+
+  &--logo {
+    position: absolute;
+    display: block;
+    z-index: 10;
+  }
+
+  &--full-width-row {
+    height: 20px;
+    background-color: $headerHighlight;
+  }
+
+  &--nav {
+    display: inline-block;
+    line-height: 20px;
+    vertical-align: bottom;
+    padding-bottom: 5px;
+  }
+
+  &--nav__item.active {
+    background-color: $headerHighlight;
+    border-top-left-radius: 10px;
+    padding: 10px;
+    border-right: none
+  }
+
+  &--nav__item-border {
+    border-right: 1px solid $headerHighlight;
+    padding-right: 8px;
+  }
 }
