@@ -4,9 +4,10 @@ $midDarkColor: #898d90;
 $darkColor: #404143;
 $darkestColor: #303435;
 
-/* Header */
-$headerPrimary: #000;
-$headerHighlight: #777;
+$colorPrimary: #414042;
+$colorSecondary: #e6e7e8;
+$colorHighlight: #cbcccc;
+
 
 /* Button Style */
 $buttonPrimary: #000;
@@ -16,9 +17,9 @@ $buttonActive: #333;
 $buttonDisabled: #444;
 
 /* Font Style */
-$fontColorPrimary: #000;
+$fontColorPrimary: #e6e7e8;
 $fontColorSecondary: #111;
-$fontColorHighlight: #DDD;
+$fontColorHighlight: #414042;
 
 $fontSizePrimary: 16px;
 $fontSizeSecondary: 12px;
@@ -27,8 +28,9 @@ $titleSizePrimary: 22px;
 $titleSizeSecondary: 20px;
 
 /* Spacing */
-$xs: 4px;
-$sm: 8px;
-$md: 16px;
+$xs: 8px;
+$sm: 16px;
+$md: 24px;
 $lg: 32px;
 $xl: 64px;
+$hg: 96px;

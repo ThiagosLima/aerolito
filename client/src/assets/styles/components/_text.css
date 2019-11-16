@@ -1,0 +1,9 @@
+.title {
+    font-size: $titleSizePrimary;
+    line-height: $titleSizePrimary;
+    
+}
+
+.tittle--remove-decoration {
+    text-decoration: none;
+}

@@ -1,7 +1,42 @@
 .header {
-  background-color: $headerPrimary;
-  color: $fontColorHighlight;
-  line-height: $xl;
+  background-color: $colorPrimary;
+  color: $fontColorPrimary;
+  line-height: $hg;
+  /* height: 96px; */
+
+  &__full-width-row {
+    height: 28px;
+    background-color: $colorHighlight;
+  }
+
+  &__circle {
+    position: absolute;
+    height: 86px;
+    width: 86px;
+    border-radius: 43px;
+    top: 35px;
+    left: -5px;
+    background: $colorPrimary;
+    z-index: 1;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    z-index: 10;
+  }
+
+  &__flags-container {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  &__flag {
+    align-self: flex-end;
+    padding-left: $xs;
+    padding-bottom: $xs;
+  }
 
   &__nav {
     display: inline-block;
@@ -20,45 +55,36 @@
     display: inline;
   }
 
+  &__item {
+    text-transform: uppercase;
+  }
+
+  &__item:hover {
+    text-decoration: none;
+  }
+
   &__item--active.active {
-    background-color: $headerHighlight;
+    background-color: $colorHighlight;
     border-top-left-radius: 10px;
     padding: 7px;
     margin-left: 0;
+  }
+
+  &__link {
+    color: $fontColorPrimary;
+    padding: 0 7px;
+  }
+
+  &__item--active.active > &__link--active {
+    color: $fontColorHighlight;
+    font-weight: bold;
   }
 
   &__item--active.active > &__link--border {
     border-right: none;
   }
 
-  &__link {
-    color: $fontColorHighlight;
-    padding: 0 7px;
-  }
-
   &__link--border {
-    border-right: 1px solid $headerHighlight;
-  }
-
-  &__circle {
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    border-radius: 100px;
-    bottom: -15px;
-    left: 5px;
-    background: $headerPrimary;
-    z-index: 1;
-  }
-
-  &__logo {
-    position: absolute;
-    display: block;
-    z-index: 10;
-  }
-
-  &__full-width-row {
-    height: 20px;
-    background-color: $headerHighlight;
+    border-right: 1px solid $colorHighlight;
   }
 }
