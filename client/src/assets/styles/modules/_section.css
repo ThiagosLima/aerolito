@@ -4,11 +4,11 @@
   padding-top: 65px;
 
   &--light {
-    background-color: $lightColor;
+    background-color: $colorSecondary;
   }
 
   &--midLight {
-    background-color: $midLightColor;
+    background-color: $colorPrimary;
   }
 
   &--no-bottom {

@@ -1,13 +1,11 @@
 import React from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import SerieCard from "./serieCard";
 import series from "../mock/series";
 
 const Series = () => {
   return (
     <section className="section section--light">
-      <h1>Series</h1>
-      <Container>
         <Row gutterWidth={16}>
           {series.map(serie => {
             console.log(serie)
@@ -24,7 +22,6 @@ const Series = () => {
             );
           })}
         </Row>
-      </Container>
     </section>
   );
 };

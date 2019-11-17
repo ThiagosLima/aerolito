@@ -2,8 +2,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: $midDarkColor;
-  color: $darkColor;
+  background-color: $colorSecondary;
 }
 
 * {

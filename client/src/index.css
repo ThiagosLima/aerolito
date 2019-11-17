@@ -198,17 +198,16 @@ select { /* 1 */
  * Add the correct display in IE 10.
  */[hidden] {
   display: none;
-}/* Button Style *//* Font Style *//* Spacing */body {
+}/* Colors *//* Button Style *//* Font Style *//* Spacing */body {
   font-family: 'Roboto', sans-serif;
-  background-color: #898d90;
-  color: #404143;
+  background-color: #e6e7e8;
 }* {
   box-sizing: border-box;
 }.btn {
   font-size: 10px;
   margin: 10px 20px;
-  color: #c9cdce;
-  background-color: #898d90;
+  color: #e6e7e8;
+  background-color: #606060;
   border-radius: 0;
 }.header {
   background-color: #414042;
@@ -269,13 +268,14 @@ select { /* 1 */
   }.header__link--border {
     border-right: 1px solid #cbcccc;
   }.footer {
-  background-color: #404143;
-  color: #e4e8e9;
+  background-color: #414042;
+  color: #e6e7e8;
   text-align: center;
   width: 100%;
   font-size: 10px;
 }.footer__copyright {
-    background-color: #303435;
+    background-color: #323334;
+    color: #8a8c8e;
     padding-top: 10px;
     padding-bottom: 10px;
   }.footer__sponsor {
@@ -286,9 +286,9 @@ select { /* 1 */
   padding-bottom: 65px;
   padding-top: 65px;
 }.section--light {
-    background-color: #e4e8e9;
+    background-color: #e6e7e8;
   }.section--midLight {
-    background-color: #c9cdce;
+    background-color: #414042;
   }.section--no-bottom {
     padding-bottom: 0;
   }.card {

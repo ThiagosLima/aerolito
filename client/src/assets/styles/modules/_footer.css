@@ -1,12 +1,13 @@
 .footer {
-  background-color: $darkColor;
-  color: $lightColor;
+  background-color: $colorPrimary;
+  color: $fontColorPrimary;
   text-align: center;
   width: 100%;
   font-size: 10px;
 
   &__copyright {
-    background-color: $darkestColor;
+    background-color: $colorDark;
+    color: $fontColorDark;
     padding-top: 10px;
     padding-bottom: 10px;
   }

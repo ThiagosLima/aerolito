@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { Container, Row, Col, ScreenClassProvider } from "react-grid-system";
+import { Container, ScreenClassProvider } from "react-grid-system";
 
 // components
 import Header from "./components/header";

@@ -11,7 +11,7 @@ const MainNavBar = () => {
       <Container fluid className="header">
         <Container>
           <Row>
-            <Col xs={12} md={3}>
+            <Col xs={9} lg={3}>
               <Link to="/series">
                 <div className="header__logo">
                   <img src={logo} alt="Meteoro logo do site" />
@@ -19,6 +19,12 @@ const MainNavBar = () => {
                 <div className="header__circle" />
               </Link>
             </Col>
+            <Visible xs sm md>
+              <Col xs={3}>
+                menu
+              </Col>
+            </Visible>
+            <Visible lg xl>
             <Col align="end" xs={12} md={1} push={{ md: 8 }}>
               O O O
             </Col>
@@ -86,6 +92,7 @@ const MainNavBar = () => {
                 </Col>
               </Row>
             </Col>
+            </Visible>
           </Row>
         </Container>
       </Container>
