@@ -272,7 +272,7 @@ select { /* 1 */
   color: #e6e7e8;
   text-align: center;
   width: 100%;
-  font-size: 10px;
+  font-size: 16px;
 }.footer__copyright {
     background-color: #323334;
     color: #8a8c8e;
@@ -281,6 +281,10 @@ select { /* 1 */
   }.footer__sponsor {
     padding-top: 30px;
     padding-bottom: 30px;
+  }.footer__fac-img {
+    margin-right: 32px;
+  }.footer__sec-img {
+    margin-left: 32px;
   }.section {
   margin: 0;
   padding-bottom: 65px;

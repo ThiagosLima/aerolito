@@ -3,7 +3,7 @@
   color: $fontColorPrimary;
   text-align: center;
   width: 100%;
-  font-size: 10px;
+  font-size: $fontSizePrimary;
 
   &__copyright {
     background-color: $colorDark;
@@ -15,5 +15,13 @@
   &__sponsor {
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+
+  &__fac-img {
+    margin-right: $lg;
+  }
+
+  &__sec-img {
+    margin-left: $lg;
   }
 }
