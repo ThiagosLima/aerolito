@@ -32,6 +32,11 @@
     height: 100%;
   }
 
+  &__social-media {
+    display: inline;
+    margin-bottom: -40px;
+  }
+
   &__flag {
     align-self: flex-end;
     padding-left: $xs;

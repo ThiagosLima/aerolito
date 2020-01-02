@@ -233,6 +233,9 @@ select { /* 1 */
     display: flex;
     justify-content: flex-end;
     height: 100%;
+  }.header__social-media {
+    display: inline;
+    margin-bottom: -40px;
   }.header__flag {
     align-self: flex-end;
     padding-left: 8px;
