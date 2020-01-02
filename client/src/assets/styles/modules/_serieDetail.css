@@ -1,0 +1,22 @@
+.serie-detail {
+  &__img {
+    max-width: 100%;
+  }
+  &__title {
+    font-size: $titleSizeSecondary;
+    font-weight: 900;
+  }
+  &__key {
+    display: inline-block;
+    font-weight: 900;
+    width: 80px;
+    text-align: right;
+  }
+  &__value {
+    display: inline-block;
+    margin-left: $sm;
+  }
+  &__pair {
+      margin-bottom: $xs;
+  }
+}

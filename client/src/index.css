@@ -235,7 +235,7 @@ select { /* 1 */
     height: 100%;
   }.header__social-media {
     display: inline;
-    margin-bottom: -40px;
+    margin-bottom: -55px;
   }.header__flag {
     align-self: flex-end;
     padding-left: 8px;
@@ -295,9 +295,11 @@ select { /* 1 */
 }.section--light {
     background-color: #e6e7e8;
   }.section--midLight {
-    background-color: #414042;
+    background-color: #cbcccc;
   }.section--no-bottom {
     padding-bottom: 0;
+  }.section--normal-padding {
+    padding: 16px;
   }.card {
   background: #cbcccc;
   border: none;
@@ -308,4 +310,19 @@ select { /* 1 */
   .card__btn--margin {
     margin-bottom: 64px;
   }
-}
+}.serie-detail__img {
+    max-width: 100%;
+  }.serie-detail__title {
+    font-size: 18px;
+    font-weight: 900;
+  }.serie-detail__key {
+    display: inline-block;
+    font-weight: 900;
+    width: 80px;
+    text-align: right;
+  }.serie-detail__value {
+    display: inline-block;
+    margin-left: 16px;
+  }.serie-detail__pair {
+      margin-bottom: 8px;
+  }

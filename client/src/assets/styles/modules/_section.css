@@ -8,10 +8,14 @@
   }
 
   &--midLight {
-    background-color: $colorPrimary;
+    background-color: $colorHighlight;
   }
 
   &--no-bottom {
     padding-bottom: 0;
+  }
+
+  &--normal-padding {
+    padding: $sm;
   }
 }

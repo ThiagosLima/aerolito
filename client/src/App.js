@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { Container, ScreenClassProvider } from "react-grid-system";
+import { ScreenClassProvider } from "react-grid-system";
 
 // components
 import Header from "./components/header";
@@ -16,17 +16,15 @@ function App() {
   return (
     <ScreenClassProvider>
       <Header />
-      <Container>
-        <Switch>
-          <Route path="/series/:id" component={SerieDetail} />
-          <Route path="/series" component={Series} />
-          <Route path="/credits" component={Credits} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/shop" component={Shop} />
-          <Route path="/not-found" component={NotFound} />
-          <Redirect from="/" exact to="/series" />
-        </Switch>
-      </Container>
+      <Switch>
+        <Route path="/series/:id" component={SerieDetail} />
+        <Route path="/series" component={Series} />
+        <Route path="/credits" component={Credits} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/shop" component={Shop} />
+        <Route path="/not-found" component={NotFound} />
+        <Redirect from="/" exact to="/series" />
+      </Switch>
       <Footer />
     </ScreenClassProvider>
   );
