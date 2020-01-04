@@ -260,9 +260,13 @@ select { /* 1 */
     border-top-left-radius: 10px;
     padding: 7px;
     margin-left: 0;
+  }.header__item--color.active {
+    background-color: #e6e7e8;
   }.header__link {
     color: #e6e7e8;
     padding: 0 7px;
+  }.header__link--color {
+    color: #111;
   }.header__item--active.active > .header__link--active {
     color: #414042;
     font-weight: bold;
@@ -270,6 +274,10 @@ select { /* 1 */
     border-right: none;
   }.header__link--border {
     border-right: 1px solid #cbcccc;
+  }.header__container {
+    background-color: #cbcccc;
+    text-align: center;
+    padding-top: 32px;
   }.footer {
   background-color: #414042;
   color: #e6e7e8;
@@ -325,4 +333,8 @@ select { /* 1 */
     margin-left: 16px;
   }.serie-detail__pair {
       margin-bottom: 8px;
+  }.serie-detail__hr {
+    height: 1px;
+    width: 100%;
+    background-color: #cbcccc;
   }

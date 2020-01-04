@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { Row, Col, Container } from "react-grid-system";
-import SerieInfo from "./serieInfo";
 import SerieNavBar from "./serieNavBar";
 import currentSerie from "../mock/serie";
-// import Chapters from "./chapters";
 
 const SerieDetail = () => {
   let { url } = useRouteMatch();
   const [serieDetail, setSerieDetail] = useState({});
 
   useEffect(() => {
-    const serieNumber = url.split("/")[2];
+    // const serieNumber = url.split("/")[2];
     // fetch serie number detail
     setSerieDetail(currentSerie);
   }, []);
@@ -34,56 +32,75 @@ const SerieDetail = () => {
                   {serieDetail.title && serieDetail.title.toUpperCase()}
                 </h1>
                 <section className="section section--light section--normal-padding">
-                  <div className="serie-detail__pair">
-                    <div className="serie-detail__key">Autores:</div>
-                    <div className="serie-detail__value">
+                  <Row className="serie-detail__pair">
+                    <Col xs={2} className="serie-detail__key">
+                      Autores:
+                    </Col>
+                    <Col xs={10} className="serie-detail__value">
                       {serieDetail.authors}
-                    </div>
-                  </div>
-                  <div className="serie-detail__pair">
-                    <div className="serie-detail__key">Desenhos:</div>
-                    <div className="serie-detail__value">
+                    </Col>
+                    <div className="serie-detail__hr"></div>
+                  </Row>
+                  <Row className="serie-detail__pair">
+                    <Col xs={2} className="serie-detail__key">
+                      Desenhos:
+                    </Col>
+                    <Col xs={10} className="serie-detail__value">
                       {serieDetail.drawings}
-                    </div>
-                  </div>
-                  <div className="serie-detail__pair">
-                    <div className="serie-detail__key">Cores:</div>
-                    <div className="serie-detail__value">
+                    </Col>
+                    <div className="serie-detail__hr"></div>
+                  </Row>
+                  <Row className="serie-detail__pair">
+                    <Col xs={2} className="serie-detail__key">
+                      Cores:
+                    </Col>
+                    <Col xs={10} className="serie-detail__value">
                       {serieDetail.colors}
-                    </div>
-                  </div>
-                  <div className="serie-detail__pair">
-                    <div className="serie-detail__key">Gênero:</div>
-                    <div className="serie-detail__value">
+                    </Col>
+                    <div className="serie-detail__hr"></div>
+                  </Row>
+                  <Row className="serie-detail__pair">
+                    <Col xs={2} className="serie-detail__key">
+                      Gênero:
+                    </Col>
+                    <Col xs={10} className="serie-detail__value">
                       {serieDetail.colors}
-                    </div>
-                  </div>
-                  <div className="serie-detail__pair">
-                    <div className="serie-detail__key">Ano:</div>
-                    <div className="serie-detail__value">
+                    </Col>
+                    <div className="serie-detail__hr"></div>
+                  </Row>
+                  <Row className="serie-detail__pair">
+                    <Col xs={2} className="serie-detail__key">
+                      Ano:
+                    </Col>
+                    <Col xs={10} className="serie-detail__value">
                       {serieDetail.year}
-                    </div>
-                  </div>
-                  <div className="serie-detail__pair">
-                    <div className="serie-detail__key">Páginas:</div>
-                    <div className="serie-detail__value">
+                    </Col>
+                    <div className="serie-detail__hr"></div>
+                  </Row>
+                  <Row className="serie-detail__pair">
+                    <Col xs={2} className="serie-detail__key">
+                      Páginas:
+                    </Col>
+                    <Col xs={10} className="serie-detail__value">
                       {serieDetail.pages}
-                    </div>
-                  </div>
-                  <div className="serie-detail__pair">
-                    <div className="serie-detail__key">Sinopse:</div>
-                    <div className="serie-detail__value">
-                     dsfdsfsd
-                    </div>
-                  </div>
+                    </Col>
+                    <div className="serie-detail__hr"></div>
+                  </Row>
+                  <Row className="serie-detail__pair">
+                    <Col xs={2} className="serie-detail__key">
+                      Sinopse:
+                    </Col>
+                    <Col xs={10} className="serie-detail__value">
+                      {serieDetail.synopsis}
+                    </Col>
+                  </Row>
                 </section>
               </Col>
             </Row>
-            {/* <SerieInfo />
-            <SerieNavBar url={url} /> */}
           </section>
         </Container>
       </Container>
+      <SerieNavBar url={url} />
     </div>
   );
 };

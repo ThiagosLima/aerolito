@@ -10,9 +10,8 @@ const Series = () => {
         <Row gutterWidth={16}>
           {series.map(serie => {
             return (
-              <Col xs={12} md={6}>
+              <Col key={serie.id} xs={12} md={6}>
                 <SerieCard
-                  key={serie.id}
                   img={{ src: serie.img.src, alt: serie.img.alt }}
                   title={serie.title}
                   text={serie.text}

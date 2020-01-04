@@ -19,4 +19,9 @@
   &__pair {
       margin-bottom: $xs;
   }
+  &__hr {
+    height: 1px;
+    width: 100%;
+    background-color: $colorHighlight;
+  }
 }

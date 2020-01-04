@@ -75,9 +75,17 @@
     margin-left: 0;
   }
 
+  &__item--color.active {
+    background-color: $colorSecondary;
+  }
+
   &__link {
     color: $fontColorPrimary;
     padding: 0 7px;
+  }
+
+  &__link--color {
+    color: $fontColorSecondary;
   }
 
   &__item--active.active > &__link--active {
@@ -91,5 +99,11 @@
 
   &__link--border {
     border-right: 1px solid $colorHighlight;
+  }
+
+  &__container {
+    background-color: $colorHighlight;
+    text-align: center;
+    padding-top: $lg;
   }
 }
