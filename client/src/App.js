@@ -1,12 +1,17 @@
+// Packages
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { ScreenClassProvider } from "react-grid-system";
+import { ToastContainer } from "react-toastify";
 
 // components
 import Header from "./components/header";
 import Shop from "./components/shop";
 import Contact from "./components/contact";
 import Credits from "./components/credits";
+import LoginForm from "./components/loginForm";
+import Logout from "./components/logout";
+import RegisterForm from "./components/registerForm";
 import Series from "./components/series";
 import SerieDetail from "./components/serieDetail";
 import NotFound from "./components/notFound";
@@ -15,8 +20,12 @@ import Footer from "./components/footer";
 function App() {
   return (
     <ScreenClassProvider>
+      <ToastContainer />
       <Header />
       <Switch>
+        <Route path="/register" component={RegisterForm} />
+        <Route path="/login" component={LoginForm} />
+        <Route path="/logout" component={Logout} />
         <Route path="/series/:id" component={SerieDetail} />
         <Route path="/series" component={Series} />
         <Route path="/credits" component={Credits} />
