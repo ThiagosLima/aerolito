@@ -5,6 +5,7 @@ const cors = require("cors");
 const express = require("express");
 const users = require("./routes/users");
 const series = require("./routes/series");
+const upload = require("./routes/upload");
 const auth = require("./routes/auth");
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(cors());
 // Routes
 app.use("/users", users);
 app.use("/series", series);
+app.use("/upload", upload);
 app.use("/auth", auth);
 
 app.listen(5000, console.log("Backend listening on port 5000..."));
