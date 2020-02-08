@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./input";
+import TextArea from "./textArea";
 import Select from "./select";
 
 class Form extends Component {
@@ -48,6 +49,10 @@ class Form extends Component {
     this.setState({ data, errors });
   };
 
+  handleFileChange = ({ target }) => {
+    this.setState({ file: target.files[0] });
+  };
+
   renderButton(label) {
     return (
       <button disabled={this.validate()} className="btn btn-primary">
@@ -79,10 +84,34 @@ class Form extends Component {
         type={type}
         name={name}
         value={data[name]}
-        label={label}
+        placeholder={label}
         onChange={this.handleChange}
         error={errors[name]}
       />
+    );
+  }
+
+  renderTextArea(name, label, rows) {
+    const { data, errors } = this.state;
+
+    return (
+      <TextArea
+        name={name}
+        rows={rows}
+        value={data[name]}
+        placeholder={label}
+        onChange={this.handleChange}
+        error={errors[name]}
+      />
+    );
+  }
+
+  renderFileInput(name, accept, type = "file") {
+    return (
+      <div>
+        <h6>{name}</h6>
+        <input onChange={this.handleFileChange} type={type} accept={accept} />
+      </div>
     );
   }
 }
