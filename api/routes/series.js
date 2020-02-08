@@ -2,6 +2,15 @@ const express = require("express");
 const router = express.Router();
 const { Serie, validate } = require("../models/serie");
 
+router.get("/:id", async (req, res) => {
+  try {
+    const serie = await Serie.findById(req.params.id);
+    res.send(serie);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 router.get("/", async (req, res) => {
   try {
     const series = await Serie.find();
