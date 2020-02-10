@@ -49,9 +49,9 @@ class Header extends React.Component {
 
   render () {
     return (
-      <header onClick={this.handleClick} className="background">
-        <button name="prev" onClick={this.handleClick}>Prev</button>
-        <button name="next" onClick={this.handleClick}>Next</button>
+      <header onClick={this.handleClick} className="background" style={{ display: 'flex', justifyContent: 'flex-end'}}>
+        <button id="prev" name="prev" onClick={this.handleClick}>Prev</button>
+        <button id="next" name="next" onClick={this.handleClick}>Next</button>
         <button name="zoomIn" onClick={this.handleClick}>Zomm IN</button>
         <button name="zoomOut" onClick={this.handleClick}>Zoom OUT</button>
         <button name="fullscreen" onClick={this.handleClick}>FullScreen</button>
