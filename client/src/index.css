@@ -236,6 +236,7 @@ select { /* 1 */
   }.header__social-media {
     display: inline;
     margin-bottom: -55px;
+    margin-left: -11px;
   }.header__flag {
     align-self: flex-end;
     padding-left: 8px;
@@ -258,8 +259,10 @@ select { /* 1 */
   }.header__item--active.active {
     background-color: #cbcccc;
     border-top-left-radius: 10px;
-    padding: 7px;
+    padding: 10px;
     margin-left: 0;
+  }.header__item--padding {
+    padding: 15px !important;
   }.header__item--color.active {
     background-color: #e6e7e8;
   }.header__link {

@@ -35,6 +35,7 @@
   &__social-media {
     display: inline;
     margin-bottom: -55px;
+    margin-left: -11px;
   }
 
   &__flag {
@@ -71,8 +72,12 @@
   &__item--active.active {
     background-color: $colorHighlight;
     border-top-left-radius: 10px;
-    padding: 7px;
+    padding: 10px;
     margin-left: 0;
+  }
+
+  &__item--padding {
+    padding: 15px !important;
   }
 
   &__item--color.active {

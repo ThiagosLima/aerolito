@@ -15,12 +15,7 @@ const Chapters = () => {
           {chapters.map(chapter => {
             return (
               <Col key={chapter.id} xs={4}>
-                <img
-                  style={{ maxWidth: "100%", marginBottom: "32px" }}
-                  alt={chapter.id}
-                  src={chapter.src}
-                />
-                <Viewer key={chapter.id} HQ={HQ} />
+                <Viewer key={chapter.id} HQ={HQ} cover={chapter.src} />
               </Col>
             );
           })}
