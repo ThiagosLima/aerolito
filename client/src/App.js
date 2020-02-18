@@ -17,6 +17,7 @@ import SerieDetail from "./components/serieDetail";
 import NotFound from "./components/notFound";
 import Footer from "./components/footer";
 import SerieForm from "./components/serieForm";
+import ChapterForm from "./components/chapterForm";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
         <Route path="/register" component={RegisterForm} />
         <Route path="/login" component={LoginForm} />
         <Route path="/logout" component={Logout} />
-        <Route path="/serie-register" component={SerieForm} />
+        <Route path="/series/:id/chapters/upload" component={ChapterForm} />
+        <Route path="/series/upload" component={SerieForm} />
         <Route path="/series/:id" component={SerieDetail} />
         <Route path="/series" component={Series} />
         <Route path="/credits" component={Credits} />
