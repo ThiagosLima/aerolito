@@ -1,21 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-grid-system";
 import SerieCard from "./serieCard";
-import series from "../mock/series";
+import { getSeries } from "../services/serieService";
 
 const Series = () => {
+  const [series, setSeries] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      const data = await getSeries();
+      setSeries(data);
+    }
+
+    getData();
+  }, []);
+
   return (
     <Container>
       <section className="section section--light">
         <Row gutterWidth={16}>
           {series.map(serie => {
             return (
-              <Col key={serie.id} xs={12} md={6}>
+              <Col key={serie._id} xs={12} md={6}>
                 <SerieCard
-                  img={{ src: serie.img.src, alt: serie.img.alt }}
+                  img={{ src: serie.cover, alt: serie.title }}
                   title={serie.title}
-                  text={serie.text}
-                  link={`/series/${serie.id}`}
+                  text={serie.synopsis}
+                  link={`/series/${serie._id}`}
                 />
               </Col>
             );

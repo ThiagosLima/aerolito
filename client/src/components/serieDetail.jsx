@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { Row, Col, Container } from "react-grid-system";
 import SerieNavBar from "./serieNavBar";
-import currentSerie from "../mock/serie";
+import { getSerie } from "../services/serieService";
 
 const SerieDetail = () => {
-  let { url } = useRouteMatch();
+  let { url, params } = useRouteMatch();
   const [serieDetail, setSerieDetail] = useState({});
 
   useEffect(() => {
-    // const serieNumber = url.split("/")[2];
-    // fetch serie number detail
-    setSerieDetail(currentSerie);
+    async function getData() {
+      const currentSerie = await getSerie(params.id);
+      setSerieDetail(currentSerie);
+    }
+
+    getData();
   }, []);
 
   return (
@@ -23,7 +26,7 @@ const SerieDetail = () => {
               <Col xs={4}>
                 <img
                   alt="Capa da HQ"
-                  src={serieDetail.img}
+                  src={serieDetail.cover}
                   className="serie-detail__img"
                 />
               </Col>
@@ -64,7 +67,7 @@ const SerieDetail = () => {
                       Gênero:
                     </Col>
                     <Col xs={10} className="serie-detail__value">
-                      {serieDetail.colors}
+                      {serieDetail.genre}
                     </Col>
                     <div className="serie-detail__hr"></div>
                   </Row>
