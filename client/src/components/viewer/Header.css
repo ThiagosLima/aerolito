@@ -4,3 +4,15 @@ header.background {
     padding-bottom: 7px;
     z-index: 5;
 }
+
+#prev {
+    position: fixed;
+    top: 50%;
+    left: 0;
+}
+
+#next {
+    position: fixed;
+    top: 50%;
+    right: 0;
+}

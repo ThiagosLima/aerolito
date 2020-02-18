@@ -1,5 +1,9 @@
 import React from 'react'
 import Page from './Page'
+import eye from "../../assets/img/eye.png";
+import menu from "../../assets/img/menu.png";
+import share from "../../assets/img/share.png";
+
 import './Viewer.css'
 
 class Viewer extends React.Component {
@@ -69,7 +73,30 @@ class Viewer extends React.Component {
   
     return (
       <div>
-        <button onClick={this.handleClick}>Viewer</button>
+        <img
+          style={{ maxWidth: "100%", marginBottom: "32px" }}
+          onClick={this.handleClick}
+          src={this.props.cover}
+          alt="Capa da HQ"
+        />
+
+        <div style={{ justifyContent: 'center', display: 'flex', marginTop: '-20px', marginBottom: '50px'}}>
+          <img
+            style={{ padding: '3px' }}
+            src={eye}
+            alt="Abrir HQ"
+          />
+          <img
+            style={{ padding: '3px' }}
+            src={menu}
+            alt="Menu HQ"
+          />
+          <img
+            style={{ padding: '3px' }}
+            src={share}
+            alt="Compartilhar HQ"
+          />
+        </div>
 
         <div onClick={this.handleClick} id="viewer" className={startViewer}>
           <Page

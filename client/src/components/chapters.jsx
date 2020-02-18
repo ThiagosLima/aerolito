@@ -28,12 +28,7 @@ const Chapters = () => {
           {chapters.map(chapter => {
             return (
               <Col key={chapter._id} xs={4}>
-                <img
-                  style={{ maxWidth: "100%", marginBottom: "32px" }}
-                  alt={chapter.title}
-                  src={chapter.cover}
-                />
-                <Viewer key={chapter._id} HQ={chapter.pages} />
+                <Viewer key={chapter._id} HQ={HQ} cover={chapter.cover} />
               </Col>
             );
           })}
