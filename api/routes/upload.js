@@ -8,6 +8,24 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.SECRET_ACCESS_KEY
 });
 
+router.get("/:id", (req, res) => {
+  const awsId = uuid();
+  const key = `cover.png`;
+
+  s3.getSignedUrl(
+    "putObject",
+    {
+      Bucket: "aerolito-teste1",
+      ContentType: "image/png",
+      Key: `${req.params.id}/${awsId}/cover.png`
+    },
+    (error, url) => {
+      if (error) res.send(error);
+      res.send({ awsId, key, url });
+    }
+  );
+});
+
 router.get("/", (req, res) => {
   const awsId = uuid();
   const key = `cover.png`;
@@ -19,7 +37,27 @@ router.get("/", (req, res) => {
       ContentType: "image/png",
       Key: `${awsId}/cover.png`
     },
-    (error, url) => res.send({ awsId, key, url })
+    (error, url) => {
+      if (error) res.send(error);
+      res.send({ awsId, key, url });
+    }
+  );
+});
+
+router.post("/", (req, res) => {
+  const { awsSerieId, awsId, name } = req.body;
+
+  s3.getSignedUrl(
+    "putObject",
+    {
+      Bucket: "aerolito-teste1",
+      ContentType: "image/png",
+      Key: `${awsSerieId}/${awsId}/${name}`
+    },
+    (error, url) => {
+      if (error) res.send(error);
+      res.send({ url, name });
+    }
   );
 });
 
