@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { Container, Row, Col } from "react-grid-system";
-// import chapters from "../mock/chapters";
 import { getChapters } from "../services/chapterService";
 import { getSerie } from "../services/serieService";
-import HQ from "../mock/chapter";
 import { Viewer } from "./viewer";
 
 const Chapters = () => {
@@ -14,7 +12,7 @@ const Chapters = () => {
   useEffect(() => {
     async function getData() {
       const serie = await getSerie(params.id);
-      const data = await getChapters(serie._id, serie.awsId);
+      const data = await getChapters(serie._id);
       setChapters(data);
     }
 
@@ -28,7 +26,11 @@ const Chapters = () => {
           {chapters.map(chapter => {
             return (
               <Col key={chapter._id} xs={4}>
-                <Viewer key={chapter._id} HQ={HQ} cover={chapter.cover} />
+                <Viewer
+                  key={chapter._id}
+                  id={chapter._id}
+                  cover={chapter.cover}
+                />
               </Col>
             );
           })}
