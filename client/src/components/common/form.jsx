@@ -53,6 +53,10 @@ class Form extends Component {
     this.setState({ file: target.files[0] });
   };
 
+  handleMultipleFileChange = ({ target }) => {
+    this.setState({ files: target.files });
+  };
+
   renderButton(label) {
     return (
       <button disabled={this.validate()} className="btn btn-primary">
@@ -106,11 +110,18 @@ class Form extends Component {
     );
   }
 
-  renderFileInput(name, accept, type = "file") {
+  renderFileInput(name, accept, multiple = false, type = "file") {
     return (
       <div>
         <h6>{name}</h6>
-        <input onChange={this.handleFileChange} type={type} accept={accept} />
+        <input
+          type={type}
+          accept={accept}
+          multiple={multiple}
+          onChange={
+            multiple ? this.handleMultipleFileChange : this.handleFileChange
+          }
+        />
       </div>
     );
   }
