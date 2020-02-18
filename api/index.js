@@ -5,6 +5,7 @@ const cors = require("cors");
 const express = require("express");
 const users = require("./routes/users");
 const series = require("./routes/series");
+const chapters = require("./routes/chapters");
 const upload = require("./routes/upload");
 const auth = require("./routes/auth");
 const app = express();
@@ -31,6 +32,7 @@ app.use(cors());
 // Routes
 app.use("/users", users);
 app.use("/series", series);
+app.use("/chapters", chapters);
 app.use("/upload", upload);
 app.use("/auth", auth);
 
