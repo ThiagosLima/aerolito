@@ -60,14 +60,20 @@ class ChapterForm extends Form {
       pages.push(page);
     }
 
-    return { awsId, cover, ...data, pages, serieId: serie._id };
+    return {
+      awsId,
+      cover,
+      ...data,
+      pages,
+      serieId: serie._id,
+      awsSerieId: serie.awsId
+    };
   };
 
   doSubmit = async () => {
     try {
       const { awsId, cover } = await this.awsCoverUpload();
       const updatedData = await this.awsPagesUpload(awsId, cover);
-      console.log(updatedData);
 
       await http.post("http://localhost:4000/api/chapters", updatedData);
 

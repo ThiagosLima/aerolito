@@ -14,6 +14,10 @@ const chapterSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  awsSerieId: {
+    type: String,
+    required: true
+  },
   title: {
     type: String,
     required: true
@@ -40,6 +44,7 @@ function validate(chapter) {
     cover: Joi.string().required(),
     awsId: Joi.string().required(),
     serieId: Joi.string().required(),
+    awsSerieId: Joi.string().required(),
     title: Joi.string().required(),
     number: Joi.number().required(),
     pages: Joi.array()
