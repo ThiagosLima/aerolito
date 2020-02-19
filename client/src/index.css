@@ -209,7 +209,21 @@ select { /* 1 */
   color: #e6e7e8;
   background-color: #8a8c8e;
   border-radius: 0;
-}.header {
+}.btn:disabled {
+    color: #fff;
+  }.form {
+  background: #fff;
+  padding: 30px;
+}.form__input {
+    background: #e6e7e8;
+    margin: 10px 0px;
+  }.form__input-container {
+    position: relative;
+  }.form__input-label {
+    position: absolute;
+  }.form__button {
+    margin: 0px;
+  }.header {
   background-color: #414042;
   color: #e6e7e8;
   line-height: 96px;

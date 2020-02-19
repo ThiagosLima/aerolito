@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import Joi from "joi-browser";
+import { Container } from "react-grid-system";
 import Form from "./common/form";
 import { login, getCurrentUser } from "../services/authService";
 
@@ -40,14 +41,16 @@ class LoginForm extends Form {
     if (getCurrentUser()) return <Redirect to="/" />;
 
     return (
-      <section className="section section--light">
-        <h1>Login</h1>
-        <form onSubmit={this.handleSubmit}>
-          {this.renderInput("email", "Email")}
-          {this.renderInput("password", "Senha", "password")}
-          {this.renderButton("Login")}
-        </form>
-      </section>
+      <Container>
+        <section className="section section--light">
+          <h1>Login</h1>
+          <form onSubmit={this.handleSubmit} className="form">
+            {this.renderInput("email", "Email")}
+            {this.renderInput("password", "Senha", "password")}
+            {this.renderButton("Login")}
+          </form>
+        </section>
+      </Container>
     );
   }
 }

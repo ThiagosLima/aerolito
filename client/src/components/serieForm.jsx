@@ -78,15 +78,15 @@ class SerieForm extends Form {
       <Container>
         <section className="section section--light">
           <h1>Cadastrar série</h1>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className="form">
             {this.renderFileInput("Capa", "image/*")}
             {this.renderInput("title", "Título")}
             {this.renderInput("authors", "Autores")}
             {this.renderInput("drawings", "Desenhos")}
             {this.renderInput("colors", "Cores")}
             {this.renderInput("genre", "Gênero")}
-            {this.renderInput("year", "Ano")}
-            {this.renderInput("pages", "Páginas")}
+            {this.renderInput("year", "Ano", "number")}
+            {this.renderInput("pages", "Páginas", "number")}
             {this.renderTextArea("synopsis", "Sinopse", 10)}
             {this.renderButton("Cadastrar")}
           </form>

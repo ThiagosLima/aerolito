@@ -1,0 +1,21 @@
+.form {
+  background: $colorLight;
+  padding: 30px;
+
+  &__input {
+    background: $colorSecondary;
+    margin: 10px 0px;
+  }
+
+  &__input-container {
+    position: relative;
+  }
+
+  &__input-label {
+    position: absolute;
+  }
+
+  &__button {
+    margin: 0px;
+  }
+}

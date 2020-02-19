@@ -60,7 +60,7 @@ class Form extends Component {
 
   renderButton(label) {
     return (
-      <button disabled={this.validate()} className="btn btn-primary">
+      <button disabled={this.validate()} className="btn form__button">
         {label}
       </button>
     );
@@ -113,10 +113,12 @@ class Form extends Component {
 
   renderFileInput(name, accept, multiple = false, type = "file") {
     return (
-      <div>
-        <div className="custom-file">
+      <span className="custom-file form__input-container">
+        <label htmlFor={name} className="custom-file-label form__input">
+          {this.getFileInputLabel(name, multiple)}
           <input
-            className="custom-file-input"
+            className="custom-file-input form__input-label"
+            title="bla"
             id={name}
             type={type}
             accept={accept}
@@ -125,11 +127,8 @@ class Form extends Component {
               multiple ? this.handleMultipleFileChange : this.handleFileChange
             }
           />
-          <label className="custom-file-label" htmlFor={name}>
-            {this.getFileInputLabel(name, multiple)}
-          </label>
-        </div>
-      </div>
+        </label>
+      </span>
     );
   }
 

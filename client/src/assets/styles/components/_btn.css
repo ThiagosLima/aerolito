@@ -4,4 +4,8 @@
   color: $fontColorPrimary;
   background-color: $buttonPrimary;
   border-radius: 0;
+
+  &:disabled {
+    color: $colorLight;
+  }
 }

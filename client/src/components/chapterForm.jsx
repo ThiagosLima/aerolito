@@ -92,7 +92,7 @@ class ChapterForm extends Form {
       <Container>
         <section className="section section--light">
           <h1>Cadastrar capítulo</h1>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className="form">
             {this.renderFileInput("Capa", "image/*")}
             {this.renderFileInput("Páginas", "image/*", true)}
             {this.renderInput("title", "Título")}

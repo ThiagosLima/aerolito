@@ -1,5 +1,6 @@
 import React from "react";
 import Joi from "joi-browser";
+import { Container } from "react-grid-system";
 import Form from "./common/form";
 import { register } from "../services/userService";
 import { loginWithJwt } from "../services/authService";
@@ -41,15 +42,17 @@ class RegisterForm extends Form {
 
   render() {
     return (
-      <section className="section section--light">
-        <h1>Cadastrar usuário</h1>
-        <form onSubmit={this.handleSubmit}>
-          {this.renderInput("email", "E-mail")}
-          {this.renderInput("password", "Senha", "password")}
-          {this.renderInput("name", "Nome")}
-          {this.renderButton("Cadastrar")}
-        </form>
-      </section>
+      <Container>
+        <section className="section section--light">
+          <h1>Cadastrar usuário</h1>
+          <form onSubmit={this.handleSubmit} className="form">
+            {this.renderInput("email", "E-mail")}
+            {this.renderInput("password", "Senha", "password")}
+            {this.renderInput("name", "Nome")}
+            {this.renderButton("Cadastrar")}
+          </form>
+        </section>
+      </Container>
     );
   }
 }
