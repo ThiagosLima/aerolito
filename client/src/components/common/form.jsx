@@ -50,6 +50,7 @@ class Form extends Component {
   };
 
   handleFileChange = ({ target }) => {
+    console.log(target.files[0]);
     this.setState({ file: target.files[0] });
   };
 
@@ -113,17 +114,46 @@ class Form extends Component {
   renderFileInput(name, accept, multiple = false, type = "file") {
     return (
       <div>
-        <h6>{name}</h6>
-        <input
-          type={type}
-          accept={accept}
-          multiple={multiple}
-          onChange={
-            multiple ? this.handleMultipleFileChange : this.handleFileChange
-          }
-        />
+        <div className="custom-file">
+          <input
+            className="custom-file-input"
+            id={name}
+            type={type}
+            accept={accept}
+            multiple={multiple}
+            onChange={
+              multiple ? this.handleMultipleFileChange : this.handleFileChange
+            }
+          />
+          <label className="custom-file-label" htmlFor={name}>
+            {this.getFileInputLabel(name, multiple)}
+          </label>
+        </div>
       </div>
     );
+  }
+
+  getFileInputLabel(name, multiple) {
+    const { file, files } = this.state;
+    let label = "";
+
+    if (multiple) {
+      if (files) {
+        for (const file of files) {
+          label += `${file.name}, `;
+        }
+      } else {
+        label = `Escolher arquivos para ${name}`;
+      }
+    } else {
+      if (file) {
+        label = file.name;
+      } else {
+        label = `Escolher arquivo para ${name}`;
+      }
+    }
+
+    return label;
   }
 }
 

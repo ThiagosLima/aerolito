@@ -2,10 +2,11 @@ import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import http from "../services/httpService";
+import { Container } from "react-grid-system";
 
 class SerieForm extends Form {
   state = {
-    file: {},
+    file: "",
     data: {
       title: "",
       authors: "",
@@ -74,21 +75,23 @@ class SerieForm extends Form {
 
   render() {
     return (
-      <section className="section section--light">
-        <h1>Cadastrar série</h1>
-        <form onSubmit={this.handleSubmit}>
-          {this.renderFileInput("Capa", "image/*")}
-          {this.renderInput("title", "Título")}
-          {this.renderInput("authors", "Autores")}
-          {this.renderInput("drawings", "Desenhos")}
-          {this.renderInput("colors", "Cores")}
-          {this.renderInput("genre", "Gênero")}
-          {this.renderInput("year", "Ano")}
-          {this.renderInput("pages", "Páginas")}
-          {this.renderTextArea("synopsis", "Sinopse", 10)}
-          {this.renderButton("Cadastrar")}
-        </form>
-      </section>
+      <Container>
+        <section className="section section--light">
+          <h1>Cadastrar série</h1>
+          <form onSubmit={this.handleSubmit}>
+            {this.renderFileInput("Capa", "image/*")}
+            {this.renderInput("title", "Título")}
+            {this.renderInput("authors", "Autores")}
+            {this.renderInput("drawings", "Desenhos")}
+            {this.renderInput("colors", "Cores")}
+            {this.renderInput("genre", "Gênero")}
+            {this.renderInput("year", "Ano")}
+            {this.renderInput("pages", "Páginas")}
+            {this.renderTextArea("synopsis", "Sinopse", 10)}
+            {this.renderButton("Cadastrar")}
+          </form>
+        </section>
+      </Container>
     );
   }
 }

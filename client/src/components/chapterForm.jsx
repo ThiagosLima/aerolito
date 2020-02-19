@@ -3,12 +3,13 @@ import Form from "./common/form";
 import Joi from "joi-browser";
 import http from "../services/httpService";
 import { getSerie } from "../services/serieService";
+import { Container } from "react-grid-system";
 
 class ChapterForm extends Form {
   state = {
     serie: {},
-    file: {},
-    files: [],
+    file: "",
+    files: "",
     data: {
       title: "",
       number: ""
@@ -88,16 +89,18 @@ class ChapterForm extends Form {
 
   render() {
     return (
-      <section className="section section--light">
-        <h1>Cadastrar capítulo</h1>
-        <form onSubmit={this.handleSubmit}>
-          {this.renderFileInput("Capa", "image/*")}
-          {this.renderFileInput("Páginas", "image/*", true)}
-          {this.renderInput("title", "Título")}
-          {this.renderInput("number", "Número do capítulo")}
-          {this.renderButton("Cadastrar")}
-        </form>
-      </section>
+      <Container>
+        <section className="section section--light">
+          <h1>Cadastrar capítulo</h1>
+          <form onSubmit={this.handleSubmit}>
+            {this.renderFileInput("Capa", "image/*")}
+            {this.renderFileInput("Páginas", "image/*", true)}
+            {this.renderInput("title", "Título")}
+            {this.renderInput("number", "Número do capítulo")}
+            {this.renderButton("Cadastrar")}
+          </form>
+        </section>
+      </Container>
     );
   }
 }
