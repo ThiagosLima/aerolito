@@ -8,6 +8,7 @@ const series = require("./routes/series");
 const chapters = require("./routes/chapters");
 const upload = require("./routes/upload");
 const auth = require("./routes/auth");
+const authors = require("./routes/authors");
 const app = express();
 
 // Validate jwt
@@ -35,5 +36,6 @@ app.use("/series", series);
 app.use("/chapters", chapters);
 app.use("/upload", upload);
 app.use("/auth", auth);
+app.use("/authors", authors);
 
 app.listen(5000, console.log("Backend listening on port 5000..."));
