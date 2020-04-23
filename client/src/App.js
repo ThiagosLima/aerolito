@@ -18,6 +18,7 @@ import NotFound from "./components/notFound";
 import Footer from "./components/footer";
 import SerieForm from "./components/serieForm";
 import ChapterForm from "./components/chapterForm";
+import AuthorsForm from "./components/authorForm";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/series/upload" component={SerieForm} />
         <Route path="/series/:id" component={SerieDetail} />
         <Route path="/series" component={Series} />
+        <Route path="/authors/upload" component={AuthorsForm} />
         <Route path="/credits" component={Credits} />
         <Route path="/contact" component={Contact} />
         <Route path="/shop" component={Shop} />
