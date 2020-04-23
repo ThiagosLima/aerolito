@@ -1,9 +1,16 @@
 .form {
   background: $colorLight;
-  padding: 30px;
+  padding: 18px 32px;
+
+  input:focus {
+    background-color: $colorSecondary;
+    outline: none;
+  }
 
   &__input {
     background: $colorSecondary;
+    border: 1px solid $colorDark;
+    padding: 10px 15px;
     margin: 10px 0px;
   }
 
@@ -16,6 +23,7 @@
   }
 
   &__button {
+    font-size: 1rem;
     margin: 0px;
   }
 }
