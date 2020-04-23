@@ -1,12 +1,14 @@
 /* Colors */
-$colorLight: #fff;
-$colorPrimary: #414042;
-$colorSecondary: #e6e7e8;
-$colorHighlight: #cbcccc;
-$colorDark: #323334;
+$colorLight: #dcd0c1;
+$colorPrimary: #4e4e56;
+$colorSecondary: #ebe5dc;
+$colorHighlight: #d86460;
+$colorDark: #96908c;
+$colorDarker: #323334;
+$colorSepia: #b0938c;
 
 /* Button Style */
-$buttonPrimary: #8a8c8e;
+$buttonPrimary: #b0938c;
 $buttonSecondary: #111;
 $buttonHover: #222;
 $buttonActive: #333;
@@ -16,7 +18,7 @@ $buttonDisabled: #444;
 $fontColorPrimary: #e6e7e8;
 $fontColorSecondary: #111;
 $fontColorHighlight: #414042;
-$fontColorDark: #8a8c8e;
+$fontColorDark: #b0938c;
 
 $fontSizePrimary: 16px;
 $fontSizeSecondary: 12px;
