@@ -8,4 +8,14 @@
   &:disabled {
     color: $colorLight;
   }
+
+  &:hover:enabled {
+    color: $fontColorPrimary;
+    background-color: $colorHighlight;
+  }
+
+  &:active:enabled {
+    color: $fontColorPrimary;
+    background-color: $colorHighlight;
+  }
 }

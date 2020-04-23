@@ -8,7 +8,7 @@
   }
 
   &--midLight {
-    background-color: $colorHighlight;
+    background-color: $colorLight;
   }
 
   &--no-bottom {

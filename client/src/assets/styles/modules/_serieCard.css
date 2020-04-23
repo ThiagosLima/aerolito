@@ -1,6 +1,12 @@
 .card {
-  background: $colorHighlight;
+  background: $colorLight;
   border: none;
+
+  &:hover {
+    border: 4px solid $colorHighlight;
+    border-bottom: 14px solid $colorHighlight;
+    border-radius: 0;
+  }
 
   &__img {
     width: 100%;
