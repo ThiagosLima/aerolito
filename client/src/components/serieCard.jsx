@@ -14,7 +14,7 @@ const SerieCard = props => {
             <p className="card-text">{props.text}</p>
           </div>
           <div className="text-center">
-            <Link className="btn card__btn--margin" to={props.link}>
+            <Link className="btn card__btn card__btn--margin" to={props.link}>
               LER MAIS
             </Link>
           </div>

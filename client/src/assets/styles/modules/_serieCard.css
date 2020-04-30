@@ -1,16 +1,33 @@
 .card {
-  background: $colorLight;
+  background: $colorSepia;
   border: none;
+  border-radius: 0;
 
   &:hover {
     border: 4px solid $colorHighlight;
     border-bottom: 14px solid $colorHighlight;
-    border-radius: 0;
+    background: $colorLight;
   }
 
   &__img {
+    filter: grayscale(100%);
+    mix-blend-mode: multiply;
     width: 100%;
     height: 100%;
+  }
+
+  &:hover &__img {
+    filter: grayscale(0%);
+  }
+
+  &__btn {
+    background-color: $colorLight;
+    color: $colorDark;
+  }
+
+  &:hover &__btn {
+    background-color: $colorHighlight;
+    color: $colorLight;
   }
 }
 

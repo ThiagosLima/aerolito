@@ -1,5 +1,5 @@
 .btn {
-  font-size: 10px;
+  font-size: $fontSizeSecondary;
   margin: 10px 20px;
   color: $fontColorPrimary;
   background-color: $buttonPrimary;
@@ -16,6 +16,10 @@
 
   &:active:enabled {
     color: $fontColorPrimary;
+    background-color: $colorHighlight;
+  }
+
+  &--orange {
     background-color: $colorHighlight;
   }
 }

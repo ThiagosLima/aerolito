@@ -8,6 +8,7 @@
   }
 
   &__input {
+    font-size: $fontSizeSecondary;
     background: $colorSecondary;
     border: 1px solid $colorDark;
     padding: 10px 15px;
@@ -23,7 +24,6 @@
   }
 
   &__button {
-    font-size: 1rem;
     margin: 0px;
   }
 }
