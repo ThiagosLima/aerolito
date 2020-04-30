@@ -33,6 +33,9 @@
   }
 
   &__social-media {
+    border: solid $colorPrimary 13px;
+    height: 61px;
+    border-radius: 50px;
     display: inline;
     margin-bottom: -55px;
     margin-left: -11px;
