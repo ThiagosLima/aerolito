@@ -222,21 +222,29 @@ select { /* 1 */
   }.form {
   background: #dcd0c1;
   padding: 18px 32px;
-}.form input:focus {
+}.form input:focus,
+  .form textarea:focus {
     background-color: #ebe5dc;
     outline: none;
   }.form__input {
     font-size: 12px;
     background: #ebe5dc;
     border: 1px solid #96908c;
+    border-radius: 0;
     padding: 10px 15px;
-    margin: 10px 0px;
+    margin: 5px 0px;
   }.form__input-container {
     position: relative;
   }.form__input-label {
     position: absolute;
+  }.form__input-first {
+    border-radius: 15px 15px 0 0;
+  }.form__input-last {
+    border-radius: 0 0 15px 15px;
   }.form__button {
-    margin: 0px;
+    display: flex;
+    margin-left: auto;
+    margin-right: 0px;
   }.header {
   background-color: #4e4e56;
   color: #e6e7e8;

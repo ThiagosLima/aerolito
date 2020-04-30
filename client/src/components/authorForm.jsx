@@ -61,15 +61,15 @@ class AuthorsForm extends Form {
         <section className="section section--light">
           <h1>Cadastrar autor</h1>
           <form onSubmit={this.handleSubmit} className="form">
-            {this.renderInput("name", "Nome")}
-            {this.renderInput("description", "Descrição")}
+            {this.renderInput("name", "Nome", "form__input-first")}
+            {this.renderTextArea("description", "Descrição", 10)}
             {this.renderInput("facebook", "Facebook")}
             {this.renderInput("email", "E-mail")}
             {this.renderInput("instagram", "Instagram")}
             {this.renderInput("twitter", "Twitter")}
             {this.renderInput("youtube", "Youtube")}
             {this.renderInput("tumblr", "Tumblr")}
-            {this.renderInput("behance", "Behance")}
+            {this.renderInput("behance", "Behance", "form__input-last")}
             {this.renderButton("Cadastrar")}
           </form>
         </section>

@@ -2,7 +2,8 @@
   background: $colorLight;
   padding: 18px 32px;
 
-  input:focus {
+  input:focus,
+  textarea:focus {
     background-color: $colorSecondary;
     outline: none;
   }
@@ -11,8 +12,9 @@
     font-size: $fontSizeSecondary;
     background: $colorSecondary;
     border: 1px solid $colorDark;
+    border-radius: 0;
     padding: 10px 15px;
-    margin: 10px 0px;
+    margin: 5px 0px;
   }
 
   &__input-container {
@@ -23,7 +25,17 @@
     position: absolute;
   }
 
+  &__input-first {
+    border-radius: 15px 15px 0 0;
+  }
+
+  &__input-last {
+    border-radius: 0 0 15px 15px;
+  }
+
   &__button {
-    margin: 0px;
+    display: flex;
+    margin-left: auto;
+    margin-right: 0px;
   }
 }

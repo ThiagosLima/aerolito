@@ -2,7 +2,7 @@ import React from "react";
 
 const TextArea = ({ name, label, rows, error, ...rest }) => {
   return (
-    <div className="form-group">
+    <div className="form-group mb-0">
       <textarea
         {...rest}
         name={name}

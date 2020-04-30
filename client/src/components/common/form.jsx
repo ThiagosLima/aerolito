@@ -81,7 +81,7 @@ class Form extends Component {
     );
   }
 
-  renderInput(name, label, type = "text") {
+  renderInput(name, label, position = "", type = "text") {
     const { data, errors } = this.state;
 
     return (
@@ -90,6 +90,7 @@ class Form extends Component {
         name={name}
         value={data[name]}
         placeholder={label}
+        position={position}
         onChange={this.handleChange}
         error={errors[name]}
       />
