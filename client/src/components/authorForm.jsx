@@ -32,20 +32,23 @@ class AuthorsForm extends Form {
     behance: Joi.string().allow("").optional().label("Behance")
   };
 
-  cleanEmptyFields = data => {
-    let cleanedData = {};
+  convertMedia = ({ name, description, ...data }) => {
+    let socialMedia = [];
 
     for (let [key, value] of Object.entries(data)) {
-      if (value !== "") cleanedData[key] = value;
+      if (value !== "") {
+        socialMedia.push({ name: key, url: value });
+      }
     }
 
-    return cleanedData;
+    return { name, description, socialMedia };
   };
 
   doSubmit = async () => {
     try {
-      const cleanedData = this.cleanEmptyFields(this.state.data);
-      await createAuthor(cleanedData);
+      const parsedData = this.convertMedia(this.state.data);
+      console.log(parsedData);
+      await createAuthor(parsedData);
       window.location = "/";
     } catch (error) {
       if (error.response && error.response.status === 400) {
