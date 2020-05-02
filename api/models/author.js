@@ -10,27 +10,7 @@ const authorSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  facebook: {
-    type: String
-  },
-  email: {
-    type: String
-  },
-  instagram: {
-    type: String
-  },
-  twitter: {
-    type: String
-  },
-  youtube: {
-    type: String
-  },
-  tumblr: {
-    type: String
-  },
-  behance: {
-    type: String
-  }
+  socialMedia: [{ name: String, url: String }]
 });
 
 const Author = mongoose.model("Author", authorSchema);
@@ -39,13 +19,12 @@ function validate(author) {
   const schema = {
     name: Joi.string().required(),
     description: Joi.string().required(),
-    facebook: Joi.string(),
-    email: Joi.string().email(),
-    instagram: Joi.string(),
-    twitter: Joi.string(),
-    youtube: Joi.string(),
-    tumblr: Joi.string(),
-    behance: Joi.string()
+    socialMedia: Joi.array().items(
+      Joi.object({
+        name: Joi.string(),
+        url: Joi.string()
+      })
+    )
   };
 
   return Joi.validate(author, schema);
