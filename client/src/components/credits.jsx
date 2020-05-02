@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import AuthorCard from "./authorCard";
+import { getAuthors } from "../services/authorService";
 
 const Credits = () => {
+  const [authors, setAuthors] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const { data } = await getAuthors();
+      setAuthors(data);
+    };
+    fetch();
+  }, []);
+
   return (
-    <section className="section section--light">
-      <h1>Créditos</h1>
+    // Aerolito
+    // Authors
+    <section className="section">
+      {authors.map(author => (
+        <AuthorCard key={author._id} author={author} />
+      ))}
     </section>
+    // Others
   );
 };
 
