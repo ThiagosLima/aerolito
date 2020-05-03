@@ -1,8 +1,11 @@
 import React from "react";
 import Page from "./Page";
-import eye from "../../assets/img/eye.png";
-import menu from "../../assets/img/menu.png";
-import share from "../../assets/img/share.png";
+import eyeA from "../../assets/img/13a - Leitura.png";
+import eyeB from "../../assets/img/13b - Leitura.png";
+import menuA from "../../assets/img/14a - Info.png";
+import menuB from "../../assets/img/14b - Info.png";
+import shareA from "../../assets/img/15a - Share.png";
+import shareB from "../../assets/img/15b - Share.png";
 import { getPages } from "../../services/chapterService";
 
 import "./Viewer.css";
@@ -14,7 +17,7 @@ class Viewer extends React.Component {
       startViewer: false,
       isFullscreen: false,
       pages: [],
-      pageIndex: 0
+      pageIndex: 0,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -32,9 +35,9 @@ class Viewer extends React.Component {
       return this.changeFullscreen();
     }
 
-    this.setState(prev => {
+    this.setState((prev) => {
       return {
-        startViewer: !prev.startViewer
+        startViewer: !prev.startViewer,
       };
     });
   }
@@ -49,7 +52,7 @@ class Viewer extends React.Component {
     }
 
     this.setState({
-      pageIndex: pageIndex
+      pageIndex: pageIndex,
     });
   }
 
@@ -60,9 +63,9 @@ class Viewer extends React.Component {
       document.getElementById("viewer").requestFullscreen();
     }
 
-    this.setState(prev => {
+    this.setState((prev) => {
       return {
-        isFullscreen: !prev.isFullscreen
+        isFullscreen: !prev.isFullscreen,
       };
     });
   }
@@ -86,11 +89,30 @@ class Viewer extends React.Component {
             justifyContent: "center",
             display: "flex",
             marginTop: "-20px",
-            marginBottom: "50px"
-          }}>
-          <img style={{ padding: "3px" }} src={eye} alt="Abrir HQ" />
-          <img style={{ padding: "3px" }} src={menu} alt="Menu HQ" />
-          <img style={{ padding: "3px" }} src={share} alt="Compartilhar HQ" />
+            marginBottom: "50px",
+          }}
+        >
+          <img
+            style={{ padding: "3px", width: "40px" }}
+            src={eyeA}
+            onMouseOver={(e) => (e.currentTarget.src = eyeB)}
+            onMouseOut={(e) => (e.currentTarget.src = eyeA)}
+            alt="Abrir HQ"
+          />
+          <img
+            style={{ padding: "3px", width: "40px" }}
+            src={menuA}
+            onMouseOver={(e) => (e.currentTarget.src = menuB)}
+            onMouseOut={(e) => (e.currentTarget.src = menuA)}
+            alt="Menu HQ"
+          />
+          <img
+            style={{ padding: "3px", width: "40px" }}
+            src={shareA}
+            onMouseOver={(e) => (e.currentTarget.src = shareB)}
+            onMouseOut={(e) => (e.currentTarget.src = shareA)}
+            alt="Compartilhar HQ"
+          />
         </div>
 
         <div onClick={this.handleClick} id="viewer" className={startViewer}>

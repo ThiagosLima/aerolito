@@ -1,12 +1,12 @@
 import React from "react";
-import behance from "../assets/img/instagram.png";
-import email from "../assets/img/email.png";
-import facebook from "../assets/img/facebook.png";
-import instagram from "../assets/img/instagram.png";
-import tumblr from "../assets/img/tumblr.png";
-import twitter from "../assets/img/twitter.png";
-import youtube from "../assets/img/youtube.png";
-import authorImage from "../assets/img/author.png";
+import behance from "../assets/img/10b - Behance.png";
+import email from "../assets/img/09b - Email.png";
+import facebook from "../assets/img/01b - Facebook.png";
+import instagram from "../assets/img/04b - Instagram.png";
+import tumblr from "../assets/img/07b - Tumblr.png";
+import twitter from "../assets/img/02b - Twitter.png";
+import youtube from "../assets/img/06b - YouTube.png";
+import authorImage from "../assets/img/2018f.png";
 
 const AuthorCard = ({ author }) => {
   const { name, description, socialMedia } = author;

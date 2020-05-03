@@ -19,9 +19,11 @@
 
   &__fac-img {
     margin-right: $lg;
+    width: 380px;
   }
 
   &__sec-img {
     margin-left: $lg;
+    width: 400px;
   }
 }

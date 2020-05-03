@@ -1,6 +1,6 @@
 import React from "react";
-import fac from "../assets/img/fac_logo.png";
-import secretaria from "../assets/img/secretaria_logo.png"
+import fac from "../assets/img/FAC_Marca_RGB_PB horizontal a.png";
+import secretaria from "../assets/img/SECEC_HORIZONTAL_PRETO-BRANCO_principal CMYK-01a.png"
 
 const Footer = () => {
   return (

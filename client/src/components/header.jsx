@@ -2,11 +2,14 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Container, Row, Col, Visible } from "react-grid-system";
 import logo from "../logo.png";
-import br from "../assets/img/Br.png";
-import uk from "../assets/img/Uk.png";
-import facebook from "../assets/img/facebook.png";
-import instagram from "../assets/img/instagram.png";
-import youtube from "../assets/img/youtube.png";
+// import br from "../assets/img/PT 1.png";
+// import uk from "../assets/img/EN 1.png";
+import facebookA from "../assets/img/01a - Facebook.png";
+import facebookB from "../assets/img/01b - Facebook.png";
+import instagramA from "../assets/img/04a - Instagram.png";
+import instagramB from "../assets/img/04b - Instagram.png";
+import youtubeA from "../assets/img/06a - YouTube.png";
+import youtubeB from "../assets/img/06b - YouTube.png";
 
 const MainNavBar = () => {
   return (
@@ -29,24 +32,30 @@ const MainNavBar = () => {
               <Col xs={12} md={3} push={{ md: 6 }}>
                 <img
                   className="header__social-media header__instagram"
-                  src={instagram}
-                  alt="Link para instagram"
-                ></img>
+                  src={instagramA}
+                  onMouseOver={(e) => (e.currentTarget.src = instagramB)}
+                  onMouseOut={(e) => (e.currentTarget.src = instagramA)}
+                  alt="Link para o instagram"
+                />
                 <img
                   className="header__social-media header__youtube"
-                  src={youtube}
-                  alt="Link para youtube"
-                ></img>
+                  src={youtubeA}
+                  onMouseOver={(e) => (e.currentTarget.src = youtubeB)}
+                  onMouseOut={(e) => (e.currentTarget.src = youtubeA)}
+                  alt="Link para o youtube"
+                />
                 <img
                   className="header__social-media header__facebook"
-                  src={facebook}
-                  alt="Link para facebook"
-                ></img>
+                  src={facebookA}
+                  onMouseOver={(e) => (e.currentTarget.src = facebookB)}
+                  onMouseOut={(e) => (e.currentTarget.src = facebookA)}
+                  alt="Link para o facebook"
+                />
               </Col>
               <Col align="end" xs={12} md={6} pull={{ md: 3 }}>
                 <Row nogutter>
                   <Col lg={2} xl={4}>
-                    <div className="header__flags-container">
+                    {/* <div className="header__flags-container">
                       <img
                         className="header__flag"
                         src={br}
@@ -57,7 +66,7 @@ const MainNavBar = () => {
                         src={uk}
                         alt="Bandeira do Reino Unido"
                       ></img>
-                    </div>
+                    </div> */}
                   </Col>
                   <Col>
                     <nav className="header__nav">

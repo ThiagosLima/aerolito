@@ -32,6 +32,13 @@
     height: 100%;
   }
 
+  &__flag {
+    align-self: flex-end;
+    padding-left: $xs;
+    padding-bottom: $xs;
+    width: 45px;
+  }
+
   &__social-media {
     border: solid $colorPrimary 13px;
     height: 61px;
@@ -39,12 +46,6 @@
     display: inline;
     margin-bottom: -55px;
     margin-left: -11px;
-  }
-
-  &__flag {
-    align-self: flex-end;
-    padding-left: $xs;
-    padding-bottom: $xs;
   }
 
   &__nav {

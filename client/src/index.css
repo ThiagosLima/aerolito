@@ -269,6 +269,11 @@ select { /* 1 */
     display: flex;
     justify-content: flex-end;
     height: 100%;
+  }.header__flag {
+    align-self: flex-end;
+    padding-left: 8px;
+    padding-bottom: 8px;
+    width: 45px;
   }.header__social-media {
     border: solid #4e4e56 13px;
     height: 61px;
@@ -276,10 +281,6 @@ select { /* 1 */
     display: inline;
     margin-bottom: -55px;
     margin-left: -11px;
-  }.header__flag {
-    align-self: flex-end;
-    padding-left: 8px;
-    padding-bottom: 8px;
   }.header__nav {
     display: inline-block;
     line-height: 20px;
@@ -336,8 +337,10 @@ select { /* 1 */
     padding-bottom: 30px;
   }.footer__fac-img {
     margin-right: 32px;
+    width: 380px;
   }.footer__sec-img {
     margin-left: 32px;
+    width: 400px;
   }.section {
   margin: 0;
   padding-bottom: 65px;
