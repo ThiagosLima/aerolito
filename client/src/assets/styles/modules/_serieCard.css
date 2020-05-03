@@ -5,6 +5,11 @@
 
   &__title {
     text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  &:hover &__title {
+    color: $colorHighlight;
   }
 
   &:hover {

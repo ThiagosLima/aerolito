@@ -359,6 +359,9 @@ select { /* 1 */
   /* mix-blend-mode: color-dodge; */
 }.card__title {
     text-transform: uppercase;
+    font-weight: bold;
+  }.card:hover .card__title {
+    color: #d86460;
   }.card:hover {
     border: 4px solid #d86460;
     border-bottom: 14px solid #d86460;
