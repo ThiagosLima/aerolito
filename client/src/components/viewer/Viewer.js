@@ -31,6 +31,8 @@ class Viewer extends React.Component {
   }
 
   handleClick() {
+    console.log(document.fullscreen);
+    
     if (document.fullscreen) {
       return this.changeFullscreen();
     }
