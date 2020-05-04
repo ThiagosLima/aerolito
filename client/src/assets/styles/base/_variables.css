@@ -2,7 +2,7 @@
 $colorLight: #dcd0c1;
 $colorPrimary: #4e4e56;
 $colorSecondary: #ebe5dc;
-$colorHighlight: #d86460;
+$colorHighlight: #da635d;
 $colorDark: #96908c;
 $colorDarker: #323334;
 $colorSepia: #b0938c;
@@ -16,7 +16,7 @@ $buttonDisabled: #444;
 
 /* Font Style */
 $fontColorPrimary: #e6e7e8;
-$fontColorSecondary: #111;
+$fontColorSecondary: #333435;
 $fontColorHighlight: #414042;
 $fontColorDark: #b0938c;
 

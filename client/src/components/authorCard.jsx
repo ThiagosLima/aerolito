@@ -1,5 +1,5 @@
 import React from "react";
-import behance from "../assets/img/instagram.png";
+import behance from "../assets/img/behance.png";
 import email from "../assets/img/email.png";
 import facebook from "../assets/img/facebook.png";
 import instagram from "../assets/img/instagram.png";
@@ -35,7 +35,7 @@ const AuthorCard = ({ author }) => {
           <div className="row card__a-container">
             {socialMedia.map(({ _id, name, url }) => (
               <div key={_id}>
-                <a href={url}>
+                <a href={url} target="_blank">
                   <img
                     className="card__social-media"
                     src={imgs[name]}
