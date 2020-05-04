@@ -455,4 +455,39 @@ select { /* 1 */
     margin-top: 65px;
     margin-bottom: 0px;
     justify-content: center;
+  }.share {
+  width: 280px;
+}.share__btn {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+  }.share__btn:focus {
+    outline: none;
+    box-shadow: none;
+  }.share__btn--left {
+    display: flex;
+    margin-left: auto;
+    margin-right: 0px;
+  }.share__img {
+    padding: 0 7.5px;
+    height: 40px;
+  }.share-container {
+    background: #4e4e56;
+    border-radius: 15px;
+    padding: 15px 7.5px 0 7.5px;
+  }.share-items {
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+  }.share-triangle {
+    margin-top: 15px;
+    width: 0px;
+    height: 0px;
+    border-top: 50px solid #4e4e56;
+    border-right: 50px solid transparent;
+  }.share-wraper {
+    z-index: 1;
+    position: absolute;
+    display: flex;
   }
