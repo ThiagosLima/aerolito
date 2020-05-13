@@ -43,6 +43,10 @@
     background: $colorLight;
   }
 
+  /* &-author-edit {
+    margin: 20px;
+  } */
+
   &-author:hover &__title {
     color: $colorHighlight;
   }
@@ -64,8 +68,13 @@
   /* } */
 
   &__author-img {
-    height: 100px;
     margin: 0 27px;
+    /* Circle image */
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    /* No distortion */
+    object-fit: cover;
   }
 }
 

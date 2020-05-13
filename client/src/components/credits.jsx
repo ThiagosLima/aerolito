@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AuthorCard from "./authorCard";
-import { Container, Row, Col, Visible } from "react-grid-system";
+import { Container, Row, Col } from "react-grid-system";
 import { getAuthors } from "../services/authorService";
 import authorImage from "../assets/img/author.png";
 import behance from "../assets/img/behance.png";
@@ -10,9 +10,11 @@ import instagram from "../assets/img/instagram.png";
 import tumblr from "../assets/img/tumblr.png";
 import twitter from "../assets/img/twitter.png";
 import youtube from "../assets/img/youtube.png";
+import { getCurrentUser } from "../services/authService";
 
 const Credits = () => {
   const [authors, setAuthors] = useState([]);
+  const user = getCurrentUser();
 
   // TODO: add real urls
   const socialMedia = [
@@ -39,7 +41,7 @@ const Credits = () => {
       <section className="section section--dark">
         <Container>
           <Row>
-            <Container xs={9}>
+            <Container>
               <Row>
                 <Col xs={2}>
                   <img
@@ -94,7 +96,7 @@ const Credits = () => {
 
       <section className="section">
         {authors.map(author => (
-          <AuthorCard key={author._id} author={author} />
+          <AuthorCard key={author._id} author={author} user={user} />
         ))}
 
         <Container>
