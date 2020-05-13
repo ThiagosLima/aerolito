@@ -10,6 +10,10 @@ const authorSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  image: {
+    type: Buffer,
+    required: true
+  },
   socialMedia: [{ name: String, url: String }]
 });
 
