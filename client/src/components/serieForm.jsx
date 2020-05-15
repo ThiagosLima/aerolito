@@ -1,7 +1,8 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import http from "../services/httpService";
+import serieService from "../services/serieService";
+import awsService from "../services/awsService";
 import { Container } from "react-grid-system";
 
 class SerieForm extends Form {
@@ -21,47 +22,30 @@ class SerieForm extends Form {
   };
 
   schema = {
-    title: Joi.string()
-      .required()
-      .label("Título"),
-    authors: Joi.string()
-      .required()
-      .label("Autores"),
-    drawings: Joi.string()
-      .required()
-      .label("Desenhos"),
-    colors: Joi.string()
-      .required()
-      .label("Cores"),
-    genre: Joi.string()
-      .required()
-      .label("Gênero"),
-    year: Joi.number()
-      .required()
-      .label("Ano"),
-    pages: Joi.number()
-      .required()
-      .label("Páginas"),
-    synopsis: Joi.string()
-      .required()
-      .label("Sinopse")
+    title: Joi.string().required().label("Título"),
+    authors: Joi.string().required().label("Autores"),
+    drawings: Joi.string().required().label("Desenhos"),
+    colors: Joi.string().required().label("Cores"),
+    genre: Joi.string().required().label("Gênero"),
+    year: Joi.number().required().label("Ano"),
+    pages: Joi.number().required().label("Páginas"),
+    synopsis: Joi.string().required().label("Sinopse")
   };
 
   awsUpload = async () => {
-    const uploadConfig = await http.get("http://localhost:4000/api/upload");
-    const { url, awsId, key: cover } = uploadConfig.data;
     const { file, data } = this.state;
 
-    await http.put(url, file, { headers: { "Content-type": file.type } });
+    const { url, awsId, key: cover } = await awsService.getCoverConfig(file);
+    await awsService.putCover(url, file);
 
     return { cover, awsId, ...data };
   };
 
   doSubmit = async () => {
     try {
-      const updatedData = await this.awsUpload();
+      const serie = await this.awsUpload();
 
-      await http.post("http://localhost:4000/api/series", updatedData);
+      await serieService.postSerie(serie);
 
       window.location = "/";
     } catch (error) {

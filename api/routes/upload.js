@@ -8,7 +8,7 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.SECRET_ACCESS_KEY
 });
 
-router.get("/:id", (req, res) => {
+router.get("/chapter/cover/:id", (req, res) => {
   const awsId = uuid();
   const key = `cover.png`;
 
@@ -26,16 +26,36 @@ router.get("/:id", (req, res) => {
   );
 });
 
-router.get("/", (req, res) => {
+// router.get("/", (req, res) => {
+//   const awsId = uuid();
+//   const key = `cover.png`;
+
+//   s3.getSignedUrl(
+//     "putObject",
+//     {
+//       Bucket: "aerolito-teste1",
+//       ContentType: "image/png",
+//       Key: `${awsId}/cover.png`
+//     },
+//     (error, url) => {
+//       if (error) res.send(error);
+//       res.send({ awsId, key, url });
+//     }
+//   );
+// });
+
+router.get("/cover/:type", (req, res) => {
+  const type = req.params.type;
+
   const awsId = uuid();
-  const key = `cover.png`;
+  const key = `cover.${type}`;
 
   s3.getSignedUrl(
     "putObject",
     {
       Bucket: "aerolito-teste1",
-      ContentType: "image/png",
-      Key: `${awsId}/cover.png`
+      ContentType: `image/${type}`,
+      Key: `${awsId}/cover.${type}`
     },
     (error, url) => {
       if (error) res.send(error);
@@ -44,7 +64,7 @@ router.get("/", (req, res) => {
   );
 });
 
-router.post("/", (req, res) => {
+router.post("/chapter/pages/", (req, res) => {
   const { awsSerieId, awsId, name } = req.body;
 
   s3.getSignedUrl(

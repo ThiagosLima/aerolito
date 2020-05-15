@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-grid-system";
 import SerieCard from "./serieCard";
-import { getSeries } from "../services/serieService";
+import serieService from "../services/serieService";
 
 const Series = () => {
   const [series, setSeries] = useState([]);
 
   useEffect(() => {
     async function getData() {
-      const data = await getSeries();
+      const data = await serieService.getSeries();
       setSeries(data);
     }
 

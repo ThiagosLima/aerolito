@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { Row, Col, Container } from "react-grid-system";
 import SerieNavBar from "./serieNavBar";
-import { getSerie } from "../services/serieService";
+import serieService from "../services/serieService";
 
 const SerieDetail = () => {
   let { url, params } = useRouteMatch();
@@ -10,7 +10,7 @@ const SerieDetail = () => {
 
   useEffect(() => {
     async function getData() {
-      const currentSerie = await getSerie(params.id);
+      const currentSerie = await serieService.getSerie(params.id);
       setSerieDetail(currentSerie);
     }
 
