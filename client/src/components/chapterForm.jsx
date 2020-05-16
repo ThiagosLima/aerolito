@@ -1,9 +1,10 @@
 import React from "react";
-import Form from "./common/form";
 import Joi from "joi-browser";
-import http from "../services/httpService";
-import { getSerie } from "../services/serieService";
 import { Container } from "react-grid-system";
+import Form from "./common/form";
+import chapterService from "../services/chapterService";
+import awsService from "../services/awsService";
+import serieService from "../services/serieService";
 
 class ChapterForm extends Form {
   state = {
@@ -18,28 +19,25 @@ class ChapterForm extends Form {
   };
 
   schema = {
-    title: Joi.string()
-      .required()
-      .label("Título"),
-    number: Joi.number()
-      .required()
-      .label("Número")
+    title: Joi.string().required().label("Título"),
+    number: Joi.number().required().label("Número")
   };
 
   async componentDidMount() {
     const serieId = this.props.match.params.id;
-    const serie = await getSerie(serieId);
+    const serie = await serieService.getSerie(serieId);
     this.setState({ serie });
   }
 
   awsCoverUpload = async () => {
     const { file, serie } = this.state;
-    const uploadConfig = await http.get(
-      `http://localhost:4000/api/upload/${serie.awsId}`
-    );
-    const { url, awsId, key: cover } = uploadConfig.data;
 
-    await http.put(url, file, { headers: { "Content-type": file.type } });
+    const { url, awsId, key: cover } = await awsService.getCoverConfig(
+      file,
+      serie.awsId
+    );
+
+    await awsService.putFile(url, file);
 
     return { awsId, cover };
   };
@@ -49,15 +47,16 @@ class ChapterForm extends Form {
     let pages = [];
 
     for (const file of [...files]) {
-      const uploadConfig = await http.post("http://localhost:4000/api/upload", {
+      const pageData = {
         awsSerieId: serie.awsId,
-        awsId,
-        name: file.name
-      });
+        awsChapterId: awsId,
+        file
+      };
 
-      const { url, name: page } = uploadConfig.data;
+      const { url, name: page } = await awsService.getPageConfig(pageData);
 
-      await http.put(url, file, { headers: { "Content-type": file.type } });
+      await awsService.putFile(url, file);
+
       pages.push(page);
     }
 
@@ -74,9 +73,9 @@ class ChapterForm extends Form {
   doSubmit = async () => {
     try {
       const { awsId, cover } = await this.awsCoverUpload();
-      const updatedData = await this.awsPagesUpload(awsId, cover);
+      const chapter = await this.awsPagesUpload(awsId, cover);
 
-      await http.post("http://localhost:4000/api/chapters", updatedData);
+      await chapterService.postChapter(chapter);
 
       window.location = "/";
     } catch (error) {

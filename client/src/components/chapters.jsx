@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { Container, Row, Col } from "react-grid-system";
-import { getChapters } from "../services/chapterService";
-import { getSerie } from "../services/serieService";
 import { Viewer } from "./viewer";
+import chapterService from "../services/chapterService";
+import serieService from "../services/serieService";
 
 const Chapters = () => {
   const { params } = useRouteMatch();
@@ -11,8 +11,8 @@ const Chapters = () => {
 
   useEffect(() => {
     async function getData() {
-      const serie = await getSerie(params.id);
-      const data = await getChapters(serie._id);
+      const serie = await serieService.getSerie(params.id);
+      const data = await chapterService.getChapters(serie._id);
       setChapters(data);
     }
 

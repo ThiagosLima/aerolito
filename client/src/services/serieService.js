@@ -3,7 +3,7 @@ import http from "./httpService";
 const apiEndpoint = "http://localhost:4000/api/series";
 const awsEndpint = `https://aerolito-teste1.s3-sa-east-1.amazonaws.com`;
 
-export async function getSeries() {
+async function getSeries() {
   let { data: series } = await http.get(apiEndpoint);
 
   // Update image url
@@ -14,7 +14,7 @@ export async function getSeries() {
   return series;
 }
 
-export async function getSerie(id) {
+async function getSerie(id) {
   let { data: serie } = await http.get(`${apiEndpoint}/${id}`);
 
   // Update image url
@@ -22,3 +22,9 @@ export async function getSerie(id) {
 
   return serie;
 }
+
+async function postSerie(serie) {
+  await http.post(apiEndpoint, serie);
+}
+
+export default { getSeries, getSerie, postSerie };

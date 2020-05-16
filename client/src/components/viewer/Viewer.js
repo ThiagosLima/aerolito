@@ -3,7 +3,7 @@ import Page from "./Page";
 import eye from "../../assets/img/eye.png";
 import menu from "../../assets/img/menu.png";
 import share from "../../assets/img/share.png";
-import { getPages } from "../../services/chapterService";
+import chapterService from "../../services/chapterService";
 
 import "./Viewer.css";
 
@@ -23,7 +23,7 @@ class Viewer extends React.Component {
   }
 
   async componentDidMount() {
-    const pages = await getPages(this.props.id);
+    const pages = await chapterService.getPages(this.props.id);
     this.setState({ pages });
   }
 

@@ -8,54 +8,25 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.SECRET_ACCESS_KEY
 });
 
-router.get("/chapter/cover/:id", (req, res) => {
-  const awsId = uuid();
-  const key = `cover.png`;
-
-  s3.getSignedUrl(
-    "putObject",
-    {
-      Bucket: "aerolito-teste1",
-      ContentType: "image/png",
-      Key: `${req.params.id}/${awsId}/cover.png`
-    },
-    (error, url) => {
-      if (error) res.send(error);
-      res.send({ awsId, key, url });
-    }
-  );
-});
-
-// router.get("/", (req, res) => {
-//   const awsId = uuid();
-//   const key = `cover.png`;
-
-//   s3.getSignedUrl(
-//     "putObject",
-//     {
-//       Bucket: "aerolito-teste1",
-//       ContentType: "image/png",
-//       Key: `${awsId}/cover.png`
-//     },
-//     (error, url) => {
-//       if (error) res.send(error);
-//       res.send({ awsId, key, url });
-//     }
-//   );
-// });
-
 router.get("/cover/:type", (req, res) => {
   const type = req.params.type;
+  const awsSerieId = req.query.awsSerieId;
 
   const awsId = uuid();
   const key = `cover.${type}`;
+
+  let path = `${awsId}/${key}`;
+
+  // If awsSerieId is defined, this is a chapter cover
+  // Otherwise this is a serie cover
+  if (awsSerieId) path = `${awsSerieId}/${path}`;
 
   s3.getSignedUrl(
     "putObject",
     {
       Bucket: "aerolito-teste1",
       ContentType: `image/${type}`,
-      Key: `${awsId}/cover.${type}`
+      Key: path
     },
     (error, url) => {
       if (error) res.send(error);
@@ -64,15 +35,15 @@ router.get("/cover/:type", (req, res) => {
   );
 });
 
-router.post("/chapter/pages/", (req, res) => {
-  const { awsSerieId, awsId, name } = req.body;
+router.get("/page/:awsSerieId/:awsChapterId/:name/:type", (req, res) => {
+  const { awsSerieId, awsChapterId, name, type } = req.params;
 
   s3.getSignedUrl(
     "putObject",
     {
       Bucket: "aerolito-teste1",
-      ContentType: "image/png",
-      Key: `${awsSerieId}/${awsId}/${name}`
+      ContentType: `image/${type}`,
+      Key: `${awsSerieId}/${awsChapterId}/${name}`
     },
     (error, url) => {
       if (error) res.send(error);
