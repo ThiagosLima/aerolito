@@ -3,11 +3,17 @@ import Joi from "joi-browser";
 import Input from "./input";
 import TextArea from "./textArea";
 import Select from "./select";
+import ProgressBar from "../progressBar";
 
 class Form extends Component {
   state = {
+    percentage: 0,
     data: {},
     errors: {}
+  };
+
+  uploadPercentage = percentage => {
+    this.setState({ percentage });
   };
 
   validate = () => {
@@ -112,6 +118,13 @@ class Form extends Component {
     );
   }
 
+  renderProgressBar() {
+    const percentage = this.state.percentage;
+    let display = percentage ? "" : "none";
+
+    return <ProgressBar display={display} percentage={percentage} />;
+  }
+
   renderFileInput(name, accept, multiple = false, type = "file") {
     return (
       <span className="custom-file form__input-container">
@@ -119,7 +132,7 @@ class Form extends Component {
           {this.getFileInputLabel(name, multiple)}
           <input
             className="custom-file-input form__input-label"
-            title="bla"
+            title={name}
             id={name}
             type={type}
             accept={accept}

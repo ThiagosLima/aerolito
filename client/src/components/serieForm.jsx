@@ -36,7 +36,7 @@ class SerieForm extends Form {
     const { file, data } = this.state;
 
     const { url, awsId, key: cover } = await awsService.getCoverConfig(file);
-    await awsService.putCover(url, file);
+    await awsService.putFile(url, file, this.uploadPercentage);
 
     return { cover, awsId, ...data };
   };
@@ -72,6 +72,7 @@ class SerieForm extends Form {
             {this.renderInput("year", "Ano", "number")}
             {this.renderInput("pages", "Páginas", "number")}
             {this.renderTextArea("synopsis", "Sinopse", 10)}
+            {this.renderProgressBar()}
             {this.renderButton("Cadastrar")}
           </form>
         </section>

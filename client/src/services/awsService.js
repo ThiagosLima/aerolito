@@ -22,8 +22,15 @@ async function getPageConfig({ awsSerieId, awsChapterId, file }) {
   return data;
 }
 
-async function putFile(url, file) {
-  await http.put(url, file, { headers: { "Content-type": file.type } });
+async function putFile(url, file, setUploadPercentage) {
+  await http.put(url, file, {
+    headers: { "Content-type": file.type },
+    onUploadProgress: progressEvent => {
+      setUploadPercentage(
+        parseInt(Math.round(progressEvent.loaded * 100) / progressEvent.total)
+      );
+    }
+  });
 }
 
 export default { getCoverConfig, putFile, getPageConfig };
