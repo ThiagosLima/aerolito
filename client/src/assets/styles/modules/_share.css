@@ -1,0 +1,52 @@
+.share {
+  width: 280px;
+
+  &__btn {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  &__btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &__btn--left {
+    display: flex;
+    margin-left: auto;
+    margin-right: 0px;
+  }
+
+  &__img {
+    padding: 0 7.5px;
+    height: 40px;
+  }
+
+  &-container {
+    background: $colorPrimary;
+    border-radius: 15px;
+    padding: 15px 7.5px 0 7.5px;
+  }
+
+  &-items {
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &-triangle {
+    margin-top: 15px;
+    width: 0px;
+    height: 0px;
+    border-top: 50px solid $colorPrimary;
+    border-right: 50px solid transparent;
+  }
+
+  &-wraper {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+  }
+}

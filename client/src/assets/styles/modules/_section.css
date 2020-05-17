@@ -11,6 +11,10 @@
     background-color: $colorLight;
   }
 
+  &--dark {
+    background-color: $colorPrimary;
+  }
+
   &--no-bottom {
     padding-bottom: 0;
   }

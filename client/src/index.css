@@ -213,12 +213,12 @@ select { /* 1 */
     color: #dcd0c1;
   }.btn:hover:enabled {
     color: #e6e7e8;
-    background-color: #d86460;
+    background-color: #da635d;
   }.btn:active:enabled {
     color: #e6e7e8;
-    background-color: #d86460;
+    background-color: #da635d;
   }.btn--orange {
-    background-color: #d86460;
+    background-color: #da635d;
   }.form {
   background: #dcd0c1;
   padding: 18px 32px;
@@ -251,7 +251,7 @@ select { /* 1 */
   line-height: 96px;
 }/* height: 96px; */.header__full-width-row {
     height: 28px;
-    background-color: #d86460;
+    background-color: #da635d;
   }.header__circle {
     position: absolute;
     height: 86px;
@@ -297,7 +297,7 @@ select { /* 1 */
   }.header__item:hover {
     text-decoration: none;
   }.header__item--active.active {
-    background-color: #d86460;
+    background-color: #da635d;
     border-top-left-radius: 10px;
     padding: 10px;
     margin-left: 0;
@@ -306,10 +306,10 @@ select { /* 1 */
   }.header__item--color.active {
     background-color: #ebe5dc;
   }.header__link {
-    color: #d86460;
+    color: #da635d;
     padding: 0 7px;
   }.header__link--color {
-    color: #111;
+    color: #333435;
   }.header__item--active.active > .header__link--active {
     color: #414042;
     font-weight: bold;
@@ -349,6 +349,8 @@ select { /* 1 */
     background-color: #ebe5dc;
   }.section--midLight {
     background-color: #dcd0c1;
+  }.section--dark {
+    background-color: #4e4e56;
   }.section--no-bottom {
     padding-bottom: 0;
   }.section--normal-padding {
@@ -361,13 +363,14 @@ select { /* 1 */
   /* &__social-media:hover { */
   /* mix-blend-mode: color-dodge; */
 }.card__title {
+    margin-bottom: 25px;
     text-transform: uppercase;
     font-weight: bold;
   }.card:hover .card__title {
     color: #d86460;
   }.card:hover {
-    border: 4px solid #d86460;
-    border-bottom: 14px solid #d86460;
+    border: 4px solid #da635d;
+    border-bottom: 14px solid #da635d;
     background: #dcd0c1;
   }.card__img {
     filter: grayscale(100%);
@@ -380,15 +383,16 @@ select { /* 1 */
     background-color: #dcd0c1;
     color: #96908c;
   }.card:hover .card__btn {
-    background-color: #d86460;
+    background-color: #da635d;
     color: #dcd0c1;
   }.card-author {
+    color: #333435;
     margin: 30px auto;
     padding: 40px 60px 0 0;
     width: 980px;
     background: #dcd0c1;
   }.card-author:hover .card__title {
-    color: #d86460;
+    color: #da635d;
   }.card__a-container {
     margin: 23px 0;
     justify-content: center;
@@ -396,7 +400,7 @@ select { /* 1 */
     /* filter: sepia(1); */
     height: 40px;
     margin: 0 15px;
-    color: #d86460;
+    color: #da635d;
   }/* } */.card__author-img {
     height: 100px;
     margin: 0 27px;
@@ -422,5 +426,74 @@ select { /* 1 */
   }.serie-detail__hr {
     height: 1px;
     width: 100%;
-    background-color: #d86460;
+    background-color: #da635d;
+  }.credits {
+  width: 980px;
+  margin: 0 auto;
+  color: #ebe5dc;
+}.credits__title {
+    text-transform: uppercase;
+    color: #b0938c;
+    margin-bottom: 25px;
+  }.credits__text {
+    color: #e6e7e8;
+  }.credits-contributor {
+    margin: 60px auto;
+    padding: 116px 0;
+    width: 980px;
+    background: #dcd0c1;
+  }.credits-contributor__title {
+    color: #333435;
+    text-transform: uppercase;
+    margin: 0;
+  }.credits-contributor__text {
+    color: #333435;
+    margin: 0;
+  }.credits-contributor__a {
+    text-decoration: none;
+    color: #333435;
+  }.credits-contributor__a:hover {
+    text-decoration: none;
+    color: #da635d;
+  }.credits-contributor__row {
+    margin-bottom: 54px;
+  }.credits-social-media {
+    margin-top: 65px;
+    margin-bottom: 0px;
+    justify-content: center;
+  }.share {
+  width: 280px;
+}.share__btn {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+  }.share__btn:focus {
+    outline: none;
+    box-shadow: none;
+  }.share__btn--left {
+    display: flex;
+    margin-left: auto;
+    margin-right: 0px;
+  }.share__img {
+    padding: 0 7.5px;
+    height: 40px;
+  }.share-container {
+    background: #4e4e56;
+    border-radius: 15px;
+    padding: 15px 7.5px 0 7.5px;
+  }.share-items {
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+  }.share-triangle {
+    margin-top: 15px;
+    width: 0px;
+    height: 0px;
+    border-top: 50px solid #4e4e56;
+    border-right: 50px solid transparent;
+  }.share-wraper {
+    z-index: 1;
+    position: absolute;
+    display: flex;
   }
