@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import AuthorCard from "./authorCard";
 import { Container, Row, Col, Visible } from "react-grid-system";
 import { getAuthors } from "../services/authorService";
-import authorImage from "../assets/img/author.png";
-import behance from "../assets/img/behance.png";
-import email from "../assets/img/email.png";
-import facebook from "../assets/img/facebook.png";
-import instagram from "../assets/img/instagram.png";
-import tumblr from "../assets/img/tumblr.png";
-import twitter from "../assets/img/twitter.png";
-import youtube from "../assets/img/youtube.png";
+import authorImage from "../assets/img/2018d.png";
+import behance from "../assets/img/10a - Behance.png";
+import email from "../assets/img/09a - Email.png";
+import facebook from "../assets/img/01a - Facebook.png";
+import instagram from "../assets/img/04a - Instagram.png";
+import tumblr from "../assets/img/07a - Tumblr.png";
+import twitter from "../assets/img/02a - Twitter.png";
+import youtube from "../assets/img/06a - YouTube.png";
 
 const Credits = () => {
   const [authors, setAuthors] = useState([]);

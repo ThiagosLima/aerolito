@@ -2,28 +2,27 @@
   background-color: $colorPrimary;
   color: $fontColorPrimary;
   text-align: center;
-  width: 100%;
   font-size: $fontSizePrimary;
 
   &__copyright {
     background-color: $colorDarker;
     color: $fontColorDark;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: $xs;
+    padding-bottom: $xs;
   }
 
   &__sponsor {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: $md;
+    padding-bottom: $sm;
   }
 
   &__fac-img {
-    margin-right: $lg;
-    width: 380px;
+    width: 100%;
+    max-width: 400px;
   }
 
   &__sec-img {
-    margin-left: $lg;
-    width: 400px;
+    width: 100%;
+    max-width: 380px;
   }
 }
