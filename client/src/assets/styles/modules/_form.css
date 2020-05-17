@@ -23,6 +23,7 @@
 
   &__input-label {
     position: absolute;
+    display: none;
   }
 
   &__input-first {
@@ -37,5 +38,10 @@
     display: flex;
     margin-left: auto;
     margin-right: 0px;
+  }
+
+  &__progress-bar {
+    font-size: $fontSizeSecondary;
+    color: $colorPrimary;
   }
 }
