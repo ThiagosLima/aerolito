@@ -1,5 +1,5 @@
-const Joi = require("@hapi/joi");
-const mongoose = require("mongoose");
+const Joi = require('@hapi/joi')
+const mongoose = require('mongoose')
 
 const serieSchema = new mongoose.Schema({
   cover: {
@@ -12,8 +12,7 @@ const serieSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   authors: {
     type: String,
@@ -43,9 +42,9 @@ const serieSchema = new mongoose.Schema({
     type: String,
     required: true
   }
-});
+})
 
-const Serie = mongoose.model("Serie", serieSchema);
+const Serie = mongoose.model('Serie', serieSchema)
 
 function validate(serie) {
   const schema = {
@@ -59,9 +58,9 @@ function validate(serie) {
     year: Joi.number().required(),
     pages: Joi.number().required(),
     synopsis: Joi.string().required()
-  };
+  }
 
-  return Joi.validate(serie, schema);
+  return Joi.validate(serie, schema)
 }
 
-module.exports = { serieSchema, Serie, validate };
+module.exports = { serieSchema, Serie, validate }

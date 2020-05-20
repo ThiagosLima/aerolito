@@ -2,14 +2,16 @@ import React from "react";
 import Joi from "joi-browser";
 import { Container } from "react-grid-system";
 import Form from "./common/form";
-import { saveAuthor, getAuthor } from "../services/authorService";
+import authorService from "../services/authorService";
+import awsService from "../services/awsService";
 
 class AuthorsForm extends Form {
   state = {
-    file: {},
+    file: "",
     data: {
       name: "",
       description: "",
+      image: "",
       facebook: "",
       email: "",
       instagram: "",
@@ -25,6 +27,7 @@ class AuthorsForm extends Form {
     _id: Joi.string(),
     name: Joi.string().required().label("Nome"),
     description: Joi.string().required().label("Descrição"),
+    image: Joi.string().allow("").label("Imagem"),
     facebook: Joi.string().allow("").label("Facebook"),
     email: Joi.string().allow("").email().label("E-mail"),
     instagram: Joi.string().allow("").label("Instagram"),
@@ -36,14 +39,16 @@ class AuthorsForm extends Form {
 
   async componentDidMount() {
     const authorId = this.props.match.params.id;
-    const { data } = await getAuthor(authorId);
-    if (!data) return this.props.history.replace("/not-found");
+    if (authorId) {
+      const data = await authorService.getAuthor(authorId);
+      if (!data) return this.props.history.replace("/not-found");
 
-    this.setState({ data: this.mapToViewModel(data) });
+      this.setState({ data: this.mapToViewModel(data) });
+    }
   }
 
   mapToViewModel(data) {
-    let { _id, name, description } = data;
+    let { _id, name, description, image } = data;
 
     let socialMedia = {
       facebook: "",
@@ -57,10 +62,10 @@ class AuthorsForm extends Form {
 
     data.socialMedia.forEach(media => (socialMedia[media.name] = media.url));
 
-    return { _id, name, description, ...socialMedia };
+    return { _id, name, description, image, ...socialMedia };
   }
 
-  convertMedia = ({ _id, name, description, ...data }) => {
+  convertMedia = ({ _id, name, description, image, ...data }) => {
     let socialMedia = [];
 
     for (let [key, value] of Object.entries(data)) {
@@ -69,25 +74,30 @@ class AuthorsForm extends Form {
       }
     }
 
-    return { _id, name, description, socialMedia };
+    return { _id, name, description, image, socialMedia };
+  };
+
+  awsUpload = async () => {
+    const { file, data } = { ...this.state };
+
+    // Delete the image in aws if it exists
+    if (data.image) await awsService.deleteFile("authors", data.image);
+
+    // Get an valid url for the image in aws
+    const { url, key: image } = await awsService.getImageConfig(file);
+    data.image = image;
+    this.setState({ data });
+
+    // Update the image in aws
+    await awsService.putFile(url, file, this.handleProgressBar);
   };
 
   doSubmit = async () => {
     try {
+      await this.awsUpload();
       const parsedData = this.convertMedia(this.state.data);
-      const image = this.state.file;
 
-      const author = { ...parsedData, image };
-      const formData = new FormData();
-
-      formData.append("teste", 1);
-      for (let key in author) {
-        formData.append(key, author[key]);
-      }
-
-      console.log("formData", formData);
-
-      await saveAuthor({ ...parsedData, image });
+      await authorService.saveAuthor(parsedData);
       window.location = "/credits";
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -100,9 +110,9 @@ class AuthorsForm extends Form {
   render() {
     return (
       <Container>
-        <section className='section section--light'>
+        <section className="section section--light">
           <h1>Cadastrar autor</h1>
-          <form onSubmit={this.handleSubmit} className='form'>
+          <form onSubmit={this.handleSubmit} className="form">
             {this.renderInput("name", "Nome", "form__input-first")}
             {this.renderTextArea("description", "Descrição", 10)}
             {this.renderFileInput("Perfil", "image/*")}

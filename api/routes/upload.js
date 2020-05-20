@@ -8,6 +8,26 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.SECRET_ACCESS_KEY
 });
 
+router.get("/authors/:type", (req, res) => {
+  const type = req.params.type;
+  const awsId = uuid();
+  const key = `${awsId}.${type}`;
+  let path = `authors/${key}`;
+
+  s3.getSignedUrl(
+    "putObject",
+    {
+      Bucket: "aerolito-teste1",
+      ContentType: `image/${type}`,
+      Key: path
+    },
+    (error, url) => {
+      if (error) res.send(error);
+      res.send({ key, url });
+    }
+  );
+});
+
 router.get("/cover/:type", (req, res) => {
   const type = req.params.type;
   const awsSerieId = req.query.awsSerieId;
@@ -50,6 +70,20 @@ router.get("/page/:awsSerieId/:awsChapterId/:name/:type", (req, res) => {
       res.send({ url, name });
     }
   );
+});
+
+router.delete("/:path/:key", (req, res) => {
+  const { path, key } = req.params;
+
+  const params = {
+    Bucket: "aerolito-teste1",
+    Key: `${path}/${key}`
+  };
+
+  s3.deleteObject(params, (err, data) => {
+    if (err) return res.send(err, err.stack);
+    else return res.send(data);
+  });
 });
 
 module.exports = router;

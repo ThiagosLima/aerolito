@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import AuthorCard from "./authorCard";
 import { Container, Row, Col } from "react-grid-system";
-import { getAuthors } from "../services/authorService";
+import AuthorCard from "./authorCard";
+import { getCurrentUser } from "../services/authService";
+import authorService from "../services/authorService";
+
 import authorImage from "../assets/img/author.png";
 import behance from "../assets/img/behance.png";
 import email from "../assets/img/email.png";
@@ -10,7 +12,6 @@ import instagram from "../assets/img/instagram.png";
 import tumblr from "../assets/img/tumblr.png";
 import twitter from "../assets/img/twitter.png";
 import youtube from "../assets/img/youtube.png";
-import { getCurrentUser } from "../services/authService";
 
 const Credits = () => {
   const [authors, setAuthors] = useState([]);
@@ -29,7 +30,7 @@ const Credits = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const { data } = await getAuthors();
+      const data = await authorService.getAuthors();
       setAuthors(data);
     };
     fetch();
