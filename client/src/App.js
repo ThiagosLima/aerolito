@@ -5,6 +5,7 @@ import { ScreenClassProvider } from "react-grid-system";
 import { ToastContainer } from "react-toastify";
 
 // components
+import ProtectedRoute from "./components/common/protectedRoute";
 import Header from "./components/header";
 import Shop from "./components/shop";
 import Contact from "./components/contact";
@@ -33,7 +34,8 @@ function App() {
         <Route path="/series/upload" component={SerieForm} />
         <Route path="/series/:id" component={SerieDetail} />
         <Route path="/series" component={Series} />
-        <Route path="/authors/upload" component={AuthorsForm} />
+        <ProtectedRoute path="/authors/upload/:id" component={AuthorsForm} />
+        <ProtectedRoute path="/authors/upload" component={AuthorsForm} />
         <Route path="/credits" component={Credits} />
         <Route path="/contact" component={Contact} />
         <Route path="/shop" component={Shop} />
