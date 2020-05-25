@@ -12,6 +12,7 @@ import fullscreenA from "../../assets/img/14a - Info.png";
 import fullscreenB from "../../assets/img/14b - Info.png";
 // import shareA from "../../assets/img/15a - Share.png";
 // import shareB from "../../assets/img/15b - Share.png";
+import Share from "../share";
 
 class Header extends React.Component {
   constructor() {
@@ -177,7 +178,7 @@ class Header extends React.Component {
         {/* <button name="fullscreen" onClick={this.handleClick}>
           FullScreen
         </button> */}
-        <button
+        {/* <button
           name="facebook"
           onClick={(e) =>
             this.share(
@@ -202,10 +203,12 @@ class Header extends React.Component {
           }
         >
           Share TW
-        </button>
-        <button name="exit" onClick={this.handleClick}>
+        </button> */}
+
+        <Share />
+        {/* <button name="exit" onClick={this.handleClick}>
           Exit
-        </button>
+        </button> */}
       </header>
     );
   }

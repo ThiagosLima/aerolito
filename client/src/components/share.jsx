@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Container, Row } from "react-grid-system";
-import share from "../assets/img/share.png";
-import facebook from "../assets/img/facebook.png";
-import twitter from "../assets/img/twitter.png";
-import instagram from "../assets/img/instagram.png";
-import email from "../assets/img/email.png";
-import tumblr from "../assets/img/tumblr.png";
+import share from "../assets/img/15b - Share.png";
+import facebook from "../assets/img/01b - Facebook.png";
+import twitter from "../assets/img/02b - Twitter.png";
+import instagram from "../assets/img/04b - Instagram.png";
+import email from "../assets/img/09b - Email.png";
+import tumblr from "../assets/img/07b - Tumblr.png";
 
 const Share = ({
   urlFacebook,
@@ -23,7 +23,7 @@ const Share = ({
   };
 
   return (
-    <Container className="share">
+    <div className="share" style={{marginRight: '25px'}}>
       <Row>
         <button onClick={showMenu} className="share__btn share__btn--left">
           <img className="share__img" src={share} alt="Aerolito profile" />
@@ -76,7 +76,7 @@ const Share = ({
           </div>
         ) : null}
       </Row>
-    </Container>
+    </div>
   );
 };
 
