@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AuthorCard from "./authorCard";
-import { Container, Row, Col, Visible } from "react-grid-system";
+import { Container, Row, Col } from "react-grid-system";
 import { getAuthors } from "../services/authorService";
 import authorImage from "../assets/img/2018d.png";
 import behance from "../assets/img/10a - Behance.png";
@@ -39,7 +39,7 @@ const Credits = () => {
       <section className="section section--dark">
         <Container>
           <Row>
-            <Container xs={9}>
+            <Container>
               <Row>
                 <Col xs={2}>
                   <img
@@ -76,7 +76,7 @@ const Credits = () => {
                   <div className="row credits-social-media">
                     {socialMedia.map(({ name, url }) => (
                       <div key={name}>
-                        <a href={url} target="_blank">
+                        <a href={url} target="_blank" rel="noopener noreferrer">
                           <img
                             className="card__social-media"
                             src={name}
@@ -105,7 +105,7 @@ const Credits = () => {
               <Col xs={3}>
                 <h6 className="credits-contributor__title">Nome da pessoa</h6>
                 <p className="credits-contributor__text">Função no projeto</p>
-                <a className="credits-contributor__a" href="#">
+                <a className="credits-contributor__a" href="_">
                   email@email.com
                 </a>
               </Col>
@@ -113,14 +113,14 @@ const Credits = () => {
               <Col xs={3}>
                 <h6 className="credits-contributor__title">Nome da pessoa</h6>
                 <p className="credits-contributor__text">Função no projeto</p>
-                <a className="credits-contributor__a" href="#">
+                <a className="credits-contributor__a" href="_">
                   email@email.com
                 </a>
               </Col>
               <Col xs={3}>
                 <h6 className="credits-contributor__title">Nome da pessoa</h6>
                 <p className="credits-contributor__text">Função no projeto</p>
-                <a className="credits-contributor__a" href="#">
+                <a className="credits-contributor__a" href="_">
                   email@email.com
                 </a>
               </Col>
@@ -134,7 +134,7 @@ const Credits = () => {
               <Col xs={3}>
                 <h6 className="credits-contributor__title">Nome da pessoa</h6>
                 <p className="credits-contributor__text">Função no projeto</p>
-                <a className="credits-contributor__a" href="#">
+                <a className="credits-contributor__a" href="_">
                   email@email.com
                 </a>
               </Col>
@@ -142,14 +142,14 @@ const Credits = () => {
               <Col xs={3}>
                 <h6 className="credits-contributor__title">Nome da pessoa</h6>
                 <p className="credits-contributor__text">Função no projeto</p>
-                <a className="credits-contributor__a" href="#">
+                <a className="credits-contributor__a" href="_">
                   email@email.com
                 </a>
               </Col>
               <Col xs={3}>
                 <h6 className="credits-contributor__title">Nome da pessoa</h6>
                 <p className="credits-contributor__text">Função no projeto</p>
-                <a className="credits-contributor__a" href="#">
+                <a className="credits-contributor__a" href="_">
                   email@email.com
                 </a>
               </Col>

@@ -35,7 +35,7 @@ const AuthorCard = ({ author }) => {
           <div className="row card__a-container">
             {socialMedia.map(({ _id, name, url }) => (
               <div key={_id}>
-                <a href={url} target="_blank">
+                <a href={url} target="_blank" rel="noopener noreferrer">
                   <img
                     className="card__social-media"
                     src={imgs[name]}

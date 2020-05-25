@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 // components
 import Header from "./components/header";
 import Shop from "./components/shop";
+import SideBar from "./components/sidebar";
 import Contact from "./components/contact";
 import Credits from "./components/credits";
 import LoginForm from "./components/loginForm";
@@ -23,24 +24,27 @@ import AuthorsForm from "./components/authorForm";
 function App() {
   return (
     <ScreenClassProvider>
-      <ToastContainer />
-      <Header />
-      <Switch>
-        <Route path="/register" component={RegisterForm} />
-        <Route path="/login" component={LoginForm} />
-        <Route path="/logout" component={Logout} />
-        <Route path="/series/:id/chapters/upload" component={ChapterForm} />
-        <Route path="/series/upload" component={SerieForm} />
-        <Route path="/series/:id" component={SerieDetail} />
-        <Route path="/series" component={Series} />
-        <Route path="/authors/upload" component={AuthorsForm} />
-        <Route path="/credits" component={Credits} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/shop" component={Shop} />
-        <Route path="/not-found" component={NotFound} />
-        <Redirect from="/" exact to="/series" />
-      </Switch>
-      <Footer />
+      <div id="main">
+        <ToastContainer />
+        <Header />
+        <SideBar />
+        <Switch>
+          <Route path="/register" component={RegisterForm} />
+          <Route path="/login" component={LoginForm} />
+          <Route path="/logout" component={Logout} />
+          <Route path="/series/:id/chapters/upload" component={ChapterForm} />
+          <Route path="/series/upload" component={SerieForm} />
+          <Route path="/series/:id" component={SerieDetail} />
+          <Route path="/series" component={Series} />
+          <Route path="/authors/upload" component={AuthorsForm} />
+          <Route path="/credits" component={Credits} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/shop" component={Shop} />
+          <Route path="/not-found" component={NotFound} />
+          <Redirect from="/" exact to="/series" />
+        </Switch>
+        <Footer />
+      </div>
     </ScreenClassProvider>
   );
 }

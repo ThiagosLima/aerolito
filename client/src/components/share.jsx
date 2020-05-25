@@ -33,21 +33,21 @@ const Share = ({
           <div className="share-wraper">
             <div className="share-container">
               <div className="share-items">
-                <a href={urlFacebook} target="_blank">
+                <a href={urlFacebook} target="_blank" rel="noopener noreferrer">
                   <img
                     className="share__img"
                     src={facebook}
                     alt="Aerolito profile"
                   />
                 </a>
-                <a href={urlTwitter} target="_blank">
+                <a href={urlTwitter} target="_blank" rel="noopener noreferrer">
                   <img
                     className="share__img "
                     src={twitter}
                     alt="Aerolito profile"
                   />
                 </a>
-                <a href={urlInstagram} target="_blank">
+                <a href={urlInstagram} target="_blank" rel="noopener noreferrer">
                   <img
                     className="share__img"
                     src={instagram}
@@ -56,14 +56,14 @@ const Share = ({
                 </a>
               </div>
               <div className="share-items">
-                <a href={urlEmail} target="_blank">
+                <a href={urlEmail} target="_blank" rel="noopener noreferrer">
                   <img
                     className="share__img"
                     src={email}
                     alt="Aerolito profile"
                   />
                 </a>
-                <a href={urlTumblr} target="_blank">
+                <a href={urlTumblr} target="_blank" rel="noopener noreferrer">
                   <img
                     className="share__img"
                     src={tumblr}

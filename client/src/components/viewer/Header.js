@@ -10,8 +10,8 @@ import zoomOutA from "../../assets/img/14a - Info.png";
 import zoomOutB from "../../assets/img/14b - Info.png";
 import fullscreenA from "../../assets/img/14a - Info.png";
 import fullscreenB from "../../assets/img/14b - Info.png";
-import shareA from "../../assets/img/15a - Share.png";
-import shareB from "../../assets/img/15b - Share.png";
+// import shareA from "../../assets/img/15a - Share.png";
+// import shareB from "../../assets/img/15b - Share.png";
 
 class Header extends React.Component {
   constructor() {
