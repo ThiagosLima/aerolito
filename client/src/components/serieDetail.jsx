@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, Link } from "react-router-dom";
 import { Row, Col, Container } from "react-grid-system";
 import SerieNavBar from "./serieNavBar";
 import serieService from "../services/serieService";
+import { getCurrentUser } from "../services/authService";
 
 const SerieDetail = () => {
   let { url, params } = useRouteMatch();
   const [serieDetail, setSerieDetail] = useState({});
+  const user = getCurrentUser();
 
   useEffect(() => {
     async function getData() {
@@ -31,6 +33,24 @@ const SerieDetail = () => {
                 />
               </Col>
               <Col xs={8}>
+                {user ? (
+                  // <div className="card-author-edit">
+                  <Link
+                    className="btn btn--margin-small"
+                    to={`/series/upload/${params.id}`}>
+                    Editar
+                  </Link>
+                ) : // <button
+                //   className="btn btn--margin-small"
+                //   onClick={() => {
+                //     authorService.deleteAuthor(_id);
+                //     window.location = "/credits";
+                //   }}>
+                //   Deletar
+                // </button>
+                // </div>
+                null}
+
                 <h1 className="serie-detail__title">
                   {serieDetail.title && serieDetail.title.toUpperCase()}
                 </h1>
