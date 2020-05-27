@@ -54,18 +54,24 @@ class SerieForm extends Form {
 
     // If the file alread exists on aws upload
     if (data.awsId) {
-      const { url, key: cover } = await awsService.updateFile(data.awsId, file);
-
       // Get an valid url for the image in aws
+      const { url, key: cover } = await awsService.updateFile(
+        data.awsId,
+        null,
+        file
+      );
+
+      // Update state
       data.cover = cover;
       this.setState({ data });
 
       // Update the image in aws
       await awsService.putFile(url, file, this.handleProgressBar);
     } else {
+      // Get an valid url for the image in aws
       const { url, awsId, key: cover } = await awsService.getCoverConfig(file);
 
-      // Get an valid url for the image in aws
+      // Update state
       data.cover = cover;
       data.awsId = awsId;
       this.setState({ data });

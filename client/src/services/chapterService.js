@@ -14,6 +14,12 @@ async function getChapters(serieId) {
   return chapters;
 }
 
+async function getChapter(id) {
+  let { data: chapter } = await http.get(`${apiEndpoint}/${id}`);
+
+  return chapter;
+}
+
 async function getPages(id) {
   let { data: chapter } = await http.get(`${apiEndpoint}/${id}`);
 
@@ -27,8 +33,16 @@ async function getPages(id) {
   return chapter.pages;
 }
 
-async function postChapter(chapter) {
-  await http.post(apiEndpoint, chapter);
+async function saveChapter(chapter) {
+  console.log("======", chapter);
+  if (chapter._id) {
+    const body = { ...chapter };
+    delete body._id;
+    delete body.__v;
+    return await http.put(`${apiEndpoint}/${chapter._id}`, body);
+  }
+
+  return await http.post(apiEndpoint, chapter);
 }
 
-export default { getChapters, getPages, postChapter };
+export default { getChapters, getPages, saveChapter, getChapter };

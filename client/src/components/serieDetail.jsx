@@ -34,22 +34,27 @@ const SerieDetail = () => {
               </Col>
               <Col xs={8}>
                 {user ? (
-                  // <div className="card-author-edit">
-                  <Link
-                    className="btn btn--margin-small"
-                    to={`/series/upload/${params.id}`}>
-                    Editar
-                  </Link>
-                ) : // <button
-                //   className="btn btn--margin-small"
-                //   onClick={() => {
-                //     authorService.deleteAuthor(_id);
-                //     window.location = "/credits";
-                //   }}>
-                //   Deletar
-                // </button>
-                // </div>
-                null}
+                  <div>
+                    <Link
+                      className="btn btn--margin-small"
+                      to={`/series/upload/${params.id}`}>
+                      Editar Série
+                    </Link>
+                    <button
+                      className="btn btn--margin-small"
+                      onClick={() => {
+                        serieService.deleteSerie(params.id);
+                        window.location = "/series";
+                      }}>
+                      Deletar Serie
+                    </button>
+                    <Link
+                      className="btn btn--margin-small"
+                      to={`/series/${params.id}/chapters/upload`}>
+                      Adicionar Capítulo
+                    </Link>
+                  </div>
+                ) : null}
 
                 <h1 className="serie-detail__title">
                   {serieDetail.title && serieDetail.title.toUpperCase()}

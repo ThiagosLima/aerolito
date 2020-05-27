@@ -1,90 +1,129 @@
-import React from 'react'
-import Joi from 'joi-browser'
-import { Container } from 'react-grid-system'
-import Form from './common/form'
-import chapterService from '../services/chapterService'
-import awsService from '../services/awsService'
-import serieService from '../services/serieService'
+import React from "react";
+import Joi from "joi-browser";
+import { Container } from "react-grid-system";
+import Form from "./common/form";
+import chapterService from "../services/chapterService";
+import awsService from "../services/awsService";
+import serieService from "../services/serieService";
 
 class ChapterForm extends Form {
   state = {
-    serie: {},
-    file: '',
-    files: '',
+    file: "",
+    files: "",
     data: {
-      title: '',
-      number: ''
+      title: "",
+      number: ""
     },
     errors: {}
-  }
+  };
 
   schema = {
-    title: Joi.string().required().label('Título'),
-    number: Joi.number().required().label('Número')
-  }
+    _id: Joi.string(),
+    __v: Joi.number(),
+    awsId: Joi.string().allow(""),
+    serieId: Joi.string().allow(""),
+    awsSerieId: Joi.string().allow(""),
+    cover: Joi.string().allow(""),
+    pages: Joi.array(),
+    title: Joi.string().required().label("Título"),
+    number: Joi.number().required().label("Número")
+  };
 
   async componentDidMount() {
-    const serieId = this.props.match.params.id
-    const serie = await serieService.getSerie(serieId)
-    this.setState({ serie })
+    await this.getSerieData();
+
+    const chapterId = this.props.match.params.chapterId;
+
+    if (chapterId) {
+      const data = await chapterService.getChapter(chapterId);
+      if (!data) return this.props.history.replace("/not-found");
+
+      this.setState({ data });
+    }
   }
+
+  getSerieData = async () => {
+    let { data } = this.state;
+    const serieId = this.props.match.params.serieId;
+    const serie = await serieService.getSerie(serieId);
+
+    data.serieId = serieId;
+    data.awsSerieId = serie.awsId;
+
+    this.setState({ data });
+  };
 
   awsCoverUpload = async () => {
-    const { file, serie } = this.state
+    let { file, data } = this.state;
 
-    const { url, awsId, key: cover } = await awsService.getCoverConfig(
-      file,
-      serie.awsId
-    )
+    if (data.awsId) {
+      const { url, key: cover } = await awsService.updateFile(
+        data.awsSerieId,
+        data.awsId,
+        file
+      );
 
-    await awsService.putFile(url, file, this.handleProgressBar)
+      data.cover = cover;
+      this.setState({ data });
 
-    return { awsId, cover }
-  }
+      // Update the image in aws
+      await awsService.putFile(url, file, this.handleProgressBar);
+    } else {
+      const { url, awsId, key: cover } = await awsService.getCoverConfig(
+        file,
+        data.awsSerieId
+      );
 
-  awsPagesUpload = async (awsId, cover) => {
-    const { files, data, serie } = this.state
-    let pages = []
+      console.log(url, awsId, cover);
+      // Update state
+      data.cover = cover;
+      data.awsId = awsId;
+      this.setState({ data });
+
+      // Update the image in aws
+      await awsService.putFile(url, file, this.handleProgressBar);
+    }
+  };
+
+  awsPagesUpload = async () => {
+    let { files, data } = this.state;
+    let pages = [];
 
     for (const file of [...files]) {
       const pageData = {
-        awsSerieId: serie.awsId,
-        awsChapterId: awsId,
+        awsSerieId: data.awsSerieId,
+        awsChapterId: data.awsId,
         file
-      }
+      };
 
-      const { url, name: page } = await awsService.getPageConfig(pageData)
+      const { url, name: page } = await awsService.getPageConfig(pageData);
 
-      await awsService.putFile(url, file, this.handleProgressBar)
+      await awsService.putFile(url, file, this.handleProgressBar);
 
-      pages.push(page)
+      pages.push(page);
     }
 
-    return {
-      awsId,
-      cover,
-      ...data,
-      pages,
-      serieId: serie._id,
-      awsSerieId: serie.awsId
-    }
-  }
+    data.pages = pages;
+    this.setState({ data });
+  };
 
   doSubmit = async () => {
     try {
-      const { awsId, cover } = await this.awsCoverUpload()
-      const chapter = await this.awsPagesUpload(awsId, cover)
+      const { file, files, data } = this.state;
 
-      await chapterService.postChapter(chapter)
+      if (file) await this.awsCoverUpload();
+      if (files) await this.awsPagesUpload();
 
-      window.location = '/'
+      await chapterService.saveChapter(data);
+
+      window.location = `/series/${data.serieId}/chapters`;
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        const errors = { ...this.state.errors }
-        this.setState({ errors })
+        const errors = { ...this.state.errors };
+        this.setState({ errors });
       }
     }
-  }
+  };
 
   render() {
     return (
@@ -92,17 +131,17 @@ class ChapterForm extends Form {
         <section className="section section--light">
           <h1>Cadastrar capítulo</h1>
           <form onSubmit={this.handleSubmit} className="form">
-            {this.renderFileInput('Capa', 'image/*')}
-            {this.renderFileInput('Páginas', 'image/*', true)}
-            {this.renderInput('title', 'Título')}
-            {this.renderInput('number', 'Número do capítulo')}
+            {this.renderFileInput("Capa", "image/*")}
+            {this.renderFileInput("Páginas", "image/*", true)}
+            {this.renderInput("title", "Título")}
+            {this.renderInput("number", "Número do capítulo")}
             {this.renderProgressBar()}
-            {this.renderButton('Cadastrar')}
+            {this.renderButton("Cadastrar")}
           </form>
         </section>
       </Container>
-    )
+    );
   }
 }
 
-export default ChapterForm
+export default ChapterForm;

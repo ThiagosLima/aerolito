@@ -86,4 +86,27 @@ router.delete("/:path/:key", (req, res) => {
   });
 });
 
+router.get("/serie/:awsSerieId/:chapterId/:type", (req, res) => {
+  const { awsSerieId, chapterId, type } = req.params;
+  const key = `cover.${type}`;
+  let path = `${awsSerieId}/${key}`;
+
+  if (chapterId !== "null") path = `${awsSerieId}/${chapterId}/${key}`;
+
+  console.log(path);
+
+  s3.getSignedUrl(
+    "putObject",
+    {
+      Bucket: "aerolito-teste1",
+      ContentType: `image/${type}`,
+      Key: path
+    },
+    (error, url) => {
+      if (error) res.send(error);
+      res.send({ key, url });
+    }
+  );
+});
+
 module.exports = router;

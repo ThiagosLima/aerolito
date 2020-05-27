@@ -32,4 +32,26 @@ router.post("/", async (req, res) => {
   res.send(serie);
 });
 
+router.put("/:id", async (req, res) => {
+  // Validate body
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  const serie = await Serie.findByIdAndUpdate(
+    req.params.id,
+    { ...req.body },
+    { new: true }
+  );
+
+  if (!serie)
+    return res.status(400).send("The serie with the given id was not found!");
+
+  return res.send(serie);
+});
+
+router.delete("/:id", async (req, res) => {
+  const serie = await Serie.findByIdAndDelete(req.params.id);
+  return res.send(serie);
+});
+
 module.exports = router;
