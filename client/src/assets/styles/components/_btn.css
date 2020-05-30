@@ -9,7 +9,12 @@
     color: $colorLight;
   }
 
-  &:hover:enabled {
+  &:disabled:hover {
+    color: $colorLight;
+    background-color: $buttonPrimary;
+  }
+
+  &:hover {
     color: $fontColorPrimary;
     background-color: $colorHighlight;
   }
@@ -21,5 +26,9 @@
 
   &--orange {
     background-color: $colorHighlight;
+  }
+
+  &--margin-small {
+    margin: $xs;
   }
 }

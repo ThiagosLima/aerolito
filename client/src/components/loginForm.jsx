@@ -12,12 +12,8 @@ class LoginForm extends Form {
   };
 
   schema = {
-    email: Joi.string()
-      .required()
-      .label("E-mail"),
-    password: Joi.string()
-      .required()
-      .label("Senha")
+    email: Joi.string().required().label("E-mail"),
+    password: Joi.string().required().label("Senha")
   };
 
   doSubmit = async () => {
@@ -45,8 +41,13 @@ class LoginForm extends Form {
         <section className="section section--light">
           <h1>Login</h1>
           <form onSubmit={this.handleSubmit} className="form">
-            {this.renderInput("email", "Email")}
-            {this.renderInput("password", "Senha", "password")}
+            {this.renderInput("email", "Email", "form__input-first")}
+            {this.renderInput(
+              "password",
+              "Senha",
+              "form__input-last",
+              "password"
+            )}
             {this.renderButton("Login")}
           </form>
         </section>

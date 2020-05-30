@@ -29,7 +29,7 @@ const Chapters = () => {
             return (
               <Col key={chapter._id} xs={4}>
                 {user ? (
-                  <div>
+                  <div className="manageContent manageContent__dark">
                     <Link
                       className="btn btn--margin-small"
                       to={`/series/${params.id}/chapters/upload/${chapter._id}`}>
@@ -37,9 +37,9 @@ const Chapters = () => {
                     </Link>
                     <button
                       className="btn btn--margin-small"
-                      onClick={() => {
-                        serieService.deleteSerie(params.id);
-                        window.location = "/series";
+                      onClick={async () => {
+                        await chapterService.deleteChapter(chapter._id);
+                        window.location = `/series/${params.id}/chapters`;
                       }}>
                       Deletar
                     </button>

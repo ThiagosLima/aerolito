@@ -12,7 +12,7 @@ const InputFile = ({ name, label, error, ...rest }) => {
     //   {error && <div className="alert alert-danger">{error}</div>}
     // </div>
 
-    <div className="custom-file mb-3">
+    <div className="custom-file mb-0">
       <input
         {...rest}
         type="file"
@@ -20,9 +20,9 @@ const InputFile = ({ name, label, error, ...rest }) => {
         id={name}
         name="filename"
       />
-      <label className="custom-file-label" htmlFor={name}>
+      {/* <label className="custom-file-label" htmlFor={name}>
         Choose file
-      </label>
+      </label> */}
     </div>
   );
 };

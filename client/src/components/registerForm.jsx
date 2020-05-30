@@ -12,17 +12,9 @@ class RegisterForm extends Form {
   };
 
   schema = {
-    email: Joi.string()
-      .required()
-      .email()
-      .label("E-mail"),
-    password: Joi.string()
-      .required()
-      .min(5)
-      .label("Senha"),
-    name: Joi.string()
-      .required()
-      .label("Nome")
+    email: Joi.string().required().email().label("E-mail"),
+    password: Joi.string().required().min(5).label("Senha"),
+    name: Joi.string().required().label("Nome")
   };
 
   doSubmit = async () => {
@@ -46,9 +38,14 @@ class RegisterForm extends Form {
         <section className="section section--light">
           <h1>Cadastrar usuário</h1>
           <form onSubmit={this.handleSubmit} className="form">
-            {this.renderInput("email", "E-mail")}
-            {this.renderInput("password", "Senha", "password")}
+            {this.renderInput("email", "E-mail", "form__input-first")}
             {this.renderInput("name", "Nome")}
+            {this.renderInput(
+              "password",
+              "Senha",
+              "form__input-last",
+              "password"
+            )}
             {this.renderButton("Cadastrar")}
           </form>
         </section>

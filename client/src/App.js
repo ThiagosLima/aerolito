@@ -30,8 +30,16 @@ function App() {
         <Route path="/register" component={RegisterForm} />
         <Route path="/login" component={LoginForm} />
         <Route path="/logout" component={Logout} />
-        <Route path="/series/:id/chapters/upload" component={ChapterForm} />
-        <Route path="/series/upload" component={SerieForm} />
+        <ProtectedRoute
+          path="/series/:serieId/chapters/upload/:chapterId"
+          component={ChapterForm}
+        />
+        <ProtectedRoute
+          path="/series/:serieId/chapters/upload"
+          component={ChapterForm}
+        />
+        <ProtectedRoute path="/series/upload/:id" component={SerieForm} />
+        <ProtectedRoute path="/series/upload" component={SerieForm} />
         <Route path="/series/:id" component={SerieDetail} />
         <Route path="/series" component={Series} />
         <ProtectedRoute path="/authors/upload/:id" component={AuthorsForm} />

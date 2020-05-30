@@ -49,4 +49,9 @@ router.put("/:id", async (req, res) => {
   return res.send(chapter);
 });
 
+router.delete("/:id", async (req, res) => {
+  const chapter = await Chapter.findByIdAndDelete(req.params.id);
+  return res.send(chapter);
+});
+
 module.exports = router;

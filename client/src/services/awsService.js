@@ -48,6 +48,14 @@ async function deleteFile(path, key) {
   return data;
 }
 
+async function deleteChapter(awsSerieId, awsChapterId) {
+  await http.delete(`${apiEndpoint}/folder/${awsSerieId}/${awsChapterId}`);
+}
+
+async function deleteSerie(awsSerieId) {
+  await http.delete(`${apiEndpoint}/folder/${awsSerieId}/null`);
+}
+
 async function updateFile(awsSerieId, chapterId, file) {
   const fileType = file.type.split("/")[1];
 
@@ -64,5 +72,7 @@ export default {
   getPageConfig,
   getImageConfig,
   deleteFile,
+  deleteChapter,
+  deleteSerie,
   updateFile
 };

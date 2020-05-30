@@ -109,4 +109,42 @@ router.get("/serie/:awsSerieId/:chapterId/:type", (req, res) => {
   );
 });
 
+router.delete("/folder/:awsSerieId/:awsChapterId", async (req, res) => {
+  const { awsSerieId, awsChapterId } = req.params;
+  let folder = `${awsSerieId}/`;
+
+  if (awsChapterId !== "null") folder = `${folder}${awsChapterId}/`;
+
+  try {
+    await emptyS3Directory("aerolito-teste1", folder);
+  } catch (error) {
+    console.log(error);
+  }
+  res.send();
+});
+
+async function emptyS3Directory(bucket, dir) {
+  const listParams = {
+    Bucket: bucket,
+    Prefix: dir
+  };
+
+  const listedObjects = await s3.listObjectsV2(listParams).promise();
+
+  if (listedObjects.Contents.length === 0) return;
+
+  const deleteParams = {
+    Bucket: bucket,
+    Delete: { Objects: [] }
+  };
+
+  listedObjects.Contents.forEach(({ Key }) => {
+    deleteParams.Delete.Objects.push({ Key });
+  });
+
+  await s3.deleteObjects(deleteParams).promise();
+
+  if (listedObjects.IsTruncated) await emptyS3Directory(bucket, dir);
+}
+
 module.exports = router;

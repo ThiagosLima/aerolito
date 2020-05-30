@@ -1,4 +1,5 @@
 import http from "./httpService";
+import awsService from "./awsService";
 
 const apiEndpoint = "http://localhost:4000/api/chapters";
 const awsEndpint = `https://aerolito-teste1.s3-sa-east-1.amazonaws.com`;
@@ -34,7 +35,6 @@ async function getPages(id) {
 }
 
 async function saveChapter(chapter) {
-  console.log("======", chapter);
   if (chapter._id) {
     const body = { ...chapter };
     delete body._id;
@@ -45,4 +45,20 @@ async function saveChapter(chapter) {
   return await http.post(apiEndpoint, chapter);
 }
 
-export default { getChapters, getPages, saveChapter, getChapter };
+async function deleteChapter(id) {
+  const { data: chapter } = await http.get(`${apiEndpoint}/${id}`);
+
+  // delete in aws
+  await awsService.deleteChapter(chapter.awsSerieId, chapter.awsId);
+
+  // delete in db
+  return await http.delete(`${apiEndpoint}/${id}`);
+}
+
+export default {
+  getChapters,
+  getPages,
+  saveChapter,
+  getChapter,
+  deleteChapter
+};

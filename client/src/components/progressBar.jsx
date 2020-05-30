@@ -1,15 +1,18 @@
-import React from "react";
+import React from 'react'
 
-const ProgressBar = ({ percentage, display }) => {
+const ProgressBar = ({ percentage, display, fileName }) => {
   return (
-    <div className="progress" style={{ display }}>
-      <div
-        className="progress-bar bg-info"
-        role="progressbar"
-        style={{ width: `${percentage}%` }}
-      />
+    <div style={{ display }}>
+      <div className="form__progress-bar">Uploading: {fileName}</div>
+      <div className="progress">
+        <div
+          className="progress-bar bg-info"
+          role="progressbar"
+          style={{ width: `${percentage}%` }}
+        />
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProgressBar;
+export default ProgressBar

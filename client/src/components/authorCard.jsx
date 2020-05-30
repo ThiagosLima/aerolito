@@ -22,9 +22,9 @@ const AuthorCard = ({ author, user }) => {
   };
 
   return (
-    <div className="card-author">
+    <div className="card-author-container">
       {user ? (
-        <div className="card-author-edit">
+        <div className="manageContent manageContent__dark">
           <Link className="btn btn--margin-small" to={`/authors/upload/${_id}`}>
             Editar
           </Link>
@@ -39,27 +39,29 @@ const AuthorCard = ({ author, user }) => {
         </div>
       ) : null}
 
-      <div className="row no-gutters">
-        <div className="col-md-2">
-          <img
-            className="card__author-img"
-            src={image}
-            alt="Imagem do author"></img>
-        </div>
-        <div className="col-md-10">
-          <h5 className="card__title">{name}</h5>
-          <p>{description}</p>
-          <div className="row card__a-container">
-            {socialMedia.map(({ _id, name, url }) => (
-              <div key={_id}>
-                <a href={url} target="_blank">
-                  <img
-                    className="card__social-media"
-                    src={imgs[name]}
-                    alt={`Link para ${name}`}></img>
-                </a>
-              </div>
-            ))}
+      <div className="card-author">
+        <div className="row no-gutters">
+          <div className="col-md-2">
+            <img
+              className="card__author-img"
+              src={image}
+              alt="Imagem do author"></img>
+          </div>
+          <div className="col-md-10">
+            <h5 className="card__title">{name}</h5>
+            <p>{description}</p>
+            <div className="row card__a-container">
+              {socialMedia.map(({ _id, name, url }) => (
+                <div key={_id}>
+                  <a href={url} target="_blank">
+                    <img
+                      className="card__social-media"
+                      src={imgs[name]}
+                      alt={`Link para ${name}`}></img>
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

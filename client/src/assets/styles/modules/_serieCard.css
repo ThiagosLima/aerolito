@@ -35,11 +35,14 @@
     color: $colorLight;
   }
 
+  &-author-container {
+    margin: 30px auto;
+    max-width: 980px;
+  }
+
   &-author {
     color: $fontColorSecondary;
-    margin: 30px auto;
     padding: 40px 60px 0 0;
-    width: 980px;
     background: $colorLight;
   }
 

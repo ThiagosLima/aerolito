@@ -30,18 +30,15 @@ const MainNavBar = () => {
                 <img
                   className="header__social-media header__instagram"
                   src={instagram}
-                  alt="Link para instagram"
-                ></img>
+                  alt="Link para instagram"></img>
                 <img
                   className="header__social-media header__youtube"
                   src={youtube}
-                  alt="Link para youtube"
-                ></img>
+                  alt="Link para youtube"></img>
                 <img
                   className="header__social-media header__facebook"
                   src={facebook}
-                  alt="Link para facebook"
-                ></img>
+                  alt="Link para facebook"></img>
               </Col>
               <Col align="end" xs={12} md={6} pull={{ md: 3 }}>
                 <Row nogutter>
@@ -50,13 +47,11 @@ const MainNavBar = () => {
                       <img
                         className="header__flag"
                         src={br}
-                        alt="Bandeira do Brasil"
-                      ></img>
+                        alt="Bandeira do Brasil"></img>
                       <img
                         className="header__flag"
                         src={uk}
-                        alt="Bandeira do Reino Unido"
-                      ></img>
+                        alt="Bandeira do Reino Unido"></img>
                     </div>
                   </Col>
                   <Col>
@@ -65,8 +60,7 @@ const MainNavBar = () => {
                         <li className="header__li">
                           <NavLink
                             className="header__item header__item--active"
-                            to="/series"
-                          >
+                            to="/series">
                             <span className="header__link header__link--active header__link--border">
                               Início
                             </span>
@@ -75,8 +69,7 @@ const MainNavBar = () => {
                         <li className="header__li">
                           <NavLink
                             className="header__item header__item--active"
-                            to="/shop"
-                          >
+                            to="/shop">
                             <span className="header__link header__link--active header__link--border">
                               Comprar
                             </span>
@@ -85,8 +78,7 @@ const MainNavBar = () => {
                         <li className="header__li">
                           <NavLink
                             className="header__item header__item--active"
-                            to="/credits"
-                          >
+                            to="/credits">
                             <span className="header__link header__link--active header__link--border">
                               Créditos
                             </span>
@@ -95,8 +87,7 @@ const MainNavBar = () => {
                         <li className="header__li">
                           <NavLink
                             className="header__item header__item--active"
-                            to="/contact"
-                          >
+                            to="/contact">
                             <span className="header__link header__link--active">
                               Contato
                             </span>

@@ -8,12 +8,16 @@ import { getCurrentUser } from "../services/authService";
 const SerieDetail = () => {
   let { url, params } = useRouteMatch();
   const [serieDetail, setSerieDetail] = useState({});
+  const [pages, setPages] = useState(0);
   const user = getCurrentUser();
 
   useEffect(() => {
     async function getData() {
       const currentSerie = await serieService.getSerie(params.id);
       setSerieDetail(currentSerie);
+
+      const pages = await serieService.getSeriePages(params.id);
+      setPages(pages);
     }
 
     getData();
@@ -24,6 +28,28 @@ const SerieDetail = () => {
       <Container fluid className="section section--midLight section--no-bottom">
         <Container>
           <section>
+            {user ? (
+              <div className="manageContent manageContent__dark">
+                <Link
+                  className="btn btn--margin-small"
+                  to={`/series/upload/${params.id}`}>
+                  Editar Série
+                </Link>
+                <button
+                  className="btn btn--margin-small"
+                  onClick={async () => {
+                    await serieService.deleteSerie(params.id);
+                    window.location = "/series";
+                  }}>
+                  Deletar Serie
+                </button>
+                <Link
+                  className="btn btn--margin-small"
+                  to={`/series/${params.id}/chapters/upload`}>
+                  Adicionar Capítulo
+                </Link>
+              </div>
+            ) : null}
             <Row>
               <Col xs={4}>
                 <img
@@ -33,29 +59,6 @@ const SerieDetail = () => {
                 />
               </Col>
               <Col xs={8}>
-                {user ? (
-                  <div>
-                    <Link
-                      className="btn btn--margin-small"
-                      to={`/series/upload/${params.id}`}>
-                      Editar Série
-                    </Link>
-                    <button
-                      className="btn btn--margin-small"
-                      onClick={() => {
-                        serieService.deleteSerie(params.id);
-                        window.location = "/series";
-                      }}>
-                      Deletar Serie
-                    </button>
-                    <Link
-                      className="btn btn--margin-small"
-                      to={`/series/${params.id}/chapters/upload`}>
-                      Adicionar Capítulo
-                    </Link>
-                  </div>
-                ) : null}
-
                 <h1 className="serie-detail__title">
                   {serieDetail.title && serieDetail.title.toUpperCase()}
                 </h1>
@@ -110,7 +113,7 @@ const SerieDetail = () => {
                       Páginas:
                     </Col>
                     <Col xs={10} className="serie-detail__value">
-                      {serieDetail.pages}
+                      {pages}
                     </Col>
                     <div className="serie-detail__hr"></div>
                   </Row>

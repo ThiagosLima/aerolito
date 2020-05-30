@@ -134,7 +134,11 @@ class ChapterForm extends Form {
             {this.renderFileInput("Capa", "image/*")}
             {this.renderFileInput("Páginas", "image/*", true)}
             {this.renderInput("title", "Título")}
-            {this.renderInput("number", "Número do capítulo")}
+            {this.renderInput(
+              "number",
+              "Número do capítulo",
+              "form__input-last"
+            )}
             {this.renderProgressBar()}
             {this.renderButton("Cadastrar")}
           </form>

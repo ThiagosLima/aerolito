@@ -1,80 +1,80 @@
-import React, { Component } from 'react'
-import Joi from 'joi-browser'
-import Input from './input'
-import TextArea from './textArea'
-import Select from './select'
-import ProgressBar from '../progressBar'
+import React, { Component } from "react";
+import Joi from "joi-browser";
+import Input from "./input";
+import TextArea from "./textArea";
+import Select from "./select";
+import ProgressBar from "../progressBar";
 
 class Form extends Component {
   state = {
     uploadPercentage: 0,
-    uploadFileName: '',
+    uploadFileName: "",
     data: {},
     errors: {}
-  }
+  };
 
   handleProgressBar = (uploadPercentage, uploadFileName) => {
-    this.setState({ uploadPercentage, uploadFileName })
-  }
+    this.setState({ uploadPercentage, uploadFileName });
+  };
 
   validate = () => {
-    const options = { abortEarly: false }
-    const { error } = Joi.validate(this.state.data, this.schema, options)
-    if (!error) return null
+    const options = { abortEarly: false };
+    const { error } = Joi.validate(this.state.data, this.schema, options);
+    if (!error) return null;
 
-    const errors = {}
-    for (let item of error.details) errors[item.path[0]] = item.message
-    return errors
-  }
+    const errors = {};
+    for (let item of error.details) errors[item.path[0]] = item.message;
+    return errors;
+  };
 
   validateProperty = ({ name, value }) => {
-    const obj = { [name]: value }
-    const schema = { [name]: this.schema[name] }
-    const { error } = Joi.validate(obj, schema)
-    return error ? error.details[0].message : null
-  }
+    const obj = { [name]: value };
+    const schema = { [name]: this.schema[name] };
+    const { error } = Joi.validate(obj, schema);
+    return error ? error.details[0].message : null;
+  };
 
   handleSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const errors = this.validate()
-    this.setState({ errors: errors || {} })
-    if (errors) return
+    const errors = this.validate();
+    this.setState({ errors: errors || {} });
+    if (errors) return;
 
-    this.doSubmit()
-  }
+    this.doSubmit();
+  };
 
   handleChange = ({ currentTarget: input }) => {
-    const errors = { ...this.state.errors }
-    const errorMessage = this.validateProperty(input)
-    if (errorMessage) errors[input.name] = errorMessage
-    else delete errors[input.name]
+    const errors = { ...this.state.errors };
+    const errorMessage = this.validateProperty(input);
+    if (errorMessage) errors[input.name] = errorMessage;
+    else delete errors[input.name];
 
-    const data = { ...this.state.data }
-    data[input.name] = input.value
+    const data = { ...this.state.data };
+    data[input.name] = input.value;
 
-    this.setState({ data, errors })
-  }
+    this.setState({ data, errors });
+  };
 
   handleFileChange = ({ target }) => {
-    console.log(target.files[0])
-    this.setState({ file: target.files[0] })
-  }
+    console.log(target.files[0]);
+    this.setState({ file: target.files[0] });
+  };
 
   handleMultipleFileChange = ({ target }) => {
-    this.setState({ files: target.files })
-  }
+    this.setState({ files: target.files });
+  };
 
   renderButton(label) {
     return (
       <button disabled={this.validate()} className="btn form__button">
         {label}
       </button>
-    )
+    );
   }
 
   renderSelect(name, label, options) {
-    const { data, errors } = this.state
+    const { data, errors } = this.state;
 
     return (
       <Select
@@ -85,11 +85,11 @@ class Form extends Component {
         onChange={this.handleChange}
         error={errors[name]}
       />
-    )
+    );
   }
 
-  renderInput(name, label, position = '', type = 'text') {
-    const { data, errors } = this.state
+  renderInput(name, label, position = "", type = "text") {
+    const { data, errors } = this.state;
 
     return (
       <Input
@@ -101,11 +101,11 @@ class Form extends Component {
         onChange={this.handleChange}
         error={errors[name]}
       />
-    )
+    );
   }
 
-  renderTextArea(name, label, rows) {
-    const { data, errors } = this.state
+  renderTextArea(name, label, rows, position = "") {
+    const { data, errors } = this.state;
 
     return (
       <TextArea
@@ -113,16 +113,17 @@ class Form extends Component {
         rows={rows}
         value={data[name]}
         placeholder={label}
+        position={position}
         onChange={this.handleChange}
         error={errors[name]}
       />
-    )
+    );
   }
 
   renderProgressBar() {
-    const percentage = this.state.uploadPercentage
-    const fileName = this.state.uploadFileName
-    let display = percentage ? '' : 'none'
+    const percentage = this.state.uploadPercentage;
+    const fileName = this.state.uploadFileName;
+    let display = percentage ? "" : "none";
 
     return (
       <ProgressBar
@@ -130,10 +131,10 @@ class Form extends Component {
         percentage={percentage}
         fileName={fileName}
       />
-    )
+    );
   }
 
-  renderFileInput(name, accept, multiple = false, type = 'file') {
+  renderFileInput(name, accept, multiple = false, type = "file") {
     return (
       <span className="custom-file form__input-container">
         <label htmlFor={name} className="custom-file-label form__input">
@@ -151,31 +152,31 @@ class Form extends Component {
           />
         </label>
       </span>
-    )
+    );
   }
 
   getFileInputLabel(name, multiple) {
-    const { file, files } = this.state
-    let label = ''
+    const { file, files } = this.state;
+    let label = "";
 
     if (multiple) {
       if (files) {
         for (const file of files) {
-          label += `${file.name}, `
+          label += `${file.name}, `;
         }
       } else {
-        label = `Escolher arquivos para ${name}`
+        label = `Escolher arquivos para ${name}`;
       }
     } else {
       if (file) {
-        label = file.name
+        label = file.name;
       } else {
-        label = `Escolher arquivo para ${name}`
+        label = `Escolher arquivo para ${name}`;
       }
     }
 
-    return label
+    return label;
   }
 }
 
-export default Form
+export default Form;

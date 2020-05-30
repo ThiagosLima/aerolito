@@ -1,0 +1,13 @@
+.manageContent {
+  display: flex;
+  justify-content: center;
+
+  &__dark {
+    background-color: $colorPrimary;
+  }
+
+  &__container {
+    margin: 0 auto;
+    max-width: 980px;
+  }
+}
