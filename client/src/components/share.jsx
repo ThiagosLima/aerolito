@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row } from "react-grid-system";
+import { Row } from "react-grid-system";
 import share from "../assets/img/15b - Share.png";
 import facebook from "../assets/img/01b - Facebook.png";
 import twitter from "../assets/img/02b - Twitter.png";
@@ -23,53 +23,53 @@ const Share = ({
   };
 
   return (
-    <div className="share" style={{marginRight: '25px'}}>
+    <div className="share" style={{ marginRight: '25px' }}>
       <Row>
         <button onClick={showMenu} className="share__btn share__btn--left">
-          <img className="share__img" src={share} alt="Aerolito profile" />
+          <img name="sharer" className="share__img" src={share} alt="Aerolito profile" />
         </button>
 
         {show ? (
           <div className="share-wraper">
             <div className="share-container">
               <div className="share-items">
-                <a href={urlFacebook} target="_blank" rel="noopener noreferrer">
+                <div onClick={urlFacebook}>
                   <img
-                    className="share__img"
+                    name="sharer" className="share__img"
                     src={facebook}
                     alt="Aerolito profile"
                   />
-                </a>
-                <a href={urlTwitter} target="_blank" rel="noopener noreferrer">
+                </div>
+                <div onClick={urlTwitter}>
                   <img
-                    className="share__img "
+                    name="sharer" className="share__img "
                     src={twitter}
                     alt="Aerolito profile"
                   />
-                </a>
-                <a href={urlInstagram} target="_blank" rel="noopener noreferrer">
+                </div>
+                <div onClick={urlInstagram}>
                   <img
-                    className="share__img"
+                    name="sharer" className="share__img"
                     src={instagram}
                     alt="Aerolito profile"
                   />
-                </a>
+                </div>
               </div>
               <div className="share-items">
-                <a href={urlEmail} target="_blank" rel="noopener noreferrer">
+                <div onClick={urlEmail}>
                   <img
-                    className="share__img"
+                    name="sharer" className="share__img"
                     src={email}
                     alt="Aerolito profile"
                   />
-                </a>
-                <a href={urlTumblr} target="_blank" rel="noopener noreferrer">
+                </div>
+                <div onClick={urlTumblr}>
                   <img
-                    className="share__img"
+                    name="sharer" className="share__img"
                     src={tumblr}
                     alt="Aerolito profile"
                   />
-                </a>
+                </div>
               </div>
             </div>
             <div className="share-triangle" />

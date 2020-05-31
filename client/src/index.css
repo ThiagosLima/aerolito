@@ -264,7 +264,7 @@ select { /* 1 */
   }.header__logo {
     position: absolute;
     top: 15px;
-    z-index: 10;
+    z-index: 2;
   }.header__flags-container {
     display: flex;
     justify-content: flex-end;
@@ -523,12 +523,12 @@ select { /* 1 */
   z-index: 10;
   background-color: #da635d;
   color: white;
-  padding: 6px;
-  padding-right: 8px;
+  padding: 2px;
+  padding-right: 7px;
   position: absolute;
   top: 30px;
-  
-  border-radius: 2px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }.sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;

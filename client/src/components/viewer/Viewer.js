@@ -7,7 +7,6 @@ import menuB from "../../assets/img/14b - Info.png";
 import shareA from "../../assets/img/15a - Share.png";
 import shareB from "../../assets/img/15b - Share.png";
 import { getPages } from "../../services/chapterService";
-
 import "./Viewer.css";
 
 class Viewer extends React.Component {
@@ -30,9 +29,10 @@ class Viewer extends React.Component {
     this.setState({ pages });
   }
 
-  handleClick() {
-    console.log(document.fullscreen);
-    
+  handleClick(e) {
+    const { name } = e.target
+    if (name === "sharer") return
+
     if (document.fullscreen) {
       return this.changeFullscreen();
     }
@@ -99,8 +99,10 @@ class Viewer extends React.Component {
             src={eyeA}
             onMouseOver={(e) => (e.currentTarget.src = eyeB)}
             onMouseOut={(e) => (e.currentTarget.src = eyeA)}
+            onClick={this.handleClick}
             alt="Abrir HQ"
           />
+
           <img
             style={{ padding: "3px", width: "40px" }}
             src={menuA}
@@ -115,6 +117,7 @@ class Viewer extends React.Component {
             onMouseOut={(e) => (e.currentTarget.src = shareA)}
             alt="Compartilhar HQ"
           />
+
         </div>
 
         <div onClick={this.handleClick} id="viewer" className={startViewer}>
