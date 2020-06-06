@@ -6,6 +6,11 @@
   &__title {
     margin-bottom: 25px;
     text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  &:hover &__title {
+    color: $colorHighlight;
   }
 
   &:hover {

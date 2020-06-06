@@ -2,11 +2,13 @@ import React from 'react'
 import Header from './Header'
 import Draggable from 'react-draggable'
 import './Page.css'
+import Share from "../share";
+
 
 class HQPage extends React.Component {
   constructor() {
     super()
-    
+
     this.state = {
       zoomLevel: 35
     }
@@ -14,10 +16,10 @@ class HQPage extends React.Component {
     this.handleClick = this.handleClick.bind(this)
     this.changeZoom = this.changeZoom.bind(this)
   }
-  
+
   handleClick(e) {
     e.stopPropagation()
-    
+
     if (e.target.name === "nextHQ") {
       //
     }
@@ -43,23 +45,24 @@ class HQPage extends React.Component {
           changeFullscreen={this.props.changeFullscreen}
           exit={this.props.exit}
         />
+
         <Draggable>
           {
             this.props.page ?
-            <img
-              onClick={this.handleClick}
-              className='center'
-              style={imgStyle}
-              src={this.props.page}
-              draggable='false'
-              alt=""
-            /> :
-            <div onClick={this.handleClick} className="centerText">
-              proxima HQ?
+              <img
+                onClick={this.handleClick}
+                className='center'
+                style={imgStyle}
+                src={this.props.page}
+                draggable='false'
+                alt=""
+              /> :
+              <div onClick={this.handleClick} className="centerText">
+                proxima HQ?
               <button name="nextHQ" onClick={this.handleClick}>
-                Sim
+                  Sim
               </button>
-            </div>
+              </div>
           }
         </Draggable>
       </div>

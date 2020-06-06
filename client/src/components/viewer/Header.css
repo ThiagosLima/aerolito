@@ -1,18 +1,25 @@
 header.background {
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); */
     padding-top: 7px;
     padding-bottom: 7px;
     z-index: 5;
+}
+.settings {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 90%;
+    right: calc(50% - 65px);
+    padding: 5px;
 }
 
 #prev {
     position: fixed;
     top: 50%;
-    left: 0;
+    left: 25px;
 }
 
 #next {
     position: fixed;
     top: 50%;
-    right: 0;
+    right: 25px;
 }

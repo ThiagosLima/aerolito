@@ -23,13 +23,20 @@
   &__logo {
     position: absolute;
     top: 15px;
-    z-index: 10;
+    z-index: 2;
   }
 
   &__flags-container {
     display: flex;
     justify-content: flex-end;
     height: 100%;
+  }
+
+  &__flag {
+    align-self: flex-end;
+    padding-left: $xs;
+    padding-bottom: $xs;
+    width: 45px;
   }
 
   &__social-media {
@@ -39,12 +46,6 @@
     display: inline;
     margin-bottom: -55px;
     margin-left: -11px;
-  }
-
-  &__flag {
-    align-self: flex-end;
-    padding-left: $xs;
-    padding-bottom: $xs;
   }
 
   &__nav {

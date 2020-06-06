@@ -1,13 +1,13 @@
 import React from "react";
-import behance from "../assets/img/behance.png";
-import email from "../assets/img/email.png";
-import facebook from "../assets/img/facebook.png";
-import instagram from "../assets/img/instagram.png";
-import tumblr from "../assets/img/tumblr.png";
-import twitter from "../assets/img/twitter.png";
-import youtube from "../assets/img/youtube.png";
 import { Link } from "react-router-dom";
 import authorService from "../services/authorService";
+import behance from "../assets/img/10b - Behance.png";
+import email from "../assets/img/09b - Email.png";
+import facebook from "../assets/img/01b - Facebook.png";
+import instagram from "../assets/img/04b - Instagram.png";
+import tumblr from "../assets/img/07b - Tumblr.png";
+import twitter from "../assets/img/02b - Twitter.png";
+import youtube from "../assets/img/06b - YouTube.png";
 
 const AuthorCard = ({ author, user }) => {
   const { _id, name, description, socialMedia, image } = author;
@@ -53,7 +53,7 @@ const AuthorCard = ({ author, user }) => {
             <div className="row card__a-container">
               {socialMedia.map(({ _id, name, url }) => (
                 <div key={_id}>
-                  <a href={url} target="_blank">
+                  <a href={url} target="_blank" rel="noopener noreferrer">
                     <img
                       className="card__social-media"
                       src={imgs[name]}

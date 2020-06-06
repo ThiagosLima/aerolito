@@ -10,7 +10,7 @@ const SerieCard = props => {
         </div>
         <div className="col-md-6 d-flex flex-column">
           <div className="card-body">
-            <h5 className="card-title">{props.title}</h5>
+            <h5 className="card__title">{props.title}</h5>
             <p className="card-text">{props.text}</p>
           </div>
           <div className="text-center">
