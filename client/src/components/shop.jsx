@@ -1,9 +1,14 @@
 import React from "react";
+import { Container, Row } from "react-grid-system";
 
 const Shop = () => {
   return (
     <section className="section section--light">
-      <h1>Shop</h1>
+      <Container>
+        <Row>
+          <h1>Em breve</h1>
+        </Row>
+      </Container>
     </section>
   );
 };

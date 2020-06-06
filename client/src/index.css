@@ -442,11 +442,11 @@ select { /* 1 */
     display: inline-block;
     margin-left: 16px;
   }.serie-detail__pair {
-      margin-bottom: 8px;
+    margin-bottom: 8px;
   }.serie-detail__hr {
     height: 1px;
     width: 100%;
-    background-color: #da635d;
+    background-color: #dcd0c1;
   }.credits {
   width: 980px;
   margin: 0 auto;

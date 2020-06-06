@@ -17,11 +17,11 @@
     margin-left: $sm;
   }
   &__pair {
-      margin-bottom: $xs;
+    margin-bottom: $xs;
   }
   &__hr {
     height: 1px;
     width: 100%;
-    background-color: $colorHighlight;
+    background-color: $colorLight;
   }
 }

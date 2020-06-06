@@ -3,7 +3,7 @@ import React from "react";
 const SerieShop = () => {
   return (
     <section className="section section--light">
-      <h2>SeieShop</h2>
+      <h2>Em breve</h2>
     </section>
   );
 };
