@@ -132,6 +132,7 @@ class ChapterForm extends Form {
           <h1>Cadastrar capítulo</h1>
           <form onSubmit={this.handleSubmit} className="form">
             {this.renderFileInput("Capa", "image/*")}
+            <div style={{ marginTop: "5px" }}></div>
             {this.renderFileInput("Páginas", "image/*", true)}
             {this.renderInput("title", "Título")}
             {this.renderInput(

@@ -19,6 +19,12 @@
 
   &__input-container {
     position: relative;
+    margin-bottom: -8px;
+    margin-top: -5px;
+  }
+
+  &__input-file {
+    margin-top: 5px;
   }
 
   &__input-label {
