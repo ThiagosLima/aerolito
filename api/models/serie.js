@@ -34,6 +34,10 @@ const serieSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  call: {
+    type: String,
+    required: true
+  },
   synopsis: {
     type: String,
     required: true
@@ -52,6 +56,7 @@ function validate(serie) {
     colors: Joi.string().required(),
     genre: Joi.string().required(),
     year: Joi.number().required(),
+    call: Joi.string().required(),
     synopsis: Joi.string().required()
   };
 

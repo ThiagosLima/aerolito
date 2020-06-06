@@ -15,6 +15,7 @@ class SerieForm extends Form {
       colors: "",
       genre: "",
       year: "",
+      call: "",
       synopsis: ""
     },
     errors: {}
@@ -31,6 +32,7 @@ class SerieForm extends Form {
     colors: Joi.string().required().label("Cores"),
     genre: Joi.string().required().label("Gênero"),
     year: Joi.number().required().label("Ano"),
+    call: Joi.string().required().label("Chamada"),
     synopsis: Joi.string().required().label("Sinopse")
   };
 
@@ -118,6 +120,7 @@ class SerieForm extends Form {
             {this.renderInput("colors", "Cores")}
             {this.renderInput("genre", "Gênero")}
             {this.renderInput("year", "Ano", "number")}
+            {this.renderTextArea("call", "Chamada", 2)}
             {this.renderTextArea("synopsis", "Sinopse", 10, "form__input-last")}
             {this.renderProgressBar()}
             {this.renderButton("Cadastrar")}

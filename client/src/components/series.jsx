@@ -36,7 +36,7 @@ const Series = () => {
                 <SerieCard
                   img={{ src: serie.cover, alt: serie.title }}
                   title={serie.title}
-                  text={serie.synopsis}
+                  text={serie.call}
                   link={`/series/${serie._id}`}
                 />
               </Col>
