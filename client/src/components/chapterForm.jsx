@@ -12,7 +12,8 @@ class ChapterForm extends Form {
     files: "",
     data: {
       title: "",
-      number: ""
+      number: "",
+      background: ""
     },
     errors: {}
   };
@@ -26,7 +27,8 @@ class ChapterForm extends Form {
     cover: Joi.string().allow(""),
     pages: Joi.array(),
     title: Joi.string().required().label("Título"),
-    number: Joi.number().required().label("Número")
+    number: Joi.number().required().label("Número"),
+    background: Joi.string().required().label("Cor")
   };
 
   async componentDidMount() {
@@ -135,6 +137,7 @@ class ChapterForm extends Form {
             <div style={{ marginTop: "5px" }}></div>
             {this.renderFileInput("Páginas", "image/*", true)}
             {this.renderInput("title", "Título")}
+            {this.renderInput("background", "Cor em hexadecimal")}
             {this.renderInput(
               "number",
               "Número do capítulo",

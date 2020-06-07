@@ -49,6 +49,7 @@ const Chapters = () => {
                   key={chapter._id}
                   id={chapter._id}
                   cover={chapter.cover}
+                  background={chapter.background}
                 />
               </Col>
             );

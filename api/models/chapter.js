@@ -26,10 +26,14 @@ const chapterSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  background: {
+    type: String,
+    required: true
+  },
   pages: {
     type: Array,
     validate: {
-      validator: function(value) {
+      validator: function (value) {
         return value && value.length > 0;
       },
       message: "A chapter should have at least one page."
@@ -47,6 +51,7 @@ function validate(chapter) {
     awsSerieId: Joi.string().required(),
     title: Joi.string().required(),
     number: Joi.number().required(),
+    background: Joi.string().required(),
     pages: Joi.array()
   };
 
