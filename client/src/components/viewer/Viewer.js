@@ -30,8 +30,7 @@ class Viewer extends React.Component {
   }
 
   handleClick(e) {
-    const { name } = e.target;
-    if (name === "sharer") return;
+    if (e && e.target.name === "sharer") return;
 
     if (document.fullscreen) {
       return this.changeFullscreen();
