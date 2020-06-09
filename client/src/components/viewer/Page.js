@@ -14,7 +14,7 @@ class HQPage extends React.Component {
     super()
 
     this.state = {
-      zoomLevel: 35
+      zoomLevel: 100
     }
 
     this.buttonPress = this.buttonPress.bind(this);
@@ -72,7 +72,7 @@ class HQPage extends React.Component {
 
   render() {
     const imgStyle = {
-      width: `${this.state.zoomLevel}%`
+      height: `${this.state.zoomLevel}%`,
     }
     return (
       <div>
@@ -97,9 +97,9 @@ class HQPage extends React.Component {
               /> :
               <div onClick={this.handleClick} className="centerText">
                 proxima HQ?
-              <button name="nextHQ" onClick={this.handleClick}>
+                <button name="nextHQ" onClick={this.handleClick}>
                   Sim
-              </button>
+                </button>
               </div>
           }
         </Draggable>
