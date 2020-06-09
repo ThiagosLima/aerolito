@@ -9,6 +9,8 @@ import { getCurrentUser } from "../services/authService";
 const Chapters = () => {
   const { params } = useRouteMatch();
   const [chapters, setChapters] = useState([]);
+  const [hiddenHeader, sethiddenHeader] = useState(true);
+  const [timeoutId, settimeoutId] = useState(undefined);
   const user = getCurrentUser();
 
   useEffect(() => {
@@ -21,8 +23,18 @@ const Chapters = () => {
     getData();
   }, []);
 
+  const handleMouseMoviment = e => {
+    clearTimeout(timeoutId)
+    sethiddenHeader(false)
+    const tId = setTimeout(() => {
+      sethiddenHeader(true)
+    }, 3000)
+    settimeoutId(tId)
+  }
+
   return (
     <div className="section section--light">
+      {console.log(hiddenHeader)}
       <Container>
         <Row>
           {chapters.map(chapter => {
@@ -45,12 +57,17 @@ const Chapters = () => {
                     </button>
                   </div>
                 ) : null}
-                <Viewer
-                  key={chapter._id}
-                  id={chapter._id}
-                  cover={chapter.cover}
-                  background={chapter.background}
-                />
+
+                <div onMouseMove={handleMouseMoviment}>
+                  <Viewer
+                    key={chapter._id}
+                    id={chapter._id}
+                    cover={chapter.cover}
+                    background={chapter.background}
+                    hiddenHeader={hiddenHeader}
+                  />
+                </div>
+
               </Col>
             );
           })}

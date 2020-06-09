@@ -68,18 +68,21 @@ class HQPage extends React.Component {
     })
   }
 
+
+
   render() {
     const imgStyle = {
       width: `${this.state.zoomLevel}%`
     }
     return (
       <div>
-        <Header
+        {!this.props.hiddenHeader && <Header
           changeImage={this.props.changeImage}
           changeZoom={this.changeZoom}
           changeFullscreen={this.props.changeFullscreen}
           exit={this.props.exit}
-        />
+        />}
+
 
         <Draggable>
           {
@@ -100,7 +103,7 @@ class HQPage extends React.Component {
               </div>
           }
         </Draggable>
-      </div>
+      </div >
     )
   }
 }

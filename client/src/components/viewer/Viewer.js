@@ -127,6 +127,7 @@ class Viewer extends React.Component {
             changeImage={this.changeImage}
             changeFullscreen={this.changeFullscreen}
             exit={this.handleClick}
+            hiddenHeader={this.props.hiddenHeader}
           />
         </div>
       </div>
