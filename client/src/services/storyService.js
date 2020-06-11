@@ -2,8 +2,8 @@ import http from "./httpService";
 
 const apiEndpoint = "http://localhost:4000/api/stories";
 
-async function getStories() {
-  let { data: stories } = await http.get(apiEndpoint);
+async function getStories(serieId) {
+  let { data: stories } = await http.get(`${apiEndpoint}/serie/${serieId}`);
 
   return stories;
 }

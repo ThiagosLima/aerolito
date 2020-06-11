@@ -21,6 +21,7 @@ import Footer from "./components/footer";
 import SerieForm from "./components/serieForm";
 import ChapterForm from "./components/chapterForm";
 import AuthorsForm from "./components/authorForm";
+import StoryForm from "./components/storyForm";
 
 function App() {
   return (
@@ -47,6 +48,11 @@ function App() {
           <Route path="/series" component={Series} />
           <ProtectedRoute path="/authors/upload/:id" component={AuthorsForm} />
           <ProtectedRoute path="/authors/upload" component={AuthorsForm} />
+          <ProtectedRoute
+            path="/story/upload/:serieId/:id"
+            component={StoryForm}
+          />
+          <ProtectedRoute path="/story/upload/:serieId" component={StoryForm} />
           <Route path="/credits" component={Credits} />
           <Route path="/contact" component={Contact} />
           <Route path="/shop" component={Shop} />

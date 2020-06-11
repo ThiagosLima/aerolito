@@ -11,9 +11,9 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/serie/:serieId", async (req, res) => {
   try {
-    const story = await Story.find();
+    const story = await Story.find({ serieId: req.params.serieId });
     res.send(story);
   } catch (error) {
     console.log(error.message);
