@@ -53,7 +53,11 @@ const Accessibility = () => {
               <a href={story.url} target="_blank" rel="noopener noreferrer">
                 <h2>{story.title}</h2>
               </a>
-              <p>{story.body}</p>
+              <div>
+                {story.body.split("\n").map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </div>
             </div>
           ))}
         </Row>
