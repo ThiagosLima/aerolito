@@ -582,4 +582,21 @@ select { /* 1 */
   .sidenav a {
     font-size: 18px;
   }
-}
+}.accessibility {
+  margin: 0 auto;
+  padding: 45px 30px 0 30px;
+  color: #333435;
+  background-color: #dcd0c1;
+}.accessibility__a:hover {
+    text-decoration: none;
+  }.accessibility__title {
+    color: #333435;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }.accessibility__title:hover {
+    color: #da635d;
+    text-decoration: none;
+  }.accessibility__container {
+    width: 1110px;
+  }

@@ -1,0 +1,26 @@
+.accessibility {
+  margin: 0 auto;
+  padding: 45px 30px 0 30px;
+  color: $fontColorSecondary;
+  background-color: $colorLight;
+
+  &__a:hover {
+    text-decoration: none;
+  }
+
+  &__title {
+    color: $fontColorSecondary;
+    font-size: $titleSizeSecondary;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  &__title:hover {
+    color: $colorHighlight;
+    text-decoration: none;
+  }
+
+  &__container {
+    width: 1110px;
+  }
+}

@@ -22,17 +22,20 @@ const Accessibility = () => {
     <section className="section section--light">
       <Container>
         {user ? (
-          <div className="manageContent manageContent__dark">
-            <Link
-              className="btn btn--margin-small"
-              to={`/story/upload/${params.id}`}>
-              Adicionar História
-            </Link>
-          </div>
+          <Row>
+            <div className="manageContent manageContent__dark accessibility__container">
+              <Link
+                className="btn btn--margin-small"
+                to={`/story/upload/${params.id}`}>
+                Adicionar História
+              </Link>
+            </div>
+          </Row>
         ) : null}
+
         <Row>
           {stories.map(story => (
-            <div key={story._id}>
+            <div key={story._id} className="accessibility">
               {user ? (
                 <div className="manageContent manageContent__dark">
                   <Link
@@ -50,8 +53,12 @@ const Accessibility = () => {
                   </button>
                 </div>
               ) : null}
-              <a href={story.url} target="_blank" rel="noopener noreferrer">
-                <h2>{story.title}</h2>
+              <a
+                href={story.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="accessibility__a">
+                <h2 className="accessibility__title">{story.title}</h2>
               </a>
               <div>
                 {story.body.split("\n").map((paragraph, i) => (
