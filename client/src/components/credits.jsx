@@ -6,12 +6,19 @@ import { getCurrentUser } from "../services/authService";
 import authorService from "../services/authorService";
 import authorImage from "../assets/img/2018d.png";
 import behance from "../assets/img/10a - Behance.png";
+import behanceB from "../assets/img/10b - Behance.png";
 import email from "../assets/img/09a - Email.png";
+import emailB from "../assets/img/09b - Email.png";
 import facebook from "../assets/img/01a - Facebook.png";
+import facebookB from "../assets/img/01b - Facebook.png";
 import instagram from "../assets/img/04a - Instagram.png";
+import instagramB from "../assets/img/04b - Instagram.png";
 import tumblr from "../assets/img/07a - Tumblr.png";
+import tumblrB from "../assets/img/07b - Tumblr.png";
 import twitter from "../assets/img/02a - Twitter.png";
+import twitterB from "../assets/img/02b - Twitter.png";
 import youtube from "../assets/img/06a - YouTube.png";
+import youtubeB from "../assets/img/06b - YouTube.png";
 
 const Credits = () => {
   const [authors, setAuthors] = useState([]);
@@ -19,13 +26,13 @@ const Credits = () => {
 
   // TODO: add real urls
   const socialMedia = [
-    { name: facebook, url: "https://www.google.com/" },
-    { name: email, url: "https://www.google.com/" },
-    { name: instagram, url: "https://www.google.com/" },
-    { name: tumblr, url: "https://www.google.com/" },
-    { name: twitter, url: "https://www.google.com/" },
-    { name: youtube, url: "https://www.google.com/" },
-    { name: behance, url: "https://www.google.com/" }
+    { name: facebook, hover: facebookB, url: "https://www.google.com/" },
+    { name: email, hover: emailB, url: "https://www.google.com/" },
+    { name: instagram, hover: instagramB, url: "https://www.google.com/" },
+    { name: tumblr, hover: tumblrB, url: "https://www.google.com/" },
+    { name: twitter, hover: twitterB, url: "https://www.google.com/" },
+    { name: youtube, hover: youtubeB, url: "https://www.google.com/" },
+    { name: behance, hover: behanceB, url: "https://www.google.com/" }
   ];
 
   useEffect(() => {
@@ -77,12 +84,14 @@ const Credits = () => {
                     vitae deleniti, sint quaerat. Aperiam.
                   </p>
                   <div className="row credits-social-media">
-                    {socialMedia.map(({ name, url }) => (
+                    {socialMedia.map(({ name, hover, url }) => (
                       <div key={name}>
                         <a href={url} target="_blank" rel="noopener noreferrer">
                           <img
                             className="card__social-media"
                             src={name}
+                            onMouseOver={e => (e.currentTarget.src = hover)}
+                            onMouseOut={e => (e.currentTarget.src = name)}
                             alt={`Link para ${name}`}></img>
                         </a>
                       </div>
