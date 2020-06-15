@@ -39,7 +39,7 @@ const MainNavBar = () => {
                               </span>
                             </NavLink>
                           </li>
-                          <li className="header__li">
+                          {/* <li className="header__li">
                             <NavLink
                               className="header__item header__item--active"
                               to="/shop">
@@ -47,7 +47,7 @@ const MainNavBar = () => {
                                 Comprar
                               </span>
                             </NavLink>
-                          </li>
+                          </li> */}
                           <li className="header__li">
                             <NavLink
                               className="header__item header__item--active"
@@ -57,7 +57,7 @@ const MainNavBar = () => {
                               </span>
                             </NavLink>
                           </li>
-                          <li className="header__li">
+                          {/* <li className="header__li">
                             <NavLink
                               className="header__item header__item--active"
                               to="/contact">
@@ -65,7 +65,7 @@ const MainNavBar = () => {
                                 Contato
                               </span>
                             </NavLink>
-                          </li>
+                          </li> */}
                         </ul>
                       </nav>
                     </Col>

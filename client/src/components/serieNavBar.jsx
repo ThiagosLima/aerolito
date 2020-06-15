@@ -20,14 +20,13 @@ const SerieNavBar = ({ url }) => {
                 <li className="header__li">
                   <NavLink
                     className="header__item header__item--active header__item--color"
-                    to={`${url}/chapters`}
-                  >
+                    to={`${url}/chapters`}>
                     <span className="header__link header__link--color header__link--active header__link--border">
                       LER AGORA
                     </span>
                   </NavLink>
                 </li>
-                <li className="header__li">
+                {/* <li className="header__li">
                   <NavLink
                     className="header__item header__item--active header__item--color"
                     to={`${url}/comments`}
@@ -36,37 +35,34 @@ const SerieNavBar = ({ url }) => {
                       COMENTÁRIOS & FEEDBACK
                     </span>
                   </NavLink>
-                </li>
-                <li className="header__li">
+                </li> */}
+                {/* <li className="header__li">
                   <NavLink
                     className="header__item header__item--active header__item--color"
-                    to={`${url}/extras`}
-                  >
+                    to={`${url}/extras`}>
                     <span className="header__link header__link--color header__link--active header__link--border">
                       EXTRAS
                     </span>
                   </NavLink>
-                </li>
+                </li> */}
                 <li className="header__li">
                   <NavLink
                     className="header__item header__item--active header__item--color"
-                    to={`${url}/accessibility`}
-                  >
+                    to={`${url}/accessibility`}>
                     <span className="header__link header__link--color header__link--active header__link--border">
                       ACESSIBILIDADE
                     </span>
                   </NavLink>
                 </li>
-                <li className="header__li">
+                {/* <li className="header__li">
                   <NavLink
                     className="header__item header__item--active header__item--color"
-                    to={`${url}/serieShop`}
-                  >
+                    to={`${url}/serieShop`}>
                     <span className="header__link header__link--color header__link--active header__link--border">
                       COMPRAR IMPRESSO
                     </span>
                   </NavLink>
-                </li>
+                </li> */}
               </ul>
             </nav>
           </Col>
@@ -84,7 +80,7 @@ const SerieNavBar = ({ url }) => {
             component={Accessibility}
           />
           <Route path="/series/:id/serieShop" exact component={SerieShop} />
-          <Redirect from="/series/:id" exact to="/series/:id/chapters"/>
+          <Redirect from="/series/:id" exact to="/series/:id/chapters" />
         </Switch>
       </Container>
     </>
