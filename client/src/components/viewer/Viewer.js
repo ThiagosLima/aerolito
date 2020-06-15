@@ -30,8 +30,7 @@ class Viewer extends React.Component {
   }
 
   handleClick(e) {
-    const { name } = e.target;
-    if (name === "sharer") return;
+    if (e && e.target.name === "sharer") return;
 
     if (document.fullscreen) {
       return this.changeFullscreen();
@@ -128,6 +127,7 @@ class Viewer extends React.Component {
             changeImage={this.changeImage}
             changeFullscreen={this.changeFullscreen}
             exit={this.handleClick}
+            hiddenHeader={this.props.hiddenHeader}
           />
         </div>
       </div>

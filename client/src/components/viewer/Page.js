@@ -2,19 +2,54 @@ import React from 'react'
 import Header from './Header'
 import Draggable from 'react-draggable'
 import './Page.css'
-import Share from "../share";
 
+const escKeyCode = 27
+const righKeyCode = 39
+const leftKeyCode = 37
+const plusKeyCode = 107
+const minusKeyCode = 109
 
 class HQPage extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      zoomLevel: 35
+      zoomLevel: 100
     }
 
+    this.buttonPress = this.buttonPress.bind(this);
     this.handleClick = this.handleClick.bind(this)
     this.changeZoom = this.changeZoom.bind(this)
+  }
+
+  buttonPress(event) {
+    switch (event.keyCode) {
+      case escKeyCode:
+        this.props.exit()
+        break;
+      case righKeyCode:
+        this.props.changeImage(1)
+        break;
+      case leftKeyCode:
+        this.props.changeImage(-1)
+        break;
+      case plusKeyCode:
+        this.changeZoom(5)
+        break;
+      case minusKeyCode:
+        this.changeZoom(-5)
+        break;
+      default:
+        break;
+    }
+  }
+
+  async componentDidMount() {
+    document.addEventListener("keydown", this.buttonPress, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.buttonPress, false);
   }
 
   handleClick(e) {
@@ -33,18 +68,21 @@ class HQPage extends React.Component {
     })
   }
 
+
+
   render() {
     const imgStyle = {
-      width: `${this.state.zoomLevel}%`
+      height: `${this.state.zoomLevel}%`,
     }
     return (
       <div>
-        <Header
+        {!this.props.hiddenHeader && <Header
           changeImage={this.props.changeImage}
           changeZoom={this.changeZoom}
           changeFullscreen={this.props.changeFullscreen}
           exit={this.props.exit}
-        />
+        />}
+
 
         <Draggable>
           {
@@ -59,13 +97,13 @@ class HQPage extends React.Component {
               /> :
               <div onClick={this.handleClick} className="centerText">
                 proxima HQ?
-              <button name="nextHQ" onClick={this.handleClick}>
+                <button name="nextHQ" onClick={this.handleClick}>
                   Sim
-              </button>
+                </button>
               </div>
           }
         </Draggable>
-      </div>
+      </div >
     )
   }
 }
