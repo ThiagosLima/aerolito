@@ -63,7 +63,7 @@ class Header extends React.Component {
         `https://www.facebook.com/sharer/sharer.php?u=${url}`,
         "sharer",
         `top=${winTop},left=${winLeft},toolbar=0,status=0,width=${
-        winWidth / 2.6
+          winWidth / 2.6
         },height=${winHeight}`
       );
     } else if (socialMedia === "twitter") {
@@ -71,8 +71,16 @@ class Header extends React.Component {
         `http://twitter.com/share?text=${"ue"}&url=${url}&hashtags=${"ue,rusbe,macae"}`,
         "sharer",
         `top=${winTop},left=${winLeft},toolbar=0,status=0,width=${
-        winWidth / 2.6
+          winWidth / 2.6
         },height=${winHeight}`
+      );
+    } else if (socialMedia === "email") {
+      window.open(`mailto:?subject=Aerolito&body=${url}`);
+    } else if (socialMedia === "tumblr") {
+      window.open(
+        `http://www.tumblr.com/share?v=3&u=${url}&t=${encodeURIComponent(
+          document.title
+        )}`
       );
     }
   }
@@ -81,16 +89,15 @@ class Header extends React.Component {
     return (
       <header
         className="background"
-        style={{ display: "flex", justifyContent: "flex-end" }}
-      >
+        style={{ display: "flex", justifyContent: "flex-end" }}>
         <img
           style={{ padding: "3px", width: "40px" }}
           alt="Voltar página"
           id="prev"
           name="prev"
           src={prevA}
-          onMouseOver={(e) => (e.currentTarget.src = prevB)}
-          onMouseOut={(e) => (e.currentTarget.src = prevA)}
+          onMouseOver={e => (e.currentTarget.src = prevB)}
+          onMouseOut={e => (e.currentTarget.src = prevA)}
           onClick={this.handleClick}
         />
         <img
@@ -99,8 +106,8 @@ class Header extends React.Component {
           id="next"
           name="next"
           src={nextA}
-          onMouseOver={(e) => (e.currentTarget.src = nextB)}
-          onMouseOut={(e) => (e.currentTarget.src = nextA)}
+          onMouseOver={e => (e.currentTarget.src = nextB)}
+          onMouseOut={e => (e.currentTarget.src = nextA)}
           onClick={this.handleClick}
         />
 
@@ -111,8 +118,8 @@ class Header extends React.Component {
             id="zoomOut"
             name="zoomOut"
             src={zoomOutA}
-            onMouseOver={(e) => (e.currentTarget.src = zoomOutB)}
-            onMouseOut={(e) => (e.currentTarget.src = zoomOutA)}
+            onMouseOver={e => (e.currentTarget.src = zoomOutB)}
+            onMouseOut={e => (e.currentTarget.src = zoomOutA)}
             onClick={this.handleClick}
           />
           <img
@@ -120,8 +127,8 @@ class Header extends React.Component {
             alt="Tela cheia"
             name="fullscreenMode"
             src={fullscreenA}
-            onMouseOver={(e) => (e.currentTarget.src = fullscreenB)}
-            onMouseOut={(e) => (e.currentTarget.src = fullscreenA)}
+            onMouseOver={e => (e.currentTarget.src = fullscreenB)}
+            onMouseOut={e => (e.currentTarget.src = fullscreenA)}
             onClick={this.handleClick}
           />
           <img
@@ -130,14 +137,18 @@ class Header extends React.Component {
             id="zoomIn"
             name="zoomIn"
             src={zoomInA}
-            onMouseOver={(e) => (e.currentTarget.src = zoomInB)}
-            onMouseOut={(e) => (e.currentTarget.src = zoomInA)}
+            onMouseOver={e => (e.currentTarget.src = zoomInB)}
+            onMouseOut={e => (e.currentTarget.src = zoomInA)}
             onClick={this.handleClick}
           />
         </div>
         <Share
-          urlFacebook={() => this.share('facebook', "https://www.google.com.br")}
-          urlTwitter={() => this.share('twitter', "https://www.google.com.br")}
+          urlFacebook={() =>
+            this.share("facebook", "https://www.google.com.br")
+          }
+          urlTwitter={() => this.share("twitter", "https://www.google.com.br")}
+          urlEmail={() => this.share("email", "https://www.google.com.br")}
+          urlTumblr={() => this.share("tumblr", "https://www.google.com.br")}
         />
         {/* <button name="exit" onClick={this.handleClick}>
           Exit

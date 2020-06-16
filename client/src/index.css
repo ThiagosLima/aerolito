@@ -371,6 +371,7 @@ select { /* 1 */
   background: #b0938c;
   border: none;
   border-radius: 0;
+  margin: 4px 4px 14px 4px;
 
   /* &__social-media:hover { */
   /* mix-blend-mode: color-dodge; */
@@ -381,6 +382,7 @@ select { /* 1 */
   }.card:hover .card__title {
     color: #da635d;
   }.card:hover {
+    margin: 0px;
     border: 4px solid #da635d;
     border-bottom: 14px solid #da635d;
     background: #dcd0c1;
@@ -482,7 +484,7 @@ select { /* 1 */
     margin-bottom: 0px;
     justify-content: center;
   }.share {
-  width: 280px;
+  width: 200px;
 }.share__btn {
     padding: 0;
     margin: 0;
@@ -496,6 +498,8 @@ select { /* 1 */
     margin-left: auto;
     margin-right: 0px;
   }.share__img {
+    border-radius: 50%;
+    cursor: pointer;
     padding: 0 7.5px;
     height: 40px;
   }.share-container {
