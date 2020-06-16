@@ -122,7 +122,9 @@ const SerieDetail = () => {
                       Sinopse:
                     </Col>
                     <Col xs={10} className="serie-detail__value">
-                      {serieDetail.synopsis}
+                      {serieDetail.synopsis?.split("\n").map((paragraph, i) => (
+                        <p key={i}>{paragraph}</p>
+                      ))}
                     </Col>
                   </Row>
                 </section>
