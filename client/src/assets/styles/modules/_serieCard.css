@@ -2,6 +2,7 @@
   background: $colorSepia;
   border: none;
   border-radius: 0;
+  margin: 4px 4px 14px 4px;
 
   &__title {
     margin-bottom: 25px;
@@ -14,6 +15,7 @@
   }
 
   &:hover {
+    margin: 0px;
     border: 4px solid $colorHighlight;
     border-bottom: 14px solid $colorHighlight;
     background: $colorLight;
