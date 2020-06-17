@@ -49,7 +49,7 @@ class Viewer extends React.Component {
     if (pageIndex <= 0) {
       pageIndex = 0;
     } else if (pageIndex >= this.state.pages.length) {
-      pageIndex = this.state.pages.length;
+      pageIndex = this.state.pages.length - 1;
     }
 
     this.setState({
@@ -101,7 +101,7 @@ class Viewer extends React.Component {
             alt="Abrir HQ"
           />
 
-          <img
+          {/* <img
             style={{ padding: "3px", width: "40px" }}
             src={menuA}
             onMouseOver={e => (e.currentTarget.src = menuB)}
@@ -114,7 +114,7 @@ class Viewer extends React.Component {
             onMouseOver={e => (e.currentTarget.src = shareB)}
             onMouseOut={e => (e.currentTarget.src = shareA)}
             alt="Compartilhar HQ"
-          />
+          /> */}
         </div>
 
         <div

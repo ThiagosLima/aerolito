@@ -86,21 +86,22 @@ class HQPage extends React.Component {
 
         <Draggable>
           {
-            this.props.page ?
-              <img
-                onClick={this.handleClick}
-                className='center'
-                style={imgStyle}
-                src={this.props.page}
-                draggable='false'
-                alt=""
-              /> :
-              <div onClick={this.handleClick} className="centerText">
-                proxima HQ?
-                <button name="nextHQ" onClick={this.handleClick}>
-                  Sim
-                </button>
-              </div>
+            // this.props.page ?
+            <img
+              onClick={this.handleClick}
+              className='center'
+              style={imgStyle}
+              src={this.props.page}
+              draggable='false'
+              alt=""
+            />
+            // :
+            // <div onClick={this.handleClick} className="centerText">
+            //   proxima HQ?
+            //   <button name="nextHQ" onClick={this.handleClick}>
+            //     Sim
+            //   </button>
+            // </div>
           }
         </Draggable>
       </div >
