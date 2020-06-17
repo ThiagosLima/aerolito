@@ -1,5 +1,5 @@
 .share {
-  width: 280px;
+  width: 200px;
 
   &__btn {
     padding: 0;
@@ -20,6 +20,8 @@
   }
 
   &__img {
+    border-radius: 50%;
+    cursor: pointer;
     padding: 0 7.5px;
     height: 40px;
   }
