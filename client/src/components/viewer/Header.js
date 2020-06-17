@@ -1,20 +1,26 @@
 import React from "react";
 import "./Header.css";
-import prevA from "../../assets/img/14a - Info.png";
-import prevB from "../../assets/img/14b - Info.png";
-import nextA from "../../assets/img/14a - Info.png";
-import nextB from "../../assets/img/14b - Info.png";
-import zoomInA from "../../assets/img/14a - Info.png";
-import zoomInB from "../../assets/img/14b - Info.png";
-import zoomOutA from "../../assets/img/14a - Info.png";
-import zoomOutB from "../../assets/img/14b - Info.png";
-import fullscreenA from "../../assets/img/14a - Info.png";
-import fullscreenB from "../../assets/img/14b - Info.png";
+import prevA from "../../assets/img/viewer/05 - Voltar A.png";
+import prevB from "../../assets/img/viewer/05 - Voltar B.png";
+import nextA from "../../assets/img/viewer/06 - Avançar A.png";
+import nextB from "../../assets/img/viewer/06 - Avançar B.png";
+import zoomInA from "../../assets/img/viewer/04 - Zoom In A.png";
+import zoomInB from "../../assets/img/viewer/04 - Zoom In B.png";
+import zoomOutA from "../../assets/img/viewer/01 - Zoom Out A.png";
+import zoomOutB from "../../assets/img/viewer/01 - Zoom Out B.png";
+import fullscreenA from "../../assets/img/viewer/02 - Expandir A.png";
+import fullscreenB from "../../assets/img/viewer/02 - Expandir B.png";
+import noFullscreenA from "../../assets/img/viewer/03 - Reduzir A.png";
+import noFullscreenB from "../../assets/img/viewer/03 - Reduzir B.png";
 import Share from "../share";
 
 class Header extends React.Component {
   constructor() {
     super();
+    this.state = {
+      isFullScreen: false,
+    }
+
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -37,6 +43,11 @@ class Header extends React.Component {
         break;
       case "fullscreenMode":
         this.props.changeFullscreen();
+        this.setState(prev => {
+          return {
+            isFullscreen: !prev.isFullscreen
+          };
+        });
         break;
       case "exit":
         this.props.exit();
@@ -106,7 +117,7 @@ class Header extends React.Component {
 
         <div className="settings">
           <img
-            style={{ padding: "3px", width: "40px" }}
+            style={{ width: "40px" }}
             alt="zoom out"
             id="zoomOut"
             name="zoomOut"
@@ -116,16 +127,16 @@ class Header extends React.Component {
             onClick={this.handleClick}
           />
           <img
-            style={{ padding: "3px", width: "40px" }}
+            style={{ width: "40px" }}
             alt="Tela cheia"
             name="fullscreenMode"
-            src={fullscreenA}
-            onMouseOver={(e) => (e.currentTarget.src = fullscreenB)}
-            onMouseOut={(e) => (e.currentTarget.src = fullscreenA)}
+            src={this.state.isFullscreen ? noFullscreenA : fullscreenA}
+            onMouseOver={(e) => (e.currentTarget.src = this.state.isFullscreen ? noFullscreenB : fullscreenB)}
+            onMouseOut={(e) => (e.currentTarget.src = this.state.isFullscreen ? noFullscreenA : fullscreenA)}
             onClick={this.handleClick}
           />
           <img
-            style={{ padding: "3px", width: "40px" }}
+            style={{ width: "40px" }}
             alt="zoom in"
             id="zoomIn"
             name="zoomIn"
