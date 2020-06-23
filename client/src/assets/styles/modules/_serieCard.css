@@ -34,7 +34,7 @@
 
   &__btn {
     background-color: $colorLight;
-    color: $colorDark;
+    color: $colorPrimary;
   }
 
   &:hover &__btn {

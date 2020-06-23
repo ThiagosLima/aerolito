@@ -1,24 +1,23 @@
 /* Colors */
-$colorLight: #dcd0c1;
+$colorLight: #dcd0c0;
 $colorPrimary: #4e4e56;
 $colorSecondary: #ebe5dc;
 $colorHighlight: #da635d;
-$colorDark: #96908c;
 $colorDarker: #323334;
-$colorSepia: #b0938c;
+$colorSepia: #b1938b;
 
 /* Button Style */
-$buttonPrimary: #b0938c;
+$buttonPrimary: #b1938b;
 $buttonSecondary: #111;
 $buttonHover: #222;
-$buttonActive: #333;
-$buttonDisabled: #444;
+$buttonActive: #323334;
+$buttonDisabled: #4e4e56;
 
 /* Font Style */
-$fontColorPrimary: #e6e7e8;
-$fontColorSecondary: #333435;
-$fontColorHighlight: #414042;
-$fontColorDark: #b0938c;
+$fontColorPrimary: #ebe5dc;
+$fontColorSecondary: #323334;
+$fontColorHighlight: #4e4e56;
+$fontColorDark: #b1938b;
 
 $fontSizePrimary: 16px;
 $fontSizeSecondary: 12px;
