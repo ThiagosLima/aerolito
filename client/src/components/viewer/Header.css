@@ -5,7 +5,6 @@ header.background {
     z-index: 5;
 }
 .settings {
-    background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     bottom: 0;
     right: calc(50% - 65px);

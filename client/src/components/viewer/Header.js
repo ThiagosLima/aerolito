@@ -137,9 +137,9 @@ class Header extends React.Component {
             style={{ width: "40px" }}
             alt="Tela cheia"
             name="fullscreenMode"
-            src={this.state.isFullscreen ? noFullscreenA : fullscreenA}
-            onMouseOver={(e) => (e.currentTarget.src = this.state.isFullscreen ? noFullscreenB : fullscreenB)}
-            onMouseOut={(e) => (e.currentTarget.src = this.state.isFullscreen ? noFullscreenA : fullscreenA)}
+            src={document.fullscreen ? noFullscreenA : fullscreenA}
+            onMouseOver={(e) => (e.currentTarget.src = document.fullscreen ? noFullscreenB : fullscreenB)}
+            onMouseOut={(e) => (e.currentTarget.src = document.fullscreen ? noFullscreenA : fullscreenA)}
             onClick={this.handleClick}
           />
           <img

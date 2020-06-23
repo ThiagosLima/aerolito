@@ -58,7 +58,7 @@ class Viewer extends React.Component {
   }
 
   changeFullscreen() {
-    if (this.state.isFullscreen) {
+    if (this.state.isFullscreen && document.fullscreen) {
       document.exitFullscreen();
     } else {
       document.getElementById("viewer").requestFullscreen();
@@ -128,6 +128,7 @@ class Viewer extends React.Component {
             changeFullscreen={this.changeFullscreen}
             exit={this.handleClick}
             hiddenHeader={this.props.hiddenHeader}
+            isVisible={this.state.startViewer}
           />
         </div>
       </div>
