@@ -8,8 +8,11 @@ import instagramA from "../assets/img/04a - Instagram.png";
 import instagramB from "../assets/img/04b - Instagram.png";
 import youtubeA from "../assets/img/06a - YouTube.png";
 import youtubeB from "../assets/img/06b - YouTube.png";
+import { useTranslation } from 'react-i18next';
 
 const MainNavBar = () => {
+  const { t } = useTranslation();
+
   return (
     <Hidden xs sm>
       <header>
@@ -35,7 +38,7 @@ const MainNavBar = () => {
                               className="header__item header__item--active"
                               to="/series">
                               <span className="header__link header__link--active header__link--border">
-                                Início
+                                {t('home')}
                               </span>
                             </NavLink>
                           </li>
@@ -53,7 +56,7 @@ const MainNavBar = () => {
                               className="header__item header__item--active"
                               to="/credits">
                               <span className="header__link header__link--active header__link--border">
-                                Créditos
+                                {t('credits')}
                               </span>
                             </NavLink>
                           </li>

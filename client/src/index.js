@@ -6,6 +6,8 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
+import './i18n';
+
 
 ReactDOM.render(
   <BrowserRouter>
