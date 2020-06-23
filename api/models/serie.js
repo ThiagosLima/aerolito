@@ -15,7 +15,8 @@ const serieSchema = new mongoose.Schema({
     required: true
   },
   authors: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Author",
     required: true
   },
   drawings: {
