@@ -1,5 +1,5 @@
 // Packages
-import React from "react";
+import React, { Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { ScreenClassProvider } from "react-grid-system";
 import { ToastContainer } from "react-toastify";
@@ -27,39 +27,41 @@ function App() {
   return (
     <ScreenClassProvider>
       <div id="main">
-        <ToastContainer />
-        <Header />
-        <SideBar />
-        <Switch>
-          <Route path="/register" component={RegisterForm} />
-          <Route path="/login" component={LoginForm} />
-          <Route path="/logout" component={Logout} />
-          <ProtectedRoute
-            path="/series/:serieId/chapters/upload/:chapterId"
-            component={ChapterForm}
-          />
-          <ProtectedRoute
-            path="/series/:serieId/chapters/upload"
-            component={ChapterForm}
-          />
-          <ProtectedRoute path="/series/upload/:id" component={SerieForm} />
-          <ProtectedRoute path="/series/upload" component={SerieForm} />
-          <Route path="/series/:id" component={SerieDetail} />
-          <Route path="/series" component={Series} />
-          <ProtectedRoute path="/authors/upload/:id" component={AuthorsForm} />
-          <ProtectedRoute path="/authors/upload" component={AuthorsForm} />
-          <ProtectedRoute
-            path="/story/upload/:serieId/:id"
-            component={StoryForm}
-          />
-          <ProtectedRoute path="/story/upload/:serieId" component={StoryForm} />
-          <Route path="/credits" component={Credits} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/shop" component={Shop} />
-          <Route path="/not-found" component={NotFound} />
-          <Redirect from="/" exact to="/series" />
-        </Switch>
-        <Footer />
+        <Suspense fallback={null}>
+          <ToastContainer />
+          <Header />
+          <SideBar />
+          <Switch>
+            <Route path="/register" component={RegisterForm} />
+            <Route path="/login" component={LoginForm} />
+            <Route path="/logout" component={Logout} />
+            <ProtectedRoute
+              path="/series/:serieId/chapters/upload/:chapterId"
+              component={ChapterForm}
+            />
+            <ProtectedRoute
+              path="/series/:serieId/chapters/upload"
+              component={ChapterForm}
+            />
+            <ProtectedRoute path="/series/upload/:id" component={SerieForm} />
+            <ProtectedRoute path="/series/upload" component={SerieForm} />
+            <Route path="/series/:id" component={SerieDetail} />
+            <Route path="/series" component={Series} />
+            <ProtectedRoute path="/authors/upload/:id" component={AuthorsForm} />
+            <ProtectedRoute path="/authors/upload" component={AuthorsForm} />
+            <ProtectedRoute
+              path="/story/upload/:serieId/:id"
+              component={StoryForm}
+            />
+            <ProtectedRoute path="/story/upload/:serieId" component={StoryForm} />
+            <Route path="/credits" component={Credits} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/shop" component={Shop} />
+            <Route path="/not-found" component={NotFound} />
+            <Redirect from="/" exact to="/series" />
+          </Switch>
+          <Footer />
+        </Suspense>
       </div>
     </ScreenClassProvider>
   );

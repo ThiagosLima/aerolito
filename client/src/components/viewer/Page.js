@@ -23,6 +23,7 @@ class HQPage extends React.Component {
   }
 
   buttonPress(event) {
+    if (!this.props.isVisible) return
     switch (event.keyCode) {
       case escKeyCode:
         this.props.exit()

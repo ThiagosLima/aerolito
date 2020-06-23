@@ -5,16 +5,20 @@
   "dependencies": {
     "axios": "^0.19.1",
     "bootstrap": "^4.3.1",
+    "i18next": "^19.5.1",
+    "i18next-browser-languagedetector": "^5.0.0",
+    "i18next-xhr-backend": "^3.2.2",
     "joi-browser": "^13.4.0",
     "jwt-decode": "^2.2.0",
     "normalize.css": "^8.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-draggable": "^4.1.0",
-    "react-grid-system": "^6.0.3",
+    "react-grid-system": "^7.0.2",
+    "react-i18next": "^11.7.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
-    "react-toastify": "^5.4.1"
+    "react-toastify": "^6.0.6"
   },
   "scripts": {
     "build:css": "postcss src/assets/styles/main.css -o src/index.css",
