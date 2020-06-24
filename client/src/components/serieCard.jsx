@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const SerieCard = props => {
+  const { t } = useTranslation();
+
   return (
     <div className="card">
       <div className="row no-gutters">
@@ -15,7 +18,7 @@ const SerieCard = props => {
           </div>
           <div className="text-center">
             <Link className="btn card__btn card__btn--margin" to={props.link}>
-              LER MAIS
+              {t("readMore")}
             </Link>
           </div>
         </div>

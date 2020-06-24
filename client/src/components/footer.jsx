@@ -1,12 +1,14 @@
 import React from "react";
 import { Col } from "react-grid-system";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer">
       <Col xs={12} className="footer__copyright">
-        Aerolito © 2019. Todos os direitos reservados. Desenvolvido por
-        Aerolito.
+        {t("allRights")}
       </Col>
     </footer>
   );

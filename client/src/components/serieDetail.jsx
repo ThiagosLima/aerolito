@@ -4,12 +4,14 @@ import { Row, Col, Container } from "react-grid-system";
 import SerieNavBar from "./serieNavBar";
 import serieService from "../services/serieService";
 import { getCurrentUser } from "../services/authService";
+import { useTranslation } from 'react-i18next';
 
 const SerieDetail = () => {
   let { url, params } = useRouteMatch();
   const [serieDetail, setSerieDetail] = useState({});
   const [pages, setPages] = useState(0);
   const user = getCurrentUser();
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function getData() {
@@ -65,7 +67,7 @@ const SerieDetail = () => {
                 <section className="section section--light section--normal-padding">
                   <Row className="serie-detail__pair">
                     <Col xs={2} className="serie-detail__key">
-                      Autores:
+                      {t("authors")}
                     </Col>
                     <Col xs={10} className="serie-detail__value">
                       {serieDetail.authors}
@@ -74,7 +76,7 @@ const SerieDetail = () => {
                   </Row>
                   <Row className="serie-detail__pair">
                     <Col xs={2} className="serie-detail__key">
-                      Desenhos:
+                      {t("illustrations")}
                     </Col>
                     <Col xs={10} className="serie-detail__value">
                       {serieDetail.drawings}
@@ -83,7 +85,7 @@ const SerieDetail = () => {
                   </Row>
                   <Row className="serie-detail__pair">
                     <Col xs={2} className="serie-detail__key">
-                      Cores:
+                      {t("colors")}
                     </Col>
                     <Col xs={10} className="serie-detail__value">
                       {serieDetail.colors}
@@ -92,7 +94,7 @@ const SerieDetail = () => {
                   </Row>
                   <Row className="serie-detail__pair">
                     <Col xs={2} className="serie-detail__key">
-                      Gênero:
+                      {t("genre")}
                     </Col>
                     <Col xs={10} className="serie-detail__value">
                       {serieDetail.genre}
@@ -101,7 +103,7 @@ const SerieDetail = () => {
                   </Row>
                   <Row className="serie-detail__pair">
                     <Col xs={2} className="serie-detail__key">
-                      Ano:
+                      {t("year")}
                     </Col>
                     <Col xs={10} className="serie-detail__value">
                       {serieDetail.year}
@@ -110,7 +112,7 @@ const SerieDetail = () => {
                   </Row>
                   <Row className="serie-detail__pair">
                     <Col xs={2} className="serie-detail__key">
-                      Páginas:
+                      {t("pages")}
                     </Col>
                     <Col xs={10} className="serie-detail__value">
                       {pages}
@@ -119,7 +121,7 @@ const SerieDetail = () => {
                   </Row>
                   <Row className="serie-detail__pair">
                     <Col xs={2} className="serie-detail__key">
-                      Sinopse:
+                      {t("synopsis")}
                     </Col>
                     <Col xs={10} className="serie-detail__value">
                       {serieDetail.synopsis?.split("\n").map((paragraph, i) => (
