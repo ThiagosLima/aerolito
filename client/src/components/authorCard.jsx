@@ -66,12 +66,12 @@ const AuthorCard = ({ author, user }) => {
           <div className="col-md-10">
             <h5 className="card__title">{name}</h5>
             <div>
-              {description.split("\n").map((paragraph, i) => (
+              {description?.split("\n").map((paragraph, i) => (
                 <p key={i}>{paragraph}</p>
               ))}
             </div>
             <div className="row card__a-container">
-              {socialMedia.map(({ _id, name, url }) => (
+              {socialMedia?.map(({ _id, name, url }) => (
                 <div key={_id}>
                   <a href={url} target="_blank" rel="noopener noreferrer">
                     <img

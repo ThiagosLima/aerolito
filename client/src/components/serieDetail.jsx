@@ -68,7 +68,9 @@ const SerieDetail = () => {
                       Autores:
                     </Col>
                     <Col xs={10} className="serie-detail__value">
-                      {serieDetail.authors?.name}
+                      <Link to={`/series?authorId=${serieDetail.authors?._id}`}>
+                        {serieDetail.authors?.name}
+                      </Link>
                     </Col>
                     <div className="serie-detail__hr"></div>
                   </Row>
