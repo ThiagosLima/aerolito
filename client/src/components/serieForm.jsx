@@ -1,16 +1,18 @@
 import React from "react";
 import Joi from "joi-browser";
+import { Container } from "react-grid-system";
 import Form from "./common/form";
 import serieService from "../services/serieService";
 import awsService from "../services/awsService";
-import { Container } from "react-grid-system";
+import authorService from "../services/authorService";
 
 class SerieForm extends Form {
   state = {
     file: "",
+    authorOptions: [],
     data: {
       title: "",
-      authors: "",
+      authors: [],
       drawings: "",
       colors: "",
       genre: "",
@@ -27,7 +29,7 @@ class SerieForm extends Form {
     __v: Joi.number(),
     cover: Joi.string(),
     title: Joi.string().required().label("Título"),
-    authors: Joi.string().required().label("Autores"),
+    authors: Joi.array().required().label("Autores"),
     drawings: Joi.string().required().label("Desenhos"),
     colors: Joi.string().required().label("Cores"),
     genre: Joi.string().required().label("Gênero"),
@@ -44,7 +46,15 @@ class SerieForm extends Form {
 
       this.setState({ data });
     }
+
+    const authorOptions = await this.mapAuthorOptions();
+    this.setState({ authorOptions });
   }
+
+  mapAuthorOptions = async () => {
+    const authorOptions = await authorService.getAuthors();
+    return authorOptions.map(({ _id, name }) => ({ _id, label: name }));
+  };
 
   awsUpload = async () => {
     const { file, data } = this.state;
@@ -115,7 +125,11 @@ class SerieForm extends Form {
           <form onSubmit={this.handleSubmit} className="form">
             {this.renderFileInput("Capa", "image/*")}
             {this.renderInput("title", "Título")}
-            {this.renderInput("authors", "Autores")}
+            {this.renderCheckbox(
+              "authors",
+              "Autores",
+              this.state.authorOptions
+            )}
             {this.renderInput("drawings", "Desenhos")}
             {this.renderInput("colors", "Cores")}
             {this.renderInput("genre", "Gênero")}

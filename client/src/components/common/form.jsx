@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
+import Select from "react-select";
 import Input from "./input";
 import TextArea from "./textArea";
-import Select from "./select";
+// import Select from "./select";
 import ProgressBar from "../progressBar";
 
 class Form extends Component {
@@ -65,6 +66,13 @@ class Form extends Component {
     this.setState({ files: target.files });
   };
 
+  handleSelect = (selected, name) => {
+    const selectedIds = selected.map(item => item._id);
+    let data = { ...this.state.data };
+    data[name] = selectedIds;
+    this.setState({ data });
+  };
+
   renderButton(label) {
     return (
       <button disabled={this.validate()} className="btn form__button">
@@ -73,20 +81,20 @@ class Form extends Component {
     );
   }
 
-  renderSelect(name, label, options) {
-    const { data, errors } = this.state;
+  // renderSelect(name, label, options) {
+  //   const { data, errors } = this.state;
 
-    return (
-      <Select
-        name={name}
-        value={data[name]}
-        label={label}
-        options={options}
-        onChange={this.handleChange}
-        error={errors[name]}
-      />
-    );
-  }
+  //   return (
+  //     <Select
+  //       name={name}
+  //       value={data[name]}
+  //       label={label}
+  //       options={options}
+  //       onChange={this.handleChange}
+  //       error={errors[name]}
+  //     />
+  //   );
+  // }
 
   renderInput(name, label, position = "", type = "text") {
     const { data, errors } = this.state;
@@ -101,6 +109,23 @@ class Form extends Component {
         onChange={this.handleChange}
         error={errors[name]}
       />
+    );
+  }
+
+  renderCheckbox(name, label, options) {
+    return (
+      <div className="form-group">
+        <Select
+          placeholder={label}
+          isMulti
+          name={name}
+          options={options}
+          className="basic-multi-select"
+          classNamePrefix="select"
+          getOptionValue={option => option["_id"]}
+          onChange={selected => this.handleSelect(selected, name)}
+        />
+      </div>
     );
   }
 

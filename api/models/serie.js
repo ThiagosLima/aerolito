@@ -14,11 +14,13 @@ const serieSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  authors: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Author",
-    required: true
-  },
+  authors: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Author",
+      required: true
+    }
+  ],
   drawings: {
     type: String,
     required: true
@@ -52,7 +54,7 @@ function validate(serie) {
     cover: Joi.string().required(),
     awsId: Joi.string().required(),
     title: Joi.string().required(),
-    authors: Joi.string().required(),
+    authors: Joi.array().required(),
     drawings: Joi.string().required(),
     colors: Joi.string().required(),
     genre: Joi.string().required(),
