@@ -1,30 +1,19 @@
 import React from "react";
+import Select from "react-select";
 
-const Checkbox = ({ name, label, options, error, ...rest }) => {
+const Checkbox = ({ name, label, options, position, onChange }) => {
   return (
-    <div className="input-group mb-3">
-      <div className="input-group-prepend">
-        <div className="input-group-text">
-          {/* <div className="input-group-prepend">
-            <label className="input-group-text" htmlFor={name}>
-              {name}
-            </label>
-          </div> */}
-          <span key={option._id}>
-            <input
-              type="checkbox"
-              id={option._id}
-              name={option.name}
-              value={option._id}
-            />
-            <label htmlFor={option._id}>{option.name}</label>
-          </span>
-          {/* <input
-            type="checkbox"
-            aria-label="Checkbox for following text input"
-          /> */}
-        </div>
-      </div>
+    <div className="form-group">
+      <Select
+        placeholder={label}
+        isMulti
+        name={name}
+        options={options}
+        className={`basic-multi-select ${position}`}
+        classNamePrefix="select"
+        getOptionValue={option => option["_id"]}
+        onChange={selected => onChange(selected, name)}
+      />
     </div>
   );
 };

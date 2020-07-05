@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
-import Select from "react-select";
 import Input from "./input";
 import TextArea from "./textArea";
+import Checkbox from "./checkbox";
 // import Select from "./select";
 import ProgressBar from "../progressBar";
 
@@ -67,7 +67,7 @@ class Form extends Component {
   };
 
   handleSelect = (selected, name) => {
-    const selectedIds = selected.map(item => item._id);
+    const selectedIds = selected?.map(item => item._id);
     let data = { ...this.state.data };
     data[name] = selectedIds;
     this.setState({ data });
@@ -112,20 +112,15 @@ class Form extends Component {
     );
   }
 
-  renderCheckbox(name, label, options) {
+  renderCheckbox(name, label, options, position = "") {
     return (
-      <div className="form-group">
-        <Select
-          placeholder={label}
-          isMulti
-          name={name}
-          options={options}
-          className="basic-multi-select"
-          classNamePrefix="select"
-          getOptionValue={option => option["_id"]}
-          onChange={selected => this.handleSelect(selected, name)}
-        />
-      </div>
+      <Checkbox
+        name={name}
+        label={label}
+        options={options}
+        position={position}
+        onChange={this.handleSelect}
+      />
     );
   }
 
