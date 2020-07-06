@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouteMatch, Link } from "react-router-dom";
 import { Row, Col, Container } from "react-grid-system";
 import SerieNavBar from "./serieNavBar";
+import Participants from "./participants";
 import serieService from "../services/serieService";
 import { getCurrentUser } from "../services/authService";
 
@@ -68,14 +69,10 @@ const SerieDetail = () => {
                       Autores:
                     </Col>
                     <Col xs={10} className="serie-detail__value">
-                      {serieDetail.authors?.map(author => (
-                        <span key={author._id}>
-                          <Link to={`/series?authorId=${author._id}`}>
-                            {author.name}
-                          </Link>
-                          ,&nbsp;
-                        </span>
-                      ))}
+                      <Participants
+                        participants={serieDetail.authors}
+                        others={serieDetail.otherAuthors}
+                      />
                     </Col>
                     <div className="serie-detail__hr"></div>
                   </Row>
@@ -84,14 +81,10 @@ const SerieDetail = () => {
                       Desenhos:
                     </Col>
                     <Col xs={10} className="serie-detail__value">
-                      {serieDetail.drawings?.map(author => (
-                        <span key={author._id}>
-                          <Link to={`/series?authorId=${author._id}`}>
-                            {author.name}
-                          </Link>
-                          ,&nbsp;
-                        </span>
-                      ))}
+                      <Participants
+                        participants={serieDetail.drawings}
+                        others={serieDetail.otherDrawings}
+                      />
                     </Col>
                     <div className="serie-detail__hr"></div>
                   </Row>
@@ -100,7 +93,10 @@ const SerieDetail = () => {
                       Cores:
                     </Col>
                     <Col xs={10} className="serie-detail__value">
-                      {serieDetail.colors}
+                      <Participants
+                        participants={serieDetail.colors}
+                        others={serieDetail.otherColors}
+                      />
                     </Col>
                     <div className="serie-detail__hr"></div>
                   </Row>

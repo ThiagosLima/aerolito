@@ -28,9 +28,21 @@ const serieSchema = new mongoose.Schema({
       required: true
     }
   ],
-  colors: {
-    type: String,
-    required: true
+  colors: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Author",
+      required: true
+    }
+  ],
+  otherAuthors: {
+    type: String
+  },
+  otherDrawings: {
+    type: String
+  },
+  otherColors: {
+    type: String
   },
   genre: {
     type: String,
@@ -59,7 +71,10 @@ function validate(serie) {
     title: Joi.string().required(),
     authors: Joi.array().required(),
     drawings: Joi.array().required(),
-    colors: Joi.string().required(),
+    colors: Joi.array().required(),
+    otherAuthors: Joi.string(),
+    otherDrawings: Joi.string(),
+    otherColors: Joi.string(),
     genre: Joi.string().required(),
     year: Joi.number().required(),
     call: Joi.string().required(),

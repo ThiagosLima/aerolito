@@ -13,8 +13,11 @@ class SerieForm extends Form {
     data: {
       title: "",
       authors: [],
+      otherAuthors: "",
       drawings: [],
-      colors: "",
+      otherDrawings: "",
+      colors: [],
+      otherColors: "",
       genre: "",
       year: "",
       call: "",
@@ -30,8 +33,11 @@ class SerieForm extends Form {
     cover: Joi.string(),
     title: Joi.string().required().label("Título"),
     authors: Joi.array().required().label("Autores"),
+    otherAuthors: Joi.string().allow("").label("Autores (não cadastrados)"),
     drawings: Joi.array().required().label("Desenhos"),
-    colors: Joi.string().required().label("Cores"),
+    otherDrawings: Joi.string().allow("").label("Desenhos (não cadastrados)"),
+    colors: Joi.array().required().label("Cores"),
+    otherColors: Joi.string().allow("").label("Cores (não cadastrados)"),
     genre: Joi.string().required().label("Gênero"),
     year: Joi.number().required().label("Ano"),
     call: Joi.string().required().label("Chamada"),
@@ -130,13 +136,15 @@ class SerieForm extends Form {
               "Autores",
               this.state.authorOptions
             )}
+            {this.renderInput("otherAuthors", "Autores (não cadastrados)")}
             {this.renderCheckbox(
               "drawings",
               "Desenhos",
               this.state.authorOptions
             )}
-            {/* {this.renderInput("drawings", "Desenhos")} */}
-            {this.renderInput("colors", "Cores")}
+            {this.renderInput("otherDrawings", "Desenhos (não cadastrados)")}
+            {this.renderCheckbox("colors", "Cores", this.state.authorOptions)}
+            {this.renderInput("otherColors", "Cores (não cadastrados)")}
             {this.renderInput("genre", "Gênero")}
             {this.renderInput("year", "Ano", "number")}
             {this.renderTextArea("call", "Chamada", 2)}
