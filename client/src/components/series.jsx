@@ -17,17 +17,20 @@ const Series = ({ location }) => {
 
   useEffect(() => {
     async function getData() {
-      const data = await serieService.getSeries();
-      setSeries(data);
-
       if (authorId) {
         const authorResponse = await authorService.getAuthor(authorId);
         setAuthor(authorResponse);
+
+        const data = await serieService.getSeriesByAuthor(authorId);
+        setSeries(data);
+      } else {
+        const data = await serieService.getSeries();
+        setSeries(data);
       }
     }
 
     getData();
-  }, []);
+  }, [authorId]);
 
   return (
     <div>

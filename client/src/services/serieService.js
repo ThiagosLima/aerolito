@@ -27,6 +27,17 @@ async function getSeries() {
   return series;
 }
 
+async function getSeriesByAuthor(id) {
+  let { data: series } = await http.get(`${apiEndpoint}/author/${id}`);
+
+  // Update image url
+  series.forEach(serie => {
+    serie.cover = `${awsEndpint}/${serie.awsId}/${serie.cover}`;
+  });
+
+  return series;
+}
+
 async function getSerie(id) {
   let { data: serie } = await http.get(`${apiEndpoint}/${id}`);
 
@@ -61,4 +72,11 @@ async function deleteSerie(serieId) {
   return await http.delete(`${apiEndpoint}/${serieId}`);
 }
 
-export default { getSeries, getSerie, getSeriePages, saveSerie, deleteSerie };
+export default {
+  getSeries,
+  getSeriesByAuthor,
+  getSerie,
+  getSeriePages,
+  saveSerie,
+  deleteSerie
+};
