@@ -13,7 +13,7 @@ class SerieForm extends Form {
     data: {
       title: "",
       authors: [],
-      drawings: "",
+      drawings: [],
       colors: "",
       genre: "",
       year: "",
@@ -30,7 +30,7 @@ class SerieForm extends Form {
     cover: Joi.string(),
     title: Joi.string().required().label("Título"),
     authors: Joi.array().required().label("Autores"),
-    drawings: Joi.string().required().label("Desenhos"),
+    drawings: Joi.array().required().label("Desenhos"),
     colors: Joi.string().required().label("Cores"),
     genre: Joi.string().required().label("Gênero"),
     year: Joi.number().required().label("Ano"),
@@ -130,7 +130,12 @@ class SerieForm extends Form {
               "Autores",
               this.state.authorOptions
             )}
-            {this.renderInput("drawings", "Desenhos")}
+            {this.renderCheckbox(
+              "drawings",
+              "Desenhos",
+              this.state.authorOptions
+            )}
+            {/* {this.renderInput("drawings", "Desenhos")} */}
             {this.renderInput("colors", "Cores")}
             {this.renderInput("genre", "Gênero")}
             {this.renderInput("year", "Ano", "number")}

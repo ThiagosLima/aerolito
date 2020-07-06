@@ -3,8 +3,9 @@ const router = express.Router();
 const { Serie, validate } = require("../models/serie");
 
 router.get("/author/:id", async (req, res) => {
+  const { id } = req.params;
   try {
-    const series = await Serie.find({ authors: req.params.id });
+    const series = await Serie.find().or([{ authors: id }, { drawings: id }]);
     res.send(series);
   } catch (error) {
     console.log(error.message);
@@ -13,7 +14,10 @@ router.get("/author/:id", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const serie = await Serie.findById(req.params.id).populate("authors");
+    const serie = await Serie.findById(req.params.id).populate([
+      "authors",
+      "drawings"
+    ]);
     res.send(serie);
   } catch (error) {
     console.log(error.message);
@@ -22,7 +26,7 @@ router.get("/:id", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const series = await Serie.find().populate("authors");
+    const series = await Serie.find();
     res.send(series);
   } catch (error) {
     console.log(error.message);

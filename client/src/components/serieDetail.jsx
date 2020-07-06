@@ -84,7 +84,14 @@ const SerieDetail = () => {
                       Desenhos:
                     </Col>
                     <Col xs={10} className="serie-detail__value">
-                      {serieDetail.drawings}
+                      {serieDetail.drawings?.map(author => (
+                        <span key={author._id}>
+                          <Link to={`/series?authorId=${author._id}`}>
+                            {author.name}
+                          </Link>
+                          ,&nbsp;
+                        </span>
+                      ))}
                     </Col>
                     <div className="serie-detail__hr"></div>
                   </Row>
