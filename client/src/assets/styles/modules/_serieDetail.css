@@ -24,4 +24,15 @@
     width: 100%;
     background-color: $colorLight;
   }
+
+  &-author {
+    color: $colorPrimary;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  &-author:hover {
+    color: $colorHighlight;
+    text-decoration: none;
+  }
 }

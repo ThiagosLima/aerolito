@@ -28,7 +28,11 @@ const Participants = ({ participants, others }) => {
 
   const result = participants?.map((author, index) => (
     <span key={author._id}>
-      <Link to={`/series?authorId=${author._id}`}>{author.name}</Link>
+      <Link
+        className="serie-detail-author"
+        to={`/series?authorId=${author._id}`}>
+        {author.name}
+      </Link>
       {getSeparator(index)}
     </span>
   ));

@@ -8,10 +8,13 @@
     margin-bottom: 25px;
     text-transform: uppercase;
     font-weight: bold;
+    color: $colorPrimary;
+    text-decoration: none;
   }
 
   &:hover &__title {
     color: $colorHighlight;
+    text-decoration: none;
   }
 
   &:hover {
@@ -66,6 +69,7 @@
 
   &-author:hover &__title {
     color: $colorHighlight;
+    text-decoration: none;
   }
 
   &__a-container {
