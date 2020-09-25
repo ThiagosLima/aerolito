@@ -44,7 +44,11 @@ const Series = ({ location }) => {
             </div>
           ) : null}
 
-          {authorId ? <AuthorCard key={author._id} author={author} /> : null}
+          {authorId ? (
+            <div className="card-autor-margin">
+              <AuthorCard key={author._id} author={author} />
+            </div>
+          ) : null}
 
           <Row gutterWidth={16}>
             {series.map(serie => {

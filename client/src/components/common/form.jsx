@@ -112,12 +112,16 @@ class Form extends Component {
     );
   }
 
-  renderCheckbox(name, label, options, position = "") {
+  renderCheckbox(name, label, options, defaultValue, position = "") {
+    // console.log(defaultValue);
+    const teste = [{ _id: "5f011c01ceddbf0028346383", label: "Bruno" }];
     return (
       <Checkbox
         name={name}
         label={label}
         options={options}
+        defaultValue={teste}
+        // defaultValue={defaultValue}
         position={position}
         onChange={this.handleSelect}
       />

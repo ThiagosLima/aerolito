@@ -44,13 +44,20 @@
 
   &-author-container {
     margin: 30px auto;
-    max-width: 980px;
+    padding-left: 0;
+    padding-right: 0;
+    /* max-width: 980px; */
   }
 
   &-author {
     color: $fontColorSecondary;
     padding: 40px 60px 0 0;
     background: $colorLight;
+  }
+
+  &-autor-margin {
+    margin-left: 4px;
+    margin-right: 4px;
   }
 
   /* &-author-edit {

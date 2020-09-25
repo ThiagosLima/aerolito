@@ -401,11 +401,16 @@ select { /* 1 */
     color: #dcd0c0;
   }.card-author-container {
     margin: 30px auto;
-    max-width: 980px;
+    padding-left: 0;
+    padding-right: 0;
+    /* max-width: 980px; */
   }.card-author {
     color: #323334;
     padding: 40px 60px 0 0;
     background: #dcd0c0;
+  }.card-autor-margin {
+    margin-left: 4px;
+    margin-right: 4px;
   }/* &-author-edit {
     margin: 20px;
   } */.card-author:hover .card__title {
@@ -450,7 +455,7 @@ select { /* 1 */
     width: 100%;
     background-color: #dcd0c0;
   }.credits {
-  width: 980px;
+  /* width: 980px; */
   margin: 0 auto;
   color: #ebe5dc;
 }.credits__title {
@@ -462,7 +467,7 @@ select { /* 1 */
   }.credits-contributor {
     margin: 60px auto;
     padding: 116px 0;
-    width: 980px;
+    /* width: 980px; */
     background: #dcd0c0;
   }.credits-contributor__title {
     color: #323334;

@@ -50,12 +50,25 @@ class SerieForm extends Form {
       const data = await serieService.getSerie(id);
       if (!data) return this.props.history.replace("/not-found");
 
-      this.setState({ data });
+      this.setState({ data: this.mapToViewModel(data) });
     }
 
     const authorOptions = await this.mapAuthorOptions();
     this.setState({ authorOptions });
   }
+
+  mapToViewModel = data => {
+    const { authors, ...rest } = data;
+
+    // const mappedAuthors = authors.map(author => author._id);
+    const mappedAuthors = authors.map(author => ({
+      _id: author._id,
+      label: author.name
+    }));
+    const mappedData = { ...rest, authors: mappedAuthors };
+
+    return mappedData;
+  };
 
   mapAuthorOptions = async () => {
     const authorOptions = await authorService.getAuthors();
@@ -134,17 +147,18 @@ class SerieForm extends Form {
             {this.renderCheckbox(
               "authors",
               "Autores",
-              this.state.authorOptions
+              this.state.authorOptions,
+              this.state.data.authors
             )}
-            {this.renderInput("otherAuthors", "Autores (não cadastrados)")}
+            {/* {this.renderInput("otherAuthors", "Autores (não cadastrados)")}
             {this.renderCheckbox(
               "drawings",
               "Desenhos",
               this.state.authorOptions
-            )}
-            {this.renderInput("otherDrawings", "Desenhos (não cadastrados)")}
-            {this.renderCheckbox("colors", "Cores", this.state.authorOptions)}
-            {this.renderInput("otherColors", "Cores (não cadastrados)")}
+            )} */}
+            {/* {this.renderInput("otherDrawings", "Desenhos (não cadastrados)")} */}
+            {/* {this.renderCheckbox("colors", "Cores", this.state.authorOptions)} */}
+            {/* {this.renderInput("otherColors", "Cores (não cadastrados)")} */}
             {this.renderInput("genre", "Gênero")}
             {this.renderInput("year", "Ano", "number")}
             {this.renderTextArea("call", "Chamada", 2)}

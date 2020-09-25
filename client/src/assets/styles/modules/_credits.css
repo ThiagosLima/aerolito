@@ -1,5 +1,5 @@
 .credits {
-  width: 980px;
+  /* width: 980px; */
   margin: 0 auto;
   color: $colorSecondary;
 
@@ -16,7 +16,7 @@
   &-contributor {
     margin: 60px auto;
     padding: 116px 0;
-    width: 980px;
+    /* width: 980px; */
     background: $colorLight;
   }
 
