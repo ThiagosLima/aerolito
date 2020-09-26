@@ -107,17 +107,19 @@ const Credits = () => {
       </section>
 
       <section className="section">
-        {user ? (
-          <div className="manageContent manageContent__dark manageContent__container">
-            <Link className="btn btn--margin-small" to={`/authors/upload`}>
-              Adicionar Autor
-            </Link>
-          </div>
-        ) : null}
+        <Container>
+          {user ? (
+            <div className="manageContent manageContent__dark">
+              <Link className="btn btn--margin-small" to={`/authors/upload`}>
+                Adicionar Autor
+              </Link>
+            </div>
+          ) : null}
 
-        {authors.map(author => (
-          <AuthorCard key={author._id} author={author} user={user} />
-        ))}
+          {authors.map(author => (
+            <AuthorCard key={author._id} author={author} user={user} />
+          ))}
+        </Container>
 
         <Container>
           <div className="credits-contributor">

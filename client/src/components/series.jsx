@@ -1,23 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Container } from "react-grid-system";
+import queryString from "query-string";
 import Promotion from "./promotion";
 import SerieCard from "./serieCard";
+import AuthorCard from "./authorCard";
 import serieService from "../services/serieService";
+import authorService from "../services/authorService";
 import { getCurrentUser } from "../services/authService";
 
-const Series = () => {
+const Series = ({ location }) => {
   const [series, setSeries] = useState([]);
+  const [author, setAuthor] = useState({});
   const user = getCurrentUser();
+  const { authorId } = queryString.parse(location.search);
 
   useEffect(() => {
     async function getData() {
-      const data = await serieService.getSeries();
-      setSeries(data);
+      if (authorId) {
+        const authorResponse = await authorService.getAuthor(authorId);
+        setAuthor(authorResponse);
+
+        const data = await serieService.getSeriesByAuthor(authorId);
+        setSeries(data);
+      } else {
+        const data = await serieService.getSeries();
+        setSeries(data);
+      }
     }
 
     getData();
-  }, []);
+  }, [authorId]);
 
   return (
     <div>
@@ -28,6 +41,12 @@ const Series = () => {
               <Link className="btn btn--margin-small" to={`/series/upload`}>
                 Adicionar Série
               </Link>
+            </div>
+          ) : null}
+
+          {authorId ? (
+            <div className="card-autor-margin">
+              <AuthorCard key={author._id} author={author} />
             </div>
           ) : null}
 

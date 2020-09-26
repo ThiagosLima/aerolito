@@ -1,18 +1,23 @@
 import React from "react";
 import Joi from "joi-browser";
+import { Container } from "react-grid-system";
 import Form from "./common/form";
 import serieService from "../services/serieService";
 import awsService from "../services/awsService";
-import { Container } from "react-grid-system";
+import authorService from "../services/authorService";
 
 class SerieForm extends Form {
   state = {
     file: "",
+    authorOptions: [],
     data: {
       title: "",
-      authors: "",
-      drawings: "",
-      colors: "",
+      authors: [],
+      otherAuthors: "",
+      drawings: [],
+      otherDrawings: "",
+      colors: [],
+      otherColors: "",
       genre: "",
       year: "",
       call: "",
@@ -27,9 +32,12 @@ class SerieForm extends Form {
     __v: Joi.number(),
     cover: Joi.string(),
     title: Joi.string().required().label("Título"),
-    authors: Joi.string().required().label("Autores"),
-    drawings: Joi.string().required().label("Desenhos"),
-    colors: Joi.string().required().label("Cores"),
+    authors: Joi.array().required().label("Autores"),
+    otherAuthors: Joi.string().allow("").label("Autores (não cadastrados)"),
+    drawings: Joi.array().required().label("Desenhos"),
+    otherDrawings: Joi.string().allow("").label("Desenhos (não cadastrados)"),
+    colors: Joi.array().required().label("Cores"),
+    otherColors: Joi.string().allow("").label("Cores (não cadastrados)"),
     genre: Joi.string().required().label("Gênero"),
     year: Joi.number().required().label("Ano"),
     call: Joi.string().required().label("Chamada"),
@@ -42,9 +50,30 @@ class SerieForm extends Form {
       const data = await serieService.getSerie(id);
       if (!data) return this.props.history.replace("/not-found");
 
-      this.setState({ data });
+      this.setState({ data: this.mapToViewModel(data) });
     }
+
+    const authorOptions = await this.mapAuthorOptions();
+    this.setState({ authorOptions });
   }
+
+  mapToViewModel = data => {
+    const { authors, ...rest } = data;
+
+    // const mappedAuthors = authors.map(author => author._id);
+    const mappedAuthors = authors.map(author => ({
+      _id: author._id,
+      label: author.name
+    }));
+    const mappedData = { ...rest, authors: mappedAuthors };
+
+    return mappedData;
+  };
+
+  mapAuthorOptions = async () => {
+    const authorOptions = await authorService.getAuthors();
+    return authorOptions.map(({ _id, name }) => ({ _id, label: name }));
+  };
 
   awsUpload = async () => {
     const { file, data } = this.state;
@@ -115,9 +144,21 @@ class SerieForm extends Form {
           <form onSubmit={this.handleSubmit} className="form">
             {this.renderFileInput("Capa", "image/*")}
             {this.renderInput("title", "Título")}
-            {this.renderInput("authors", "Autores")}
-            {this.renderInput("drawings", "Desenhos")}
-            {this.renderInput("colors", "Cores")}
+            {this.renderCheckbox(
+              "authors",
+              "Autores",
+              this.state.authorOptions,
+              this.state.data.authors
+            )}
+            {/* {this.renderInput("otherAuthors", "Autores (não cadastrados)")}
+            {this.renderCheckbox(
+              "drawings",
+              "Desenhos",
+              this.state.authorOptions
+            )} */}
+            {/* {this.renderInput("otherDrawings", "Desenhos (não cadastrados)")} */}
+            {/* {this.renderCheckbox("colors", "Cores", this.state.authorOptions)} */}
+            {/* {this.renderInput("otherColors", "Cores (não cadastrados)")} */}
             {this.renderInput("genre", "Gênero")}
             {this.renderInput("year", "Ano", "number")}
             {this.renderTextArea("call", "Chamada", 2)}

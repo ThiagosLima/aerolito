@@ -8,10 +8,13 @@
     margin-bottom: 25px;
     text-transform: uppercase;
     font-weight: bold;
+    color: $colorPrimary;
+    text-decoration: none;
   }
 
   &:hover &__title {
     color: $colorHighlight;
+    text-decoration: none;
   }
 
   &:hover {
@@ -44,7 +47,9 @@
 
   &-author-container {
     margin: 30px auto;
-    max-width: 980px;
+    padding-left: 0;
+    padding-right: 0;
+    /* max-width: 980px; */
   }
 
   &-author {
@@ -53,12 +58,18 @@
     background: $colorLight;
   }
 
+  &-autor-margin {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+
   /* &-author-edit {
     margin: 20px;
   } */
 
   &-author:hover &__title {
     color: $colorHighlight;
+    text-decoration: none;
   }
 
   &__a-container {

@@ -64,14 +64,17 @@ const AuthorCard = ({ author, user }) => {
               alt="Imagem do author"></img>
           </div>
           <div className="col-md-10">
-            <h5 className="card__title">{name}</h5>
+            <Link className="card__title" to={`/series?authorId=${author._id}`}>
+              <h5>{name}</h5>
+            </Link>
+
             <div>
-              {description.split("\n").map((paragraph, i) => (
+              {description?.split("\n").map((paragraph, i) => (
                 <p key={i}>{paragraph}</p>
               ))}
             </div>
             <div className="row card__a-container">
-              {socialMedia.map(({ _id, name, url }) => (
+              {socialMedia?.map(({ _id, name, url }) => (
                 <div key={_id}>
                   <a href={url} target="_blank" rel="noopener noreferrer">
                     <img

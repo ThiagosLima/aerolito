@@ -28,7 +28,7 @@ async function getAuthor(id) {
   let { data: author } = await http.get(`${apiEndpoint}/${id}`);
 
   // Update image url
-  // author.image = `${awsEndpint}/authors/${author.image}`;
+  author.image = `${awsEndpint}/authors/${author.image}`;
 
   return author;
 }

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./input";
 import TextArea from "./textArea";
-import Select from "./select";
+import Checkbox from "./checkbox";
+// import Select from "./select";
 import ProgressBar from "../progressBar";
 
 class Form extends Component {
@@ -65,6 +66,13 @@ class Form extends Component {
     this.setState({ files: target.files });
   };
 
+  handleSelect = (selected, name) => {
+    const selectedIds = selected?.map(item => item._id);
+    let data = { ...this.state.data };
+    data[name] = selectedIds;
+    this.setState({ data });
+  };
+
   renderButton(label) {
     return (
       <button disabled={this.validate()} className="btn form__button">
@@ -73,20 +81,20 @@ class Form extends Component {
     );
   }
 
-  renderSelect(name, label, options) {
-    const { data, errors } = this.state;
+  // renderSelect(name, label, options) {
+  //   const { data, errors } = this.state;
 
-    return (
-      <Select
-        name={name}
-        value={data[name]}
-        label={label}
-        options={options}
-        onChange={this.handleChange}
-        error={errors[name]}
-      />
-    );
-  }
+  //   return (
+  //     <Select
+  //       name={name}
+  //       value={data[name]}
+  //       label={label}
+  //       options={options}
+  //       onChange={this.handleChange}
+  //       error={errors[name]}
+  //     />
+  //   );
+  // }
 
   renderInput(name, label, position = "", type = "text") {
     const { data, errors } = this.state;
@@ -100,6 +108,22 @@ class Form extends Component {
         position={position}
         onChange={this.handleChange}
         error={errors[name]}
+      />
+    );
+  }
+
+  renderCheckbox(name, label, options, defaultValue, position = "") {
+    // console.log(defaultValue);
+    const teste = [{ _id: "5f011c01ceddbf0028346383", label: "Bruno" }];
+    return (
+      <Checkbox
+        name={name}
+        label={label}
+        options={options}
+        defaultValue={teste}
+        // defaultValue={defaultValue}
+        position={position}
+        onChange={this.handleSelect}
       />
     );
   }
