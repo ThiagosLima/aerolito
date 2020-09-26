@@ -8,8 +8,11 @@ import Comments from "./comments";
 import Extras from "./extras";
 import Accessibility from "./accessibility";
 import SerieShop from "./serieShop";
+import { useTranslation } from 'react-i18next';
 
 const SerieNavBar = ({ url }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Container fluid className="header__container">
@@ -22,7 +25,7 @@ const SerieNavBar = ({ url }) => {
                     className="header__item header__item--active header__item--color"
                     to={`${url}/chapters`}>
                     <span className="header__link header__link--color header__link--active header__link--border">
-                      LER AGORA
+                      {t("readNow")}
                     </span>
                   </NavLink>
                 </li>
@@ -50,7 +53,7 @@ const SerieNavBar = ({ url }) => {
                     className="header__item header__item--active header__item--color"
                     to={`${url}/accessibility`}>
                     <span className="header__link header__link--color header__link--active header__link--border">
-                      ACESSIBILIDADE
+                      {t("accessibility")}
                     </span>
                   </NavLink>
                 </li>

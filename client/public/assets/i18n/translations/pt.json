@@ -1,4 +1,17 @@
 {
     "home": "início",
-    "credits": "créditos"
+    "credits": "créditos",
+    "aboutAuthors": "Sobre o projeto aerolito",
+    "allRights": "Aerolito © 2019. Todos os direitos reservados. Desenvolvido por Aerolito.",
+    "promotion": "Este projeto foi realizado com recursos do Fundo de Apoio à Cultura do Distrito Federal",
+    "readMore": "LER MAIS",
+    "authors": "Autores:",
+    "illustrations": "Desenhos:",
+    "colors": "Cores:",
+    "genre": "Gênero:",
+    "year": "Ano:",
+    "pages": "Páginas:",
+    "synopsis": "Sinopse:",
+    "readNow": "LER AGORA",
+    "accessibility": "ACESSIBILIDADE"
 }

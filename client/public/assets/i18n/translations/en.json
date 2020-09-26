@@ -1,4 +1,17 @@
 {
     "home": "home",
-    "credits": "credits"
+    "credits": "credits",
+    "aboutAuthors": "About aerolito project",
+    "allRights": "Aerolito © 2019. All rights reserved. Developed by Aerolito.",
+    "promotion": "This project was carried out with funds from the Fundo de Apoio a Cultura of Distrito Federal",
+    "readMore": "READ MORE",
+    "authors": "Authors:",
+    "illustrations": "Illustrations:",
+    "colors": "Colors:",
+    "genre": "Genre:",
+    "year": "Year:",
+    "pages": "Pages:",
+    "synopsis": "Synopsis:",
+    "readNow": "READ NOW",
+    "accessibility": "ACCESSIBILITY"
 }

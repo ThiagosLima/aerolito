@@ -19,10 +19,12 @@ import twitter from "../assets/img/02a - Twitter.png";
 import twitterB from "../assets/img/02b - Twitter.png";
 import youtube from "../assets/img/06a - YouTube.png";
 import youtubeB from "../assets/img/06b - YouTube.png";
+import { useTranslation } from 'react-i18next';
 
 const Credits = () => {
   const [authors, setAuthors] = useState([]);
   const user = getCurrentUser();
+  const { t } = useTranslation();
 
   // TODO: add real urls
   const socialMedia = [
@@ -58,7 +60,7 @@ const Credits = () => {
                     alt="Aerolito profile"></img>
                 </Col>
                 <Col xs={9}>
-                  <h5 className="credits__title">Sobre o projeto aerolito</h5>
+                  <h5 className="credits__title">{t("aboutAuthors")}</h5>
                   <p className="credits__text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Architecto, obcaecati incidunt. Iste, temporibus id qui
